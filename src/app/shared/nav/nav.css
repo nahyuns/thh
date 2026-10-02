@@ -1,0 +1,143 @@
+/* NAVBAR */
+
+.navbar-hospedaje {
+  width: 100%;
+  height: 64px;
+  background-color: #193b64;
+}
+
+/* CONTENEDOR */
+
+.nav-contenedor {
+  width: 100%;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 35px;
+  box-sizing: border-box;
+}
+
+
+/* LOGO */
+
+.marca {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  overflow: hidden;
+}
+
+.marca img {
+  width: 75px;
+  height: 75px;
+
+  object-fit: contain;
+
+  /* Hace que el logo visible se vea más grande */
+  transform: scale(1.5);
+}
+
+/* MENÚ */
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-left: 35px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  padding: 9px 12px;
+
+  border-radius: 6px;
+
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.menu .activo {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ACCIONES */
+
+.acciones {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.iniciar {
+  color: white;
+  text-decoration: none;
+
+  font-size: 13px;
+}
+
+.iniciar:hover {
+  color: #dce7f2;
+}
+
+
+/* REGISTRARSE */
+
+.registrar {
+  background-color: #d8e1e9;
+
+  color: #193b64;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  padding: 8px 16px;
+
+  border-radius: 7px;
+}
+
+.registrar:hover {
+  background-color: white;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 900px) {
+
+  .nav-contenedor {
+    padding: 0 20px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .acciones {
+    margin-left: auto;
+  }
+
+}
