@@ -1,83 +1,334 @@
-<section class="destinos">
+<main class="inicio">
 
-  <div class="seccion-titulo">
-    <span>EXPLORÁ</span>
+    <!-- =========================
+       HERO
+  ========================== -->
 
-    <h2>Descubrí nuestros destinos</h2>
+    <section class="hero-inicio">
 
-    <p>
-      Lugares para descansar, conocer y disfrutar.
-    </p>
-  </div>
+        <div class="hero-overlay"></div>
 
-  <div class="destinos-carrusel">
+        <div class="hero-contenido">
 
-    <article class="destino-card">
-      <img src="assets/montana.jpg" alt="Montaña">
+            <span class="hero-etiqueta">
+                DESCUBRÍ TU PRÓXIMA ESTADÍA
+            </span>
 
-      <div class="destino-overlay"></div>
+            <h1>
+                Encontrá un lugar<br>
+                para sentirte como en casa.
+            </h1>
 
-      <div class="destino-info">
-        <h3>Montaña</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
+            <p>
+                Descubrí alojamientos únicos y destinos pensados
+                para hacer de cada viaje una experiencia especial.
+            </p>
 
-    <article class="destino-card">
-      <img src="assets/ciudad.jpg" alt="Ciudad">
+            <a href="#" class="btn-principal">
+                Explorar alojamientos
+                <span>→</span>
+            </a>
 
-      <div class="destino-overlay"></div>
+        </div>
 
-      <div class="destino-info">
-        <h3>Ciudad</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
+    </section>
 
-    <article class="destino-card">
-      <img src="assets/costa.jpg" alt="Costa">
 
-      <div class="destino-overlay"></div>
+    <!-- =========================
+       DESTINOS
+  ========================== -->
 
-      <div class="destino-info">
-        <h3>Costa</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
+    <section class="destinos">
 
-    <article class="destino-card">
-      <img src="assets/campo.jpg" alt="Campo">
+        <div class="seccion-titulo">
 
-      <div class="destino-overlay"></div>
+            <span>EXPLORÁ</span>
 
-      <div class="destino-info">
-        <h3>Campo</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
+            <h2>Descubrí nuestros destinos</h2>
 
-    <article class="destino-card">
-      <img src="assets/lagos.jpg" alt="Lagos">
+            <p>
+                Lugares para descansar, conocer y disfrutar.
+            </p>
 
-      <div class="destino-overlay"></div>
+        </div>
 
-      <div class="destino-info">
-        <h3>Lagos</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
 
-    <article class="destino-card">
-      <img src="assets/bosque.jpg" alt="Bosque">
+        <!-- CARRUSEL SOLO HTML + CSS -->
 
-      <div class="destino-overlay"></div>
+        <div class="carousel">
 
-      <div class="destino-info">
-        <h3>Bosque</h3>
-        <span>Explorar →</span>
-      </div>
-    </article>
+            <!-- CONTROLES -->
 
-  </div>
+            <input type="radio" name="destinos" id="slide-1" checked>
 
-</section>
+            <input type="radio" name="destinos" id="slide-2">
+
+            <input type="radio" name="destinos" id="slide-3">
+
+
+            <!-- CARRUSEL -->
+
+            <div class="carousel-ventana">
+
+                <div class="carousel-track">
+
+
+                    <!-- SLIDE 1 -->
+
+                    <div class="carousel-slide">
+
+                        <article class="destino-card">
+
+                            <img src="/assets/montaña1.jpg" alt="Montaña">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Montaña</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="destino-card">
+
+                            <img src="assets/ciudad.jpg" alt="Ciudad">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Ciudad</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- SLIDE 2 -->
+
+                    <div class="carousel-slide">
+
+                        <article class="destino-card">
+
+                            <img src="/assets/playa.jpg" alt="Playa">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Playa</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="destino-card">
+
+                            <img src="assets/campo.jpg" alt="Campo">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Campo</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- SLIDE 3 -->
+
+                    <div class="carousel-slide">
+
+                        <article class="destino-card">
+
+                            <img src="assets/lagos.jpg" alt="Lagos">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Lagos</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="destino-card">
+
+                            <img src="assets/bosque.jpg" alt="Bosque">
+
+                            <div class="destino-overlay"></div>
+
+                            <div class="destino-info">
+
+                                <h3>Bosque</h3>
+
+                                <span>
+                                    Explorar →
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLECHAS -->
+
+            <div class="carousel-controles">
+
+                <label for="slide-1" class="flecha flecha-izquierda flecha-slide-1">
+                    ‹
+                </label>
+
+                <label for="slide-2" class="flecha flecha-derecha flecha-slide-1">
+                    ›
+                </label>
+
+
+                <label for="slide-1" class="flecha flecha-izquierda flecha-slide-2">
+                    ‹
+                </label>
+
+                <label for="slide-3" class="flecha flecha-derecha flecha-slide-2">
+                    ›
+                </label>
+
+
+                <label for="slide-2" class="flecha flecha-izquierda flecha-slide-3">
+                    ‹
+                </label>
+
+                <label for="slide-3" class="flecha flecha-derecha flecha-slide-3">
+                    ›
+                </label>
+
+            </div>
+
+
+            <!-- PUNTOS -->
+
+            <div class="carousel-puntos">
+
+                <label for="slide-1" class="punto punto-1">
+                </label>
+
+                <label for="slide-2" class="punto punto-2">
+                </label>
+
+                <label for="slide-3" class="punto punto-3">
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+       PRESENTACIÓN
+  ========================== -->
+
+    <section class="presentacion">
+
+        <div class="presentacion-imagen">
+
+            <img src="assets/alojamiento.jpg" alt="Hospedaje">
+
+        </div>
+
+
+        <div class="presentacion-texto">
+
+            <span>HOSPEDA</span>
+
+            <h2>
+                Más que un alojamiento,
+                una experiencia.
+            </h2>
+
+            <p>
+                Te ayudamos a encontrar espacios donde puedas
+                descansar, disfrutar y crear nuevos recuerdos.
+            </p>
+
+            <a href="#" class="link-principal">
+
+                Conocé más sobre nosotros
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+       CTA
+  ========================== -->
+
+    <section class="cta-inicio">
+
+        <div>
+
+            <h2>
+                Tu próxima estadía<br>
+                está más cerca.
+            </h2>
+
+            <p>
+                Explorá nuestras opciones de alojamiento.
+            </p>
+
+            <a href="#" class="btn-claro">
+
+                Ver alojamientos
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
