@@ -1,0 +1,195 @@
+/* =========================
+   FOOTER
+========================= */
+
+.footer-hospedaje {
+  background-color: #193b64;
+  color: white;
+  padding: 45px 0 20px;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+.footer-content {
+  padding-bottom: 30px;
+}
+
+
+/* =========================
+   MARCA
+========================= */
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  margin-bottom: 15px;
+}
+
+/* Logo del footer */
+
+/* LOGO DEL FOOTER */
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transform: scale(3);
+}
+
+/* Descripción */
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  max-width: 300px;
+
+  margin: 0;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.footer-hospedaje h5 {
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 17px;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.footer-hospedaje a {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  margin-bottom: 9px;
+
+  transition: all 0.2s ease;
+}
+
+.footer-hospedaje a:hover {
+  color: white;
+}
+
+
+/* =========================
+   TEXTO PROPIETARIOS
+========================= */
+
+.footer-hospedaje p {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   BOTÓN PUBLICAR
+========================= */
+
+.footer-hospedaje .publish-btn {
+  display: inline-block;
+
+  background-color: #d8e1e9;
+  color: #193b64;
+
+  padding: 8px 15px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  margin-top: 5px;
+
+  transition: all 0.2s ease;
+}
+
+.footer-hospedaje .publish-btn:hover {
+  background-color: white;
+  color: #193b64;
+}
+
+
+/* =========================
+   PARTE INFERIOR
+========================= */
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  padding-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   REDES SOCIALES
+========================= */
+
+.social-links {
+  display: flex;
+
+  gap: 20px;
+}
+
+.social-links a {
+  margin: 0;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .footer-hospedaje {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .social-links {
+    gap: 15px;
+  }
+}
