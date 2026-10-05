@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Ayudaycontacto } from './components/ayudaycontacto/ayudaycontacto';
 
 @Component({
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, Ayudaycontacto],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
