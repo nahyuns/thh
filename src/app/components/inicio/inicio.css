@@ -270,6 +270,8 @@
 .destino-card {
   position: relative;
 
+  display: block;
+
   height: 300px;
 
   overflow: hidden;
@@ -279,6 +281,8 @@
   cursor: pointer;
 
   background-color: #e9eef3;
+
+  text-decoration: none;
 }
 
 .destino-card img {
