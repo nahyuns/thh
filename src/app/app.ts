@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Ayudaycontacto } from './components/ayudaycontacto/ayudaycontacto';
+import { Footer } from './shared/footer/footer';
+import { Nav } from './shared/nav/nav';
 
 @Component({
-  standalone: true,
-  imports: [RouterOutlet, Ayudaycontacto],
+  imports: [RouterOutlet, Nav, Footer],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
