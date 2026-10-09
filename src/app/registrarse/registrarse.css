@@ -1,0 +1,224 @@
+/* ==========================================================
+   Índice: 1. Colores  2. Página  3. Imagen  4. Panel
+           5. Formulario  6. Título  7. Etiquetas  8. Campos
+           9. Checkbox  10. Botón  11. Responsive
+   ========================================================== */
+
+/* ---------- 1. COLORES (se cambian solo acá) ---------- */
+:host {
+  --hielo: #E7F6FF;
+  --celeste: #9AD9EA;    /* bordes de los campos */
+  --turquesa: #2F9BB3;   /* foco y hover */
+  --arena: #F4E6CC;      /* fondo de la imagen mientras carga */
+  --marino: #1F3A5F;     /* títulos, textos y botón */
+  --fondo-panel: #FBF5E9;
+  display: block;
+}
+
+/* ---------- 2. PÁGINA: grilla de 2 columnas (imagen | formulario) ---------- */
+.pagina {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  min-height: 100vh;
+  background: var(--fondo-panel);
+}
+
+/* ---------- 3. IMAGEN: la foto llena toda la columna sin deformarse ---------- */
+.imagen {
+  position: relative;
+  background: var(--arena);
+}
+
+.imagen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 4. PANEL: centra el formulario ---------- */
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+/* Círculo con el ícono de persona, centrado arriba del título */
+.icono-persona {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 0.4rem;
+  border-radius: 50%;
+  background: var(--arena);
+  color: var(--marino);
+  font-size: 1.5rem;          /* tamaño del ícono */
+}
+
+/* ---------- 5. FORMULARIO (.registro): tarjeta blanca con sombra ---------- */
+.registro {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(31, 58, 95, 0.12);
+  color: var(--marino);
+}
+ 
+/* Separación entre los grupos (Bootstrap trae 1rem, acá se achica) */
+.registro .mb-3 {
+  margin-bottom: 0.4rem !important;
+}
+
+/* ---------- 6. TÍTULO "REGISTRARSE" ---------- */
+#nombe-apellido p {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marino);
+}
+
+/* ---------- 7. ETIQUETAS (el texto arriba de cada campo) ---------- */
+.form-nombre,
+.form-apellido,
+.form-email,
+.crear-contraseña,
+.confirmar-contraseña {
+  display: block;
+  margin: 1rem 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--marino);
+}
+
+/* La primera etiqueta de cada grupo no lleva espacio arriba */
+.form-nombre,
+.crear-contraseña {
+  margin-top: 0;
+}
+
+/* ---------- 8. CAMPOS (inputs) ---------- */
+.registro .form-control {
+  height: 44px;
+  font-size: 0.9rem;
+  color: var(--marino);
+  border: 1px solid var(--celeste);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Al hacer clic en un campo (foco) */
+.registro .form-control:focus {
+  border-color: var(--turquesa);
+  box-shadow: 0 0 0 0.2rem rgba(47, 155, 179, 0.2);
+}
+
+/* ---------- 9. CHECKBOX "Mostrar" ---------- */
+.registro .form-check-input {
+  border-color: var(--celeste);
+  cursor: pointer;
+}
+
+.registro .form-check-input:checked {
+  background-color: var(--marino);
+  border-color: var(--marino);
+}
+
+.registro .form-check-label {
+  font-size: 0.9rem;
+  color: var(--marino);
+  cursor: pointer;
+}
+
+/* ---------- 10. BOTÓN "Crear cuenta" ---------- */
+.crear-cuenta {
+  display: block;
+  width: 100%;
+  height: 46px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--marino);
+  color: #fff;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.crear-cuenta:hover,
+.crear-cuenta:focus-visible {
+  background: var(--turquesa);
+}
+
+/* ---------- 10b. "¿Ya tienes cuenta? Inicia sesión" ---------- */
+.ya-tienes-cuenta {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--marino);
+}
+
+/* El enlace "Inicia sesión" */
+.ya-tienes-cuenta a {
+  color: var(--turquesa);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ya-tienes-cuenta a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 10c. SEPARADOR: línea, la "o" y otra línea ---------- */
+.separador {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  color: var(--marino);
+}
+
+/* Las dos líneas a cada lado de la "o" */
+.separador::before,
+.separador::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--celeste);
+}
+
+/* ---------- 10d. BOTÓN "Volver al sitio" (con borde, fondo blanco) ---------- */
+.volver-sitio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;                 /* espacio entre la flecha y el texto */
+  height: 46px;
+  border: 1px solid var(--marino);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--marino);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.volver-sitio:hover,
+.volver-sitio:focus-visible {
+  background: var(--hielo);
+  color: var(--marino);
+}
+
+/* ---------- 11. RESPONSIVE: en celular se oculta la imagen ---------- */
+@media (max-width: 767.98px) {
+  .pagina {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen {
+    display: none;
+  }
+}
