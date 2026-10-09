@@ -4,6 +4,7 @@ import { Montana } from './components/inicio/montana/montana';
 import { Ciudad } from './components/inicio/ciudad/ciudad';
 import { Playa } from './components/inicio/playa/playa';
 import { Bosque } from './components/inicio/bosque/bosque';
+import { Ayudacontacto } from './components/ayudacontacto/ayudacontacto';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: 'ciudad', component: Ciudad},
     {path: 'playa', component: Playa},
     {path: 'bosque', component: Bosque},
+    {path: 'ayudacontacto', component: Ayudacontacto},
 
     //captura cualquier URL no definida
     {path: '**', redirectTo: 'inicio'},

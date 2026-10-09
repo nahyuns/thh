@@ -1,0 +1,60 @@
+<!--Comienza ayudaYcontacto-->
+<div class="encabezado-contacto">
+    <h1 class="titulo-contacto">Contactanos</h1>
+    <h3 class="subtitulo-contacto">
+        ¡Completá el formulario y te responderemos lo antes posible!
+    </h3>
+</div>
+
+<!--Formulario-->
+<div class="formulario-thh">
+    <div class="mb-3">
+        <label for="nombre1" class="form-label">
+            Ingresa tu Nombre
+        </label>
+        <input type="text" class="form-control" id="nombre1" placeholder="">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">
+            Ingresa tu Mail
+        </label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="user@gmail.com">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="asunto" class="form-label">
+            Seleccioná un asunto
+        </label>
+
+        <div class="selector-contenedor">
+            <select class="form-control selector-asunto" id="asunto">
+                <option value="" selected disabled>
+                    Elegí el motivo de tu consulta
+                </option>
+                <option>Consulta sobre un alquiler</option>
+                <option>Información sobre destinos</option>
+                <option>Problemas con una reserva</option>
+                <option>Cambios o cancelaciones</option>
+                <option>Medios de pago</option>
+                <option>Problemas con la página web</option>
+                <option>Otro motivo</option>
+            </select>
+
+            <span class="flecha-selector">▼</span>
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+            Describe tu consulta o situacion
+        </label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+        <button type="button" id="boton">
+            Enviar
+        </button>
+    </div>
+</div>
