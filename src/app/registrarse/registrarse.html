@@ -1,0 +1,60 @@
+<div class="pagina">
+
+  <div class="imagen">
+    <img src="/assets/foto-registrarse.jpg" alt="">
+  </div>
+
+  <!-- PANEL: columna derecha, centra el formulario -->
+  <div class="panel">
+
+    <div class="container">
+        <form class="registro">
+
+            <!-- GRUPO 1: título + nombre, apellido, email -->
+            <div class="mb-3" id="nombe-apellido">
+                <div class="icono-persona"><i class="bi bi-person"></i></div>
+                <p>REGISTRARSE</p>
+
+                <label for="nombre" class="form-nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+
+                <label for="apellido" class="form-apellido">Apellido</label>
+                <input type="text" class="form-control" id="apellido">
+
+                <label for="email" class="form-email">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+
+            <!-- GRUPO 2: contraseñas -->
+            <div class="mb-3" id="contraseña-confirmar">
+                <label for="password" class="crear-contraseña">Crear contraseña</label>
+                <input type="password" class="form-control" id="password">
+
+                <label for="confirmar" class="confirmar-contraseña">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="confirmar">
+            </div>
+
+            <!-- CHECKBOX "Mostrar" (el ícono es de Bootstrap Icons) -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Mostrar <i class="bi bi-eye"></i></label>
+            </div>
+
+            <!-- BOTÓN -->
+            <button type="button" class="crear-cuenta">Crear cuenta</button>
+
+            <!-- ENLACE PARA QUIEN YA TIENE CUENTA (cambia la ruta "/login" por la tuya) -->
+            <p class="ya-tienes-cuenta">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+
+            <!-- SEPARADOR: línea con una "o" en el medio (las líneas las dibuja el CSS) -->
+            <div class="separador"><span>o</span></div>
+
+            <!-- BOTÓN VOLVER (cambia la ruta "/" por la tuya). bi-arrow-left = flecha de Bootstrap Icons -->
+            <a routerLink="/" class="volver-sitio">
+                <i class="bi bi-arrow-left"></i> Volver al sitio
+            </a>
+        </form>
+    </div>
+
+  </div>
+</div>
