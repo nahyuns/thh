@@ -1,0 +1,382 @@
+
+/* =========================
+   ESTILO GENERAL
+========================= */
+
+.bosque {
+  width: 100%;
+  background: #ffffff;
+  color: #193b64;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.bosque * {
+  box-sizing: border-box;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.encabezado-bosque {
+  background: #f6f8fa;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.encabezado-contenido {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 75px 25px 70px;
+}
+
+.etiqueta {
+  display: block;
+  margin-bottom: 15px;
+  color: #3c73ad;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.encabezado-contenido h1 {
+  margin: 0 0 15px;
+  color: #193b64;
+  font-size: clamp(38px, 5vw, 55px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.encabezado-contenido p {
+  max-width: 600px;
+  margin: 0;
+  color: #718092;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   SECCIÓN DE ALOJAMIENTOS
+========================= */
+
+.alojamientos {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 65px 25px 100px;
+}
+
+.alojamientos-superior {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.resultado-etiqueta {
+  display: block;
+  margin-bottom: 8px;
+  color: #3c73ad;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.alojamientos-superior h2 {
+  margin: 0;
+  color: #193b64;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.cantidad {
+  color: #718092;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================
+   GRILLA DE TARJETAS
+========================= */
+
+.alojamientos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.alojamiento-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 9px;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.alojamiento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(25, 59, 100, 0.10);
+}
+
+/* =========================
+   IMÁGENES
+========================= */
+
+.card-imagen {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #edf2f6;
+}
+
+.card-imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.alojamiento-card:hover .card-imagen img {
+  transform: scale(1.04);
+}
+
+/* CORAZÓN */
+
+.favorito {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  color: #193b64;
+  font-size: 21px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.favorito:hover {
+  background: #193b64;
+  color: #ffffff;
+}
+
+/* =========================
+   CONTENIDO DE LAS TARJETAS
+========================= */
+
+.card-contenido {
+  padding: 22px;
+}
+
+.card-ubicacion {
+  margin-bottom: 7px;
+  color: #3c73ad;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+
+.card-contenido h3 {
+  margin: 0 0 10px;
+  color: #193b64;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.card-descripcion {
+  min-height: 62px;
+  margin: 0 0 18px;
+  color: #718092;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* HUÉSPEDES Y HABITACIONES */
+
+.card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 14px 0;
+  border-top: 1px solid #edf0f3;
+  border-bottom: 1px solid #edf0f3;
+  color: #718092;
+  font-size: 12px;
+}
+
+/* PRECIO Y ENLACE */
+
+.card-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 18px;
+}
+
+.precio {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.precio strong {
+  color: #193b64;
+  font-size: 18px;
+}
+
+.precio span {
+  color: #718092;
+  font-size: 11px;
+}
+
+.ver-mas {
+  color: #3c73ad;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.ver-mas:hover {
+  color: #193b64;
+}
+
+/* =========================
+   FRASE FINAL
+========================= */
+
+.frase-bosque {
+  padding: 90px 25px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #edf1f5;
+}
+
+.frase-contenido {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.frase-contenido > span {
+  display: block;
+  margin-bottom: 15px;
+  color: #3c73ad;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.frase-contenido h2 {
+  margin: 0 0 18px;
+  color: #193b64;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.frase-contenido p {
+  margin: 0 0 28px;
+  color: #718092;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.btn-frase {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #193b64;
+  color: #ffffff;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-frase:hover {
+  background: #3c73ad;
+}
+
+.btn-frase span {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .alojamientos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .card-imagen {
+    height: 220px;
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 650px) {
+  .encabezado-contenido {
+    padding: 55px 20px;
+  }
+
+  .encabezado-contenido h1 {
+    font-size: 36px;
+  }
+
+  .alojamientos {
+    padding: 50px 20px 70px;
+  }
+
+  .alojamientos-superior {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .alojamientos-superior h2 {
+    font-size: 24px;
+  }
+
+  .alojamientos-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .card-imagen {
+    height: 250px;
+  }
+
+  .card-contenido {
+    padding: 20px;
+  }
+
+  .card-descripcion {
+    min-height: auto;
+  }
+
+  .frase-bosque {
+    padding: 70px 20px;
+  }
+}
