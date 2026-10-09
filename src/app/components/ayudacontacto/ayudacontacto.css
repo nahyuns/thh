@@ -1,0 +1,128 @@
+
+.encabezado-contacto {
+  text-align: center;
+  margin: 40px auto 30px;
+  padding: 0 20px;
+}
+
+.titulo-contacto {
+  color: #1F3A5F;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.subtitulo-contacto {
+  color: #2F9BB3;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .titulo-contacto {
+    font-size: 30px;
+  }
+
+  .subtitulo-contacto {
+    font-size: 16px;
+  }
+}
+
+
+
+
+.formulario-thh {
+  background-color: #FFFFFF;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #9AD9EA;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(31, 58, 95, 0.10);
+}
+
+.formulario-thh .form-label {
+  color: #1F3A5F;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.formulario-thh .form-control {
+  background-color: #E7F6FF;
+  border: 1px solid #9AD9EA;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.formulario-thh .form-control:focus {
+  border-color: #2F9BB3;
+  box-shadow: 0 0 0 3px rgba(47, 155, 179, 0.2);
+}
+
+
+
+.selector-contenedor {
+  position: relative;
+}
+
+.selector-asunto {
+  width: 100%;
+  padding: 13px 45px 13px 12px;
+  background-color: #E7F6FF;
+  border: 2px solid #2F9BB3;
+  border-radius: 8px;
+  color: #1F3A5F;
+  cursor: pointer;
+
+  
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.flecha-selector {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1F3A5F;
+  font-size: 16px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.selector-contenedor:focus-within .selector-asunto {
+  border-color: #1F3A5F;
+  box-shadow: 0 0 0 3px rgba(47, 155, 179, 0.2);
+}
+
+
+
+
+
+#boton {
+  background-color: #2F9BB3;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#boton:hover {
+  background-color: #1F3A5F;
+}
+
+
+@media (max-width: 576px) {
+  .formulario-thh {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+}
