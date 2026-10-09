@@ -3,7 +3,7 @@
    ESTILO GENERAL
 ========================= */
 
-.playa {
+.bosque {
   width: 100%;
   background: #ffffff;
   color: #193b64;
@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-.playa * {
+.bosque * {
   box-sizing: border-box;
 }
 
@@ -19,7 +19,7 @@
    ENCABEZADO
 ========================= */
 
-.encabezado-playa {
+.encabezado-bosque {
   background: #f6f8fa;
   border-bottom: 1px solid #e8edf2;
 }
@@ -145,7 +145,7 @@
   transform: scale(1.04);
 }
 
-/* Corazón decorativo */
+/* CORAZÓN */
 
 .favorito {
   position: absolute;
@@ -170,7 +170,7 @@
 }
 
 /* =========================
-   CONTENIDO DE TARJETAS
+   CONTENIDO DE LAS TARJETAS
 ========================= */
 
 .card-contenido {
@@ -202,7 +202,7 @@
   line-height: 1.6;
 }
 
-/* Información del alojamiento */
+/* HUÉSPEDES Y HABITACIONES */
 
 .card-info {
   display: flex;
@@ -215,7 +215,7 @@
   font-size: 12px;
 }
 
-/* Precio y enlace */
+/* PRECIO Y ENLACE */
 
 .card-pie {
   display: flex;
@@ -258,7 +258,7 @@
    FRASE FINAL
 ========================= */
 
-.frase-playa {
+.frase-bosque {
   padding: 90px 25px;
   text-align: center;
   background: #ffffff;
@@ -376,8 +376,7 @@
     min-height: auto;
   }
 
-  .frase-playa {
+  .frase-bosque {
     padding: 70px 20px;
   }
 }
-
