@@ -1,27 +1,47 @@
-<nav class="navbar-hospedaje">
 
+<nav class="navbar-hospedaje">
   <div class="nav-contenedor">
 
-    <!-- LOGO -->
-    <a href="#" class="marca">
+    <a routerLink="/" class="marca">
       <img src="assets/logo.png" alt="Hospeda">
     </a>
 
-    <!-- MENÚ -->
     <div class="menu">
-      <a href="#" class="activo">Inicio</a>
-      <a href="#">Alojamientos</a>
-      <a href="#">Destinos</a>
-      <a href="#">Sobre nosotros</a>
-      <a href="#">Ayuda</a>
+      <a routerLink="/" routerLinkActive="activo"
+         [routerLinkActiveOptions]="{ exact: true }">
+        Inicio
+      </a>
+
+      <a routerLink="/alojamientos" routerLinkActive="activo">
+        Alojamientos
+      </a>
+
+      <a routerLink="/montana" routerLinkActive="activo">
+        Destinos
+      </a>
+
+      <a routerLink="/sobre-nosotros" routerLinkActive="activo">
+        Sobre nosotros
+      </a>
+
+      <a href="mailto:contacto@hospeda.com">
+        Ayuda
+      </a>
     </div>
 
-    <!-- ACCIONES -->
     <div class="acciones">
-      <a href="#" class="iniciar">Iniciar sesión</a>
-      <a href="#" class="registrar">Registrarme</a>
+      <a routerLink="/login" class="iniciar">
+        Iniciar sesión
+      </a>
+
+      <a routerLink="/registro" class="registrar">
+        Registrarme
+      </a>
     </div>
 
   </div>
-
 </nav>
+
+
+
+
