@@ -1,0 +1,379 @@
+
+/* =========================
+   GENERAL
+========================= */
+
+.pagina-alojamientos {
+  width: 100%;
+  background: #ffffff;
+  color: #193b64;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.pagina-alojamientos * {
+  box-sizing: border-box;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.encabezado-alojamientos {
+  background: #f6f8fa;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.encabezado-contenido {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 75px 25px 70px;
+}
+
+.etiqueta,
+.categoria-etiqueta {
+  display: block;
+  margin-bottom: 13px;
+  color: #3c73ad;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.encabezado-contenido h1 {
+  margin: 0 0 16px;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.encabezado-contenido p {
+  max-width: 610px;
+  margin: 0;
+  color: #718092;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   GRUPOS DE ALOJAMIENTOS
+========================= */
+
+.grupo-alojamientos {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 65px 25px 15px;
+}
+
+.grupo-titulo {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.grupo-titulo .categoria-etiqueta {
+  margin-bottom: 8px;
+}
+
+.grupo-titulo h2 {
+  margin: 0 0 8px;
+  color: #193b64;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.grupo-titulo p {
+  margin: 0;
+  color: #718092;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ver-categoria {
+  flex-shrink: 0;
+  padding-bottom: 4px;
+  color: #3c73ad;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.ver-categoria:hover {
+  color: #193b64;
+}
+
+/* =========================
+   GRILLA
+========================= */
+
+.alojamientos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.alojamiento-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 9px;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.alojamiento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(25, 59, 100, 0.10);
+}
+
+/* IMAGEN */
+
+.card-imagen {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  overflow: hidden;
+  background: #edf2f6;
+}
+
+.card-imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.alojamiento-card:hover .card-imagen img {
+  transform: scale(1.04);
+}
+
+/* ETIQUETA DE CATEGORÍA */
+
+.categoria-chip {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  padding: 7px 11px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  color: #193b64;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* CONTENIDO */
+
+.card-contenido {
+  padding: 20px;
+}
+
+.card-ubicacion {
+  display: block;
+  margin-bottom: 8px;
+  color: #3c73ad;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.card-contenido h3 {
+  margin: 0 0 10px;
+  color: #193b64;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.card-contenido > p {
+  min-height: 59px;
+  margin: 0 0 17px;
+  color: #718092;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* INFORMACIÓN */
+
+.card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 15px;
+  padding: 13px 0;
+  border-top: 1px solid #edf0f3;
+  border-bottom: 1px solid #edf0f3;
+  color: #718092;
+  font-size: 11px;
+}
+
+/* PRECIO */
+
+.card-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 17px;
+}
+
+.precio {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.precio strong {
+  color: #193b64;
+  font-size: 18px;
+}
+
+.precio span {
+  color: #718092;
+  font-size: 11px;
+}
+
+.ver-mas {
+  color: #3c73ad;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ver-mas:hover {
+  color: #193b64;
+}
+
+/* =========================
+   CIERRE DE PÁGINA
+========================= */
+
+.cierre-alojamientos {
+  margin-top: 75px;
+  padding: 85px 25px;
+  text-align: center;
+  background: #f6f8fa;
+  border-top: 1px solid #e8edf2;
+}
+
+.cierre-alojamientos > span {
+  display: block;
+  margin-bottom: 15px;
+  color: #3c73ad;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.cierre-alojamientos h2 {
+  margin: 0 0 16px;
+  color: #193b64;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.cierre-alojamientos p {
+  margin: 0 0 27px;
+  color: #718092;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #193b64;
+  border-radius: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-principal:hover {
+  background: #3c73ad;
+}
+
+.btn-principal span {
+  font-size: 18px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .alojamientos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .card-imagen {
+    height: 220px;
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 650px) {
+  .encabezado-contenido {
+    padding: 55px 20px;
+  }
+
+  .encabezado-contenido h1 {
+    font-size: 36px;
+  }
+
+  .grupo-alojamientos {
+    padding: 50px 20px 10px;
+  }
+
+  .grupo-titulo {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .grupo-titulo h2 {
+    font-size: 25px;
+  }
+
+  .alojamientos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-imagen {
+    height: 250px;
+  }
+
+  .card-contenido {
+    padding: 20px;
+  }
+
+  .card-contenido > p {
+    min-height: auto;
+  }
+
+  .cierre-alojamientos {
+    margin-top: 55px;
+    padding: 65px 20px;
+  }
+}
+
