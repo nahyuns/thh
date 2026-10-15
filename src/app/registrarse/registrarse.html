@@ -8,7 +8,7 @@
   <div class="panel">
 
     <div class="container">
-        <form class="registro">
+        <form class="registro" (ngSubmit)="registrarUsuario()">
 
             <!-- GRUPO 1: título + nombre, apellido, email -->
             <div class="mb-3" id="nombe-apellido">
@@ -16,22 +16,22 @@
                 <p>REGISTRARSE</p>
 
                 <label for="nombre" class="form-nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre">
+                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" placeholder="Ingresá tu nombre">
 
                 <label for="apellido" class="form-apellido">Apellido</label>
-                <input type="text" class="form-control" id="apellido">
+                <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="apellido" placeholder="Ingresá tu apellido">
 
                 <label for="email" class="form-email">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="user1234@gmail.com">
             </div>
 
             <!-- GRUPO 2: contraseñas -->
             <div class="mb-3" id="contraseña-confirmar">
                 <label for="password" class="crear-contraseña">Crear contraseña</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" name="contrasena" [(ngModel)]="contrasena" placeholder="Ingresá tu contraseña">
 
                 <label for="confirmar" class="confirmar-contraseña">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="confirmar">
+                <input type="password" class="form-control" id="confirmar" name="confirmar" [(ngModel)]="confirmar" placeholder="Confirmá tu contraseña">
             </div>
 
             <!-- CHECKBOX "Mostrar" (el ícono es de Bootstrap Icons) -->
@@ -41,16 +41,19 @@
             </div>
 
             <!-- BOTÓN -->
-            <button type="button" class="crear-cuenta">Crear cuenta</button>
+            <button type="submit" class="crear-cuenta">Crear cuenta</button>
+
+            <!-- Mensaje que aparece si los datos son correctos -->
+            <p>{{ mensajeExito }}</p>
 
             <!-- ENLACE PARA QUIEN YA TIENE CUENTA (cambia la ruta "/login" por la tuya) -->
-            <p class="ya-tienes-cuenta">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+            <p class="ya-tienes-cuenta">¿Ya tienes cuenta? <a routerLink="/inicio-sesion">Inicia sesión</a></p>
 
             <!-- SEPARADOR: línea con una "o" en el medio (las líneas las dibuja el CSS) -->
             <div class="separador"><span>o</span></div>
 
             <!-- BOTÓN VOLVER (cambia la ruta "/" por la tuya). bi-arrow-left = flecha de Bootstrap Icons -->
-            <a routerLink="/" class="volver-sitio">
+            <a routerLink="/inicio" class="volver-sitio">
                 <i class="bi bi-arrow-left"></i> Volver al sitio
             </a>
         </form>

@@ -8,6 +8,7 @@ import { Ayudacontacto } from './components/ayudacontacto/ayudacontacto';
 import { InicioSesion } from './inicio-sesion/inicio-sesion';
 import { Registrarse } from './registrarse/registrarse';
 import { Sobrenosotros } from './components/inicio/sobrenosotros/sobrenosotros/sobrenosotros';
+import { PublicaTuAlojamiento } from './components/publica-tu-alojamiento/publica-tu-alojamiento';
 
 export const routes: Routes = [
   //muestra el inicio por defecto
@@ -22,7 +23,8 @@ export const routes: Routes = [
   { path: 'ayudacontacto', component: Ayudacontacto },
   { path: 'inicio-sesion', component: InicioSesion },
   { path: 'registrarse',  component: Registrarse, },
-   {path: 'sobrenosotros', component: Sobrenosotros},
+  {path: 'sobrenosotros', component: Sobrenosotros},
+  {path: 'publica-tu-alojamiento', component: PublicaTuAlojamiento},
   
   //captura cualquier URL no definida
   { path: '**', redirectTo: 'inicio' },
