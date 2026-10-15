@@ -2,6 +2,8 @@
   width: 100%;
   background-color: #193b64;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-contenedor {
@@ -31,6 +33,15 @@
   object-fit: contain;
 }
 
+/* Contenedor principal de los enlaces y acciones */
+.menu-acciones-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 25px;
+}
+
 /* Menú central */
 .menu {
   display: flex;
@@ -42,13 +53,11 @@
 .menu a {
   padding: 11px 13px;
   border-radius: 7px;
-
   color: #e8eef5;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-
   transition: 0.2s ease;
 }
 
@@ -90,12 +99,10 @@
   color: #193b64;
   background-color: #d8e1e9;
   border-radius: 7px;
-
   text-decoration: none;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
-
   transition: 0.2s ease;
 }
 
@@ -104,52 +111,90 @@
   transform: translateY(-1px);
 }
 
-/* Adaptación para pantallas pequeñas */
+/* Botón hamburguesa (oculto en escritorio) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #e8eef5;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* --- Adaptación para pantallas pequeñas (Responsive) --- */
 @media (max-width: 1050px) {
   .nav-contenedor {
-    padding: 15px 20px;
-    flex-wrap: wrap;
-    gap: 15px;
+    padding: 0 20px;
+    min-height: 68px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* El contenedor pasa a ser un menú desplegable oculto por defecto */
+  .menu-acciones-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #143052;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Efecto de despliegue suave */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Cuando se abre el menú */
+  .menu-acciones-wrapper.abierto {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .menu {
-    flex-wrap: wrap;
-    gap: 4px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
   }
 
   .menu a {
-    padding: 9px;
-    font-size: 13px;
+    padding: 12px 15px;
+    font-size: 15px;
   }
 
   .acciones {
-    gap: 6px;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
   }
 
   .iniciar,
   .registrar {
-    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
   }
 }
-
-@media (max-width: 650px) {
-  .nav-contenedor {
-    justify-content: center;
-    padding: 15px;
-  }
-
-  .marca {
-    width: 100%;
-  }
-
-  .menu {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .acciones {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
