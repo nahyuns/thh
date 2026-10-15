@@ -1,9 +1,11 @@
 <main class="inicio">
 
+
     <section class="hero-inicio">
 
         <div class="hero-overlay"></div>
 
+        <!-- Texto principal -->
         <div class="hero-contenido">
 
             <span class="hero-etiqueta">
@@ -20,14 +22,87 @@
                 para hacer de cada viaje una experiencia especial.
             </p>
 
-            <a href="#" class="btn-principal">
-                Explorar alojamientos
-                <span>→</span>
-            </a>
+        </div>
+
+        <!-- Filtro de alojamientos -->
+        <div class="filtro-hero">
+
+            <div class="filtro-encabezado">
+                <span>ENCONTRÁ TU LUGAR</span>
+                <h2>¿A dónde querés ir?</h2>
+                <p>Elegí tu próximo destino.</p>
+            </div>
+
+            <form class="filtro-formulario" (ngSubmit)="buscarAlojamientos()">
+
+                <div class="campo-filtro">
+                    <label for="categoria">Categoría</label>
+
+                    <select id="categoria" name="categoria" [(ngModel)]="categoria" required>
+
+                        <option value="Playa">Playa</option>
+                        <option value="Bosque">Bosque</option>
+                        <option value="Montaña">Montaña</option>
+                        <option value="Ciudad">Ciudad</option>
+
+                    </select>
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="destino">Destino o ciudad</label>
+
+                    <select id="destino" name="destino" [(ngModel)]="destino" required>
+
+                        <option value="" disabled>Elegí un destino</option>
+                        <option value="Bariloche">Bariloche</option>
+                        <option value="Las Grutas">Las Grutas</option>
+                        <option value="El Bolsón">El Bolsón</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="San Martín de los Andes">San Martín de los Andes</option>
+                    </select>
+                </div>
+            
+
+                <div class="campo-fechas">
+
+                    <div class="campo-filtro">
+                        <label for="entrada">Entrada</label>
+
+                        <input id="entrada" type="date" name="entrada" [(ngModel)]="entrada">
+                    </div>
+
+                    <div class="campo-filtro">
+                        <label for="salida">Salida</label>
+
+                        <input id="salida" type="date" name="salida" [(ngModel)]="salida">
+                    </div>
+
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="huespedes">Cantidad de personas</label>
+
+                    <select id="huespedes" name="huespedes" [(ngModel)]="huespedes">
+
+                        <option [ngValue]="1">1 persona</option>
+                        <option [ngValue]="2">2 personas</option>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="boton-filtro">
+                    Buscar alojamientos <span>→</span>
+                </button>
+
+            </form>
 
         </div>
 
     </section>
+
+
+
+
 
 
     <!-- =========================
@@ -149,11 +224,11 @@
 
                             </div>
 
-                    </article>
+                        </article>
+
+                    </div>
 
                 </div>
-
-            </div>
 
             </div>
 
@@ -258,7 +333,7 @@
                 Explorá nuestras opciones de alojamiento.
             </p>
 
-            <a href="#" class="btn-claro">
+            <a href="alojamientos" class="btn-claro">
 
                 Ver alojamientos
 
