@@ -15,7 +15,7 @@
 
     <!-- Contenedor desplegable (Menú + Acciones) -->
     <div class="menu-acciones-wrapper" [class.abierto]="menuAbierto">
-
+      
       <!-- Menú central -->
       <div class="menu">
         <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
@@ -23,6 +23,9 @@
         </a>
         <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
           Alojamientos
+        </a>
+        <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
+          Favoritos
         </a>
         <a routerLink="/sobrenosotros" routerLinkActive="activo" (click)="cerrarMenu()">
           Sobre nosotros
