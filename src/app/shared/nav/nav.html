@@ -7,46 +7,41 @@
     </a>
 
     <!-- MENÚ -->
+
+
+    <!-- Menú central -->
     <div class="menu">
-      <a href="inicio" class="activo">Inicio</a>
-      <a href="alojamientos">Alojamientos</a>
-     <a href="sobrenosotros">Sobre nosotros</a>
-      <a href="favoritos">Favoritos</a>
-      <a href="ayudacontacto">Ayuda y contacto</a>
-      
-      <!-- Menú central -->
-      <div class="menu">
-        <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
-          Inicio
-        </a>
-        <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
-          Alojamientos
-        </a>
-        <a routerLink="/montana" routerLinkActive="activo" (click)="cerrarMenu()">
-          Destinos
-        </a>
-        <a routerLink="/sobre-nosotros" routerLinkActive="activo" (click)="cerrarMenu()">
-          Sobre nosotros
-        </a>
-        <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
-          Favoritos
-        </a>
-        <a href="mailto:contacto@hospeda.com" (click)="cerrarMenu()">
-          Ayuda
-        </a>
-      </div>
-
-      <!-- Botones de la derecha -->
-      <div class="acciones">
-        <a routerLink="/login" class="iniciar" (click)="cerrarMenu()">
-          Iniciar sesión
-        </a>
-        <a routerLink="/registro" class="registrar" (click)="cerrarMenu()">
-          Registrarme
-        </a>
-      </div>
-
+      <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
+        Inicio
+      </a>
+      <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
+        Alojamientos
+      </a>
+      <a routerLink="/montana" routerLinkActive="activo" (click)="cerrarMenu()">
+        Destinos
+      </a>
+      <a routerLink="/sobre-nosotros" routerLinkActive="activo" (click)="cerrarMenu()">
+        Sobre nosotros
+      </a>
+      <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
+        Favoritos
+      </a>
+      <a href="mailto:contacto@hospeda.com" (click)="cerrarMenu()">
+        Ayuda
+      </a>
     </div>
+
+    <!-- Botones de la derecha -->
+    <div class="acciones">
+      <a routerLink="/login" class="iniciar" (click)="cerrarMenu()">
+        Iniciar sesión
+      </a>
+      <a routerLink="/registro" class="registrar" (click)="cerrarMenu()">
+        Registrarme
+      </a>
+    </div>
+
+
 
   </div>
 </nav>
