@@ -7,4 +7,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './nav.css',
   templateUrl: './nav.html',
 })
-export class Nav {}
+export class Nav {
+  menuAbierto: boolean = false;
+
+  toggleMenu() {
+    this.menuAbierto = !this.menuAbierto;
+  }
+
+  cerrarMenu() {
+    this.menuAbierto = false;
+  }
+}
