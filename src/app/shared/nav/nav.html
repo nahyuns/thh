@@ -6,42 +6,43 @@
       <img src="assets/logo.png" alt="Hospeda">
     </a>
 
-    <!-- MENÚ -->
+    <!-- Botón Hamburguesa para Móviles -->
+    <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuAbierto" aria-label="Abrir menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
+    <!-- Contenedor desplegable (Menú + Acciones) -->
+    <div class="menu-acciones-wrapper" [class.abierto]="menuAbierto">
 
-    <!-- Menú central -->
-    <div class="menu">
-      <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
-        Inicio
-      </a>
-      <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
-        Alojamientos
-      </a>
-      <a routerLink="/montana" routerLinkActive="activo" (click)="cerrarMenu()">
-        Destinos
-      </a>
-      <a routerLink="/sobre-nosotros" routerLinkActive="activo" (click)="cerrarMenu()">
-        Sobre nosotros
-      </a>
-      <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
-        Favoritos
-      </a>
-      <a href="mailto:contacto@hospeda.com" (click)="cerrarMenu()">
-        Ayuda
-      </a>
+      <!-- Menú central -->
+      <div class="menu">
+        <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
+          Inicio
+        </a>
+        <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
+          Alojamientos
+        </a>
+        <a routerLink="/sobrenosotros" routerLinkActive="activo" (click)="cerrarMenu()">
+          Sobre nosotros
+        </a>
+        <a routerLink="/ayudacontacto" routerLinkActive="activo" (click)="cerrarMenu()">
+          Ayuda y contacto
+        </a>
+      </div>
+
+      <!-- Botones de la derecha -->
+      <div class="acciones">
+        <a routerLink="/inicio-sesion" class="iniciar" (click)="cerrarMenu()">
+          Iniciar sesión
+        </a>
+        <a routerLink="/registrarse" class="registrar" (click)="cerrarMenu()">
+          Registrarme
+        </a>
+      </div>
+
     </div>
-
-    <!-- Botones de la derecha -->
-    <div class="acciones">
-      <a routerLink="/login" class="iniciar" (click)="cerrarMenu()">
-        Iniciar sesión
-      </a>
-      <a routerLink="/registro" class="registrar" (click)="cerrarMenu()">
-        Registrarme
-      </a>
-    </div>
-
-
 
   </div>
 </nav>
