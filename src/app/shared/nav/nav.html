@@ -6,15 +6,13 @@
       <img src="assets/logo.png" alt="Hospeda">
     </a>
 
-    <!-- Botón Hamburguesa para Móviles -->
-    <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuAbierto" aria-label="Abrir menú">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <!-- Contenedor desplegable (Menú + Acciones) -->
-    <div class="menu-acciones-wrapper" [class.abierto]="menuAbierto">
+    <!-- MENÚ -->
+    <div class="menu">
+      <a href="inicio" class="activo">Inicio</a>
+      <a href="alojamientos">Alojamientos</a>
+     <a href="sobrenosotros">Sobre nosotros</a>
+      <a href="favoritos">Favoritos</a>
+      <a href="ayudacontacto">Ayuda y contacto</a>
       
       <!-- Menú central -->
       <div class="menu">
