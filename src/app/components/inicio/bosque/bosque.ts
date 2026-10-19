@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { FavoritosService } from '../../services/favoritos';
 @Component({
   imports: [],
   selector: 'app-bosque',
@@ -7,19 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './bosque.html',
 })
 export class Bosque {
-  favoritos: string[] = [];
+ constructor(public favoritosService: FavoritosService) { }
 
   Favorito(id: string): boolean {
-    return this.favoritos.includes(id);
+    return this.favoritosService.esFavorito(id);
   }
 
   alternarFavorito(id: string): void {
-    if (this.Favorito(id)) {
-      this.favoritos = this.favoritos.filter(
-        favorito => favorito !== id
-      );
-    } else {
-      this.favoritos = [...this.favoritos, id];
-    }
+    this.favoritosService.alternarFavorito(id);
   }
+
 }

@@ -9,6 +9,7 @@ import { InicioSesion } from './inicio-sesion/inicio-sesion';
 import { Registrarse } from './registrarse/registrarse';
 import { Sobrenosotros } from './components/inicio/sobrenosotros/sobrenosotros/sobrenosotros';
 import { Alojamientos } from './components/alojamientos/alojamientos';
+import { Favoritos } from './components/favoritos/favoritos';
 
 export const routes: Routes = [
   //muestra el inicio por defecto
@@ -22,10 +23,11 @@ export const routes: Routes = [
   { path: 'bosque', component: Bosque },
   { path: 'ayudacontacto', component: Ayudacontacto },
   { path: 'inicio-sesion', component: InicioSesion },
-  { path: 'registrarse',  component: Registrarse, },
-   {path: 'sobrenosotros', component: Sobrenosotros},
-   {path: 'alojamientos', component: Alojamientos},
-  
+  { path: 'registrarse', component: Registrarse, },
+  { path: 'sobrenosotros', component: Sobrenosotros },
+  { path: 'alojamientos', component: Alojamientos },
+  {path: 'favoritos', component: Favoritos},
+
   //captura cualquier URL no definida
   { path: '**', redirectTo: 'inicio' },
 ];
