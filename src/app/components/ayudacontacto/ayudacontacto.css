@@ -1,0 +1,320 @@
+/* Estilos del encabezado de contacto */
+.encabezado-contacto {
+    text-align: center;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+}
+
+/* Título principal */
+.titulo-contacto {
+    color: #1F3A5F;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo del encabezado */
+.subtitulo-contacto {
+    color: #2F9BB3;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Contenedor de las preguntas y el formulario */
+.contacto-contenedor {
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Cuadro de preguntas frecuentes */
+.preguntas-frecuentes {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+    background-color: #E7F6FF;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Título de preguntas frecuentes */
+.preguntas-frecuentes h2 {
+    text-align: center;
+    color: #1F3A5F;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Subtítulo de preguntas frecuentes */
+.subtitulo {
+    text-align: center;
+    color: #1F3A5F;
+    margin-bottom: 25px;
+}
+
+/* Cuadro individual de cada pregunta */
+.pregunta {
+    background-color: #FFFFFF;
+    margin-bottom: 12px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #9AD9EA;
+}
+
+/* Texto de las preguntas */
+.pregunta summary {
+    color: #1F3A5F;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 25px;
+    line-height: 1.5;
+}
+
+/* Oculta la flecha predeterminada del navegador */
+.pregunta summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Símbolo + al lado de cada pregunta */
+.pregunta summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -3px;
+    font-size: 20px;
+    color: #2F9BB3;
+}
+
+/* Cambia el + por - cuando se abre una pregunta */
+.pregunta[open] summary::after {
+    content: "-";
+}
+
+/* Respuestas de las preguntas */
+.pregunta p {
+    color: #1F3A5F;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Efecto al pasar el cursor por una pregunta */
+.pregunta summary:hover {
+    color: #2F9BB3;
+}
+
+/* Cuadro del formulario */
+.formulario-thh {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #9AD9EA;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(31, 58, 95, 0.10);
+    box-sizing: border-box;
+}
+
+/* Título del formulario */
+.titulo-formulario {
+    color: #1F3A5F;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Etiquetas de los campos del formulario */
+.formulario-thh .form-label {
+    color: #1F3A5F;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Campos de texto del formulario */
+.formulario-thh .form-control {
+    width: 100%;
+    background-color: #E7F6FF;
+    border: 1px solid #9AD9EA;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* Efecto al seleccionar un campo */
+.formulario-thh .form-control:focus {
+    border-color: #2F9BB3;
+    box-shadow: 0 0 0 3px rgba(47, 155, 179, 0.2);
+}
+
+/* Contenedor del selector de asuntos */
+.selector-contenedor {
+    position: relative;
+}
+
+/* Estilos del selector */
+.selector-asunto {
+    width: 100%;
+    padding: 13px 45px 13px 12px;
+    background-color: #E7F6FF;
+    border: 2px solid #2F9BB3;
+    border-radius: 8px;
+    color: #1F3A5F;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Flecha del selector */
+.flecha-selector {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1F3A5F;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Efecto al seleccionar el asunto */
+.selector-contenedor:focus-within .selector-asunto {
+    border-color: #1F3A5F;
+    box-shadow: 0 0 0 3px rgba(47, 155, 179, 0.2);
+}
+
+/* Botón para enviar el formulario */
+#boton {
+    background-color: #2F9BB3;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el cursor por el botón */
+#boton:hover {
+    background-color: #1F3A5F;
+}
+
+/* Sección de redes sociales debajo de las columnas */
+.redes-sociales {
+    max-width: 1060px;
+    margin: 30px auto 40px;
+    padding: 25px;
+    text-align: center;
+    background-color: #E7F6FF;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Título de redes sociales */
+.redes-sociales h3 {
+    color: #1F3A5F;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Texto debajo del título de redes */
+.redes-sociales p {
+    color: #1F3A5F;
+    margin-bottom: 20px;
+}
+
+/* Distribución de los enlaces de redes */
+.lista-redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilos de los enlaces de redes */
+.lista-redes a {
+    color: #2F9BB3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el cursor por los enlaces */
+.lista-redes a:hover {
+    color: #1F3A5F;
+    transform: translateY(-2px);
+}
+
+/* Tamaño y separación de los iconos */
+.lista-redes i {
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+/* Adaptación para tablets y celulares */
+@media (max-width: 768px) {
+
+    /* Coloca las columnas una debajo de la otra */
+    .contacto-contenedor {
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    /* Ambas secciones ocupan todo el ancho disponible */
+    .preguntas-frecuentes,
+    .formulario-thh {
+        width: 100%;
+        flex: auto;
+    }
+
+    /* Reduce los espacios internos */
+    .preguntas-frecuentes,
+    .formulario-thh {
+        padding: 20px;
+    }
+
+    /* Ajusta el ancho y los márgenes de las redes */
+    .redes-sociales {
+        margin: 20px 15px 30px;
+    }
+}
+
+/* Ajustes para celulares pequeños */
+@media (max-width: 576px) {
+
+    /* Reduce el tamaño del título principal */
+    .titulo-contacto {
+        font-size: 30px;
+    }
+
+    /* Reduce el tamaño del subtítulo */
+    .subtitulo-contacto {
+        font-size: 16px;
+    }
+
+    /* Reduce el título de las preguntas y el formulario */
+    .preguntas-frecuentes h2,
+    .titulo-formulario {
+        font-size: 22px;
+    }
+
+    /* Reduce el espacio entre los enlaces sociales */
+    .lista-redes {
+        gap: 15px;
+    }
+}

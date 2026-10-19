@@ -37,8 +37,8 @@
 
 /* LOGO DEL FOOTER */
 .footer-logo {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
   transform: scale(3);
 }

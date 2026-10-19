@@ -1,0 +1,83 @@
+.destino {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #193b64;
+}
+
+.destino-encabezado {
+  position: relative;
+  display: flex;
+  min-height: 480px;
+  align-items: center;
+  overflow: hidden;
+  background: #193b64;
+}
+
+.destino-imagen,
+.destino-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.destino-imagen {
+  object-fit: cover;
+}
+
+.destino-overlay {
+  background: linear-gradient(90deg, rgba(18, 48, 82, 0.88), rgba(25, 59, 100, 0.2));
+}
+
+.destino-contenido {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 75px 25px;
+  color: #ffffff;
+}
+
+.destino-etiqueta {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.destino-contenido h1 {
+  margin: 0 0 15px;
+  font-size: clamp(38px, 5vw, 55px);
+  line-height: 1.1;
+}
+
+.destino-contenido p {
+  max-width: 580px;
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.destino-volver {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #193b64;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.destino-volver:hover {
+  background: #d8e1e9;
+}
+
+@media (max-width: 600px) {
+  .destino-encabezado {
+    min-height: 420px;
+  }
+}
