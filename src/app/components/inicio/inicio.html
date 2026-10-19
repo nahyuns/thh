@@ -36,74 +36,71 @@
             <form class="filtro-formulario" (ngSubmit)="buscarAlojamientos()">
 
                 <div class="campo-filtro">
-                    <label for="categoria">Categoría</label>
-
-                    <select id="categoria" name="categoria" [(ngModel)]="categoria" required>
-
-                        <option value="Playa">Playa</option>
-                        <option value="Bosque">Bosque</option>
-                        <option value="Montaña">Montaña</option>
-                        <option value="Ciudad">Ciudad</option>
-
-                    </select>
-                </div>
-
-                <div class="campo-filtro">
-                    <label for="destino">Destino o ciudad</label>
-
-                    <select id="destino" name="destino" [(ngModel)]="destino" required>
-
-                        <option value="" disabled>Elegí un destino</option>
-                        <option value="Bariloche">Bariloche</option>
-                        <option value="Las Grutas">Las Grutas</option>
-                        <option value="El Bolsón">El Bolsón</option>
-                        <option value="Buenos Aires">Buenos Aires</option>
-                        <option value="San Martín de los Andes">San Martín de los Andes</option>
-                    </select>
-                </div>
-            
-
-                <div class="campo-fechas">
-
                     <div class="campo-filtro">
-                        <label for="entrada">Entrada</label>
+                        <label for="categoria">Categoría</label>
 
-                        <input id="entrada" type="date" name="entrada" [(ngModel)]="entrada">
+                        <select id="categoria" name="categoria" [(ngModel)]="categoria" (ngModelChange)="destino = ''"
+                            required>
+
+                            <option value="Playa">Playa</option>
+                            <option value="Bosque">Bosque</option>
+                            <option value="Montaña">Montaña</option>
+                            <option value="Ciudad">Ciudad</option>
+
+                        </select>
                     </div>
 
                     <div class="campo-filtro">
-                        <label for="salida">Salida</label>
+                        <label for="destino">Destino o ciudad</label>
 
-                        <input id="salida" type="date" name="salida" [(ngModel)]="salida">
+                        <select id="destino" name="destino" [(ngModel)]="destino" required>
+
+                            <option value="" disabled>Elegí un destino</option>
+
+                            @for (lugar of destinosDisponibles; track lugar) {
+                            <option [value]="lugar">{{ lugar }}</option>
+                            }
+
+                        </select>
                     </div>
 
+
+                    <div class="campo-fechas">
+
+                        <div class="campo-filtro">
+                            <label for="entrada">Entrada</label>
+
+                            <input id="entrada" type="date" name="entrada" [(ngModel)]="entrada">
+                        </div>
+
+                        <div class="campo-filtro">
+                            <label for="salida">Salida</label>
+
+                            <input id="salida" type="date" name="salida" [(ngModel)]="salida">
+                        </div>
+
+                    </div>
+
+                    <div class="campo-filtro">
+                        <label for="huespedes">Cantidad de personas</label>
+
+                        <select id="huespedes" name="huespedes" [(ngModel)]="huespedes">
+
+                            <option [ngValue]="1">1 persona</option>
+                            <option [ngValue]="2">2 personas</option>
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="boton-filtro">
+                        Buscar alojamientos <span>→</span>
+                    </button>
                 </div>
-
-                <div class="campo-filtro">
-                    <label for="huespedes">Cantidad de personas</label>
-
-                    <select id="huespedes" name="huespedes" [(ngModel)]="huespedes">
-
-                        <option [ngValue]="1">1 persona</option>
-                        <option [ngValue]="2">2 personas</option>
-
-                    </select>
-                </div>
-
-                <button type="submit" class="boton-filtro">
-                    Buscar alojamientos <span>→</span>
-                </button>
-
             </form>
 
         </div>
 
     </section>
-
-
-
-
-
 
     <!-- =========================
        DESTINOS

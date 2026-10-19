@@ -17,6 +17,35 @@ export class Inicio {
   salida = '';
   huespedes = 2;
 
+  destinosPorCategoria: { [categoria: string]: string[] } = {
+    Playa: [
+      'Las Grutas',
+      'Mar del Plata'
+    ],
+
+    Bosque: [
+      'Bariloche',
+      'Dina Huapi',
+      'El Bolsón',
+    ],
+
+    Montaña: [
+      'Bariloche',
+      'Lago Puelo',
+      'El Bolsón'
+    ],
+
+    Ciudad: [
+      'Palermo',
+      'La Plata',
+      'Mar del Plata'
+    ]
+  };
+
+  get destinosDisponibles(): string[] {
+    return this.destinosPorCategoria[this.categoria] || [];
+  }
+
   constructor(private router: Router) { }
 
   buscarAlojamientos(): void {
@@ -35,6 +64,5 @@ export class Inicio {
         huespedes: this.huespedes
       }
     });
-
   }
 }
