@@ -15,30 +15,27 @@ export class Inicio {
   destino = '';
   entrada = '';
   salida = '';
-  huespedes = 2;
+  huespedes = 2 & 1;
 
   destinosPorCategoria: { [categoria: string]: string[] } = {
     Playa: [
       'Las Grutas',
-      'Mar del Plata'
+      'San Antonio Oeste',
+      'Monte Hermoso',
     ],
 
     Bosque: [
       'Bariloche',
       'Dina Huapi',
-      'El Bolsón',
     ],
 
     Montaña: [
       'Bariloche',
-      'Lago Puelo',
-      'El Bolsón'
+      'Dina Huapi',
     ],
 
     Ciudad: [
-      'Palermo',
-      'La Plata',
-      'Mar del Plata'
+      'Buenos Aires'
     ]
   };
 
