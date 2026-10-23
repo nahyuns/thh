@@ -18,7 +18,7 @@
 /* ---------- 2. PÁGINA: grilla de 2 columnas (imagen | formulario) ---------- */
 .pagina {
   display: grid;
-  grid-template-columns: 4fr 6fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   background: var(--fondo-panel);
 }
@@ -42,7 +42,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.25rem;
+  padding: 2rem;
+  min-width: 0;
 }
 
 /* Círculo con el ícono de persona, centrado arriba del título */
@@ -60,9 +61,10 @@
 
 /* ---------- 5. FORMULARIO (.registro): tarjeta blanca con sombra ---------- */
 .registro {
-  max-width: 440px;
+  width: 100%;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 0.9rem 2rem;
+  padding: 1.2rem 2.2rem;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 8px 28px rgba(31, 58, 95, 0.12);
