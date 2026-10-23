@@ -1,143 +1,200 @@
-/* NAVBAR */
-
 .navbar-hospedaje {
   width: 100%;
-  height: 64px;
   background-color: #193b64;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1000;
 }
 
-/* CONTENEDOR */
-
 .nav-contenedor {
-  width: 100%;
-  height: 64px;
+  max-width: 1400px;
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 0 35px;
 
   display: flex;
   align-items: center;
-
-  padding: 0 35px;
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-
-/* LOGO */
-
+/* Logo */
 .marca {
-  width: 55px;
-  height: 55px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  text-decoration: none;
-
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .marca img {
-  width: 75px;
-  height: 75px;
-
+  display: block;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
-
-  /* Hace que el logo visible se vea más grande */
-  transform: scale(1.5);
 }
 
-/* MENÚ */
+/* Contenedor principal de los enlaces y acciones */
+.menu-acciones-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 25px;
+}
 
+/* Menú central */
 .menu {
   display: flex;
   align-items: center;
-
-  gap: 4px;
-
-  margin-left: 35px;
+  justify-content: center;
+  gap: 8px;
 }
 
 .menu a {
-  color: white;
+  padding: 11px 13px;
+  border-radius: 7px;
+  color: #e8eef5;
   text-decoration: none;
-
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-
-  padding: 9px 12px;
-
-  border-radius: 6px;
-
-  transition: 0.2s;
+  white-space: nowrap;
+  transition: 0.2s ease;
 }
 
 .menu a:hover {
-  background-color: rgba(255, 255, 255, 0.10);
-}
-
-.menu .activo {
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.12);
 }
 
+.menu a.activo {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
 
-/* ACCIONES */
-
+/* Botones de la derecha */
 .acciones {
-  margin-left: auto;
-
   display: flex;
   align-items: center;
-
-  gap: 18px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .iniciar {
-  color: white;
+  padding: 11px 13px;
+  color: #ffffff;
   text-decoration: none;
-
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 7px;
+  transition: 0.2s ease;
 }
 
 .iniciar:hover {
-  color: #dce7f2;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
-
-/* REGISTRARSE */
-
 .registrar {
-  background-color: #d8e1e9;
-
+  padding: 12px 18px;
   color: #193b64;
-
-  text-decoration: none;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  padding: 8px 16px;
-
+  background-color: #d8e1e9;
   border-radius: 7px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: 0.2s ease;
 }
 
 .registrar:hover {
-  background-color: white;
+  background-color: #ffffff;
+  transform: translateY(-1px);
 }
 
+/* Botón hamburguesa (oculto en escritorio) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
 
-/* CELULAR */
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #e8eef5;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
 
-@media (max-width: 900px) {
-
+/* --- Adaptación para pantallas pequeñas (Responsive) --- */
+@media (max-width: 1050px) {
   .nav-contenedor {
     padding: 0 20px;
+    min-height: 68px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* El contenedor pasa a ser un menú desplegable oculto por defecto */
+  .menu-acciones-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #143052;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Efecto de despliegue suave */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Cuando se abre el menú */
+  .menu-acciones-wrapper.abierto {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .menu {
-    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .menu a {
+    padding: 12px 15px;
+    font-size: 15px;
   }
 
   .acciones {
-    margin-left: auto;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
   }
 
+  .iniciar,
+  .registrar {
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+  }
 }

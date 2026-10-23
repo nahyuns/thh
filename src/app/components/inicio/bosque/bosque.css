@@ -1,4 +1,3 @@
-
 /* =========================
    ESTILO GENERAL
 ========================= */
@@ -113,7 +112,7 @@
   border: 1px solid #e5eaf0;
   border-radius: 9px;
   transition: transform 0.25s ease,
-              box-shadow 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
 .alojamiento-card:hover {
@@ -145,28 +144,36 @@
   transform: scale(1.04);
 }
 
-/* CORAZÓN */
-
-.favorito {
+/* =========================
+   Favoritos
+========================= */
+.boton-favorito {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 35px;
-  height: 35px;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.95);
+  border: none;
   border-radius: 50%;
+  background: white;
   color: #193b64;
-  font-size: 21px;
+  font-size: 25px;
+  line-height: 1;
   cursor: pointer;
-  transition: 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 2;
 }
 
-.favorito:hover {
-  background: #193b64;
-  color: #ffffff;
+.boton-favorito:hover {
+  transform: scale(1.1);
+}
+
+.boton-favorito.favorito-activo {
+  color: #e63946;
 }
 
 /* =========================
@@ -270,7 +277,7 @@
   margin: 0 auto;
 }
 
-.frase-contenido > span {
+.frase-contenido>span {
   display: block;
   margin-bottom: 15px;
   color: #3c73ad;

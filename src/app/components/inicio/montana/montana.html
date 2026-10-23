@@ -43,7 +43,7 @@
       </div>
 
       <span class="cantidad">
-        6 alojamientos
+        3 alojamientos
       </span>
 
     </div>
@@ -62,12 +62,13 @@
 
         <div class="card-imagen">
 
-          <img
-            src="assets/cabañavistaalcerro.jpg"
-            alt="Cabaña en Bariloche"
-          >
+          <img src="assets/montana1.jpg" alt="Cabaña en Bariloche">
 
-          <span class="favorito">♡</span>
+          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana1')"
+            [attr.aria-pressed]="Favorito('montana1')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana1')">
+            {{ Favorito('montana1') ? '♥' : '♡' }}
+          </button>
 
         </div>
 
@@ -115,12 +116,13 @@
 
         <div class="card-imagen">
 
-          <img
-            src="assets/refugiobosque.jpg"
-            alt="Refugio en Bariloche"
-          >
+          <img src="assets/montana2.jpg" alt="Refugio en Bariloche">
 
-          <span class="favorito">♡</span>
+          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana2')"
+            [attr.aria-pressed]="Favorito('montana2')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana2')">
+            {{ Favorito('montana2') ? '♥' : '♡' }}
+          </button>
 
         </div>
 
@@ -168,12 +170,13 @@
 
         <div class="card-imagen">
 
-          <img
-            src="assets/cabañahuapi.jpg"
-            alt="Cabaña en Dina Huapi"
-          >
+          <img src="assets/montana3.jpg" alt="Cabaña en Dina Huapi">
 
-          <span class="favorito">♡</span>
+          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana3')"
+            [attr.aria-pressed]="Favorito('montana3')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana3')">
+            {{ Favorito('montana3') ? '♥' : '♡' }}
+          </button>
 
         </div>
 
@@ -201,165 +204,6 @@
 
             <div class="precio">
               <strong>$92.000</strong>
-              <span>/ noche</span>
-            </div>
-
-            <a href="#" class="ver-mas">
-              Ver más →
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 4 · VILLA MASCARDI -->
-
-      <article class="alojamiento-card">
-
-        <div class="card-imagen">
-
-          <img
-            src="assets/casaentremontañas.jpg"
-            alt="Casa en Villa Mascardi"
-          >
-
-          <span class="favorito">♡</span>
-
-        </div>
-
-        <div class="card-contenido">
-
-          <div class="card-ubicacion">
-            Villa Mascardi · Río Negro
-          </div>
-
-          <h3>
-            Casa Entre Montañas
-          </h3>
-
-          <p class="card-descripcion">
-            Una casa rodeada de bosque y paisajes
-            naturales, ideal para una estadía tranquila.
-          </p>
-
-          <div class="card-info">
-            <span>5 huéspedes</span>
-            <span>3 habitaciones</span>
-          </div>
-
-          <div class="card-pie">
-
-            <div class="precio">
-              <strong>$125.000</strong>
-              <span>/ noche</span>
-            </div>
-
-            <a href="#" class="ver-mas">
-              Ver más →
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 5 · LAGO PUELO -->
-
-      <article class="alojamiento-card">
-
-        <div class="card-imagen">
-
-          <img
-            src="assets/refugiodelvlle.jpg"
-            alt="Cabaña cerca de Lago Puelo"
-          >
-
-          <span class="favorito">♡</span>
-
-        </div>
-
-        <div class="card-contenido">
-
-          <div class="card-ubicacion">
-            Lago Puelo · Chubut
-          </div>
-
-          <h3>
-            Refugio del Valle
-          </h3>
-
-          <p class="card-descripcion">
-            Un pequeño refugio entre montañas y bosque,
-            cerca de los paisajes de Lago Puelo.
-          </p>
-
-          <div class="card-info">
-            <span>2 huéspedes</span>
-            <span>1 habitación</span>
-          </div>
-
-          <div class="card-pie">
-
-            <div class="precio">
-              <strong>$78.000</strong>
-              <span>/ noche</span>
-            </div>
-
-            <a href="#" class="ver-mas">
-              Ver más →
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 6 · EL BOLSÓN -->
-
-      <article class="alojamiento-card">
-
-        <div class="card-imagen">
-
-          <img
-            src="assets/cabañadelvalle.jpg"
-            alt="Cabaña en El Bolsón"
-          >
-
-          <span class="favorito">♡</span>
-
-        </div>
-
-        <div class="card-contenido">
-
-          <div class="card-ubicacion">
-            El Bolsón · Río Negro
-          </div>
-
-          <h3>
-            Cabaña del Valle
-          </h3>
-
-          <p class="card-descripcion">
-            Un alojamiento cálido rodeado de naturaleza,
-            ideal para disfrutar de El Bolsón.
-          </p>
-
-          <div class="card-info">
-            <span>4 huéspedes</span>
-            <span>2 habitaciones</span>
-          </div>
-
-          <div class="card-pie">
-
-            <div class="precio">
-              <strong>$95.000</strong>
               <span>/ noche</span>
             </div>
 

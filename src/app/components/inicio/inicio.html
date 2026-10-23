@@ -1,8 +1,11 @@
 <main class="inicio">
 
+
     <section class="hero-inicio">
 
         <div class="hero-overlay"></div>
+
+        <!-- Texto principal -->
         <div class="hero-contenido">
 
             <span class="hero-etiqueta">
@@ -19,14 +22,86 @@
                 para hacer de cada viaje una experiencia especial.
             </p>
 
-            <a href="#" class="btn-principal">
-                Explorar alojamientos
-                <span>→</span>
-            </a>
+        </div>
+
+        <!-- Filtro de alojamientos -->
+        <div class="filtro-hero">
+
+            <div class="filtro-encabezado">
+                <span>ENCONTRÁ TU LUGAR</span>
+                <h2>¿A dónde querés ir?</h2>
+                <p>Elegí tu próximo destino.</p>
+            </div>
+
+            <form class="filtro-formulario" (ngSubmit)="buscarAlojamientos()">
+
+                <div class="campo-filtro">
+                    <label for="categoria">Categoría</label>
+
+                    <select id="categoria" name="categoria" [(ngModel)]="categoria" required>
+
+                        <option value="Playa">Playa</option>
+                        <option value="Bosque">Bosque</option>
+                        <option value="Montaña">Montaña</option>
+                        <option value="Ciudad">Ciudad</option>
+
+                    </select>
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="destino">Destino o ciudad</label>
+
+                    <select id="destino" name="destino" [(ngModel)]="destino" required>
+
+                        <option value="" disabled>Elegí un destino</option>
+                        <option value="Bariloche">Bariloche</option>
+                        <option value="Las Grutas">Las Grutas</option>
+                        <option value="El Bolsón">El Bolsón</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="San Martín de los Andes">San Martín de los Andes</option>
+                    </select>
+                </div>
+
+
+                <div class="campo-fechas">
+
+                    <div class="campo-filtro">
+                        <label for="entrada">Entrada</label>
+
+                        <input id="entrada" type="date" name="entrada" [(ngModel)]="entrada">
+                    </div>
+
+                    <div class="campo-filtro">
+                        <label for="salida">Salida</label>
+
+                        <input id="salida" type="date" name="salida" [(ngModel)]="salida">
+                    </div>
+
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="huespedes">Cantidad de personas</label>
+
+                    <select id="huespedes" name="huespedes" [(ngModel)]="huespedes">
+
+                        <option [ngValue]="1">1 persona</option>
+                        <option [ngValue]="2">2 personas</option>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="boton-filtro">
+                    Buscar alojamientos <span>→</span>
+                </button>
+
+            </form>
 
         </div>
 
     </section>
+
+
+
 
 
     <!-- =========================
@@ -70,9 +145,9 @@
 
                     <div class="carousel-slide">
 
-                        <a class="destino-card" routerLink="/montana" aria-label="Explorar alojamientos en la montaña">
+                        <a class="destino-card" routerLink="/montana" aria-label="Explorar Montaña">
 
-                            <img src="/assets/montaña1.jpg" alt="Montaña">
+                            <img src="/assets/montana.jpg" alt="Montaña">
 
                             <div class="destino-overlay"></div>
 
@@ -80,13 +155,16 @@
 
                                 <h3>Montaña</h3>
 
-                                <span>Explorar →</span>
+                                <span>
+                                    Explorar →
+                                </span>
+
                             </div>
 
                         </a>
 
 
-                        <a class="destino-card" routerLink="/ciudad" aria-label="Explorar alojamientos en la ciudad">
+                        <a class="destino-card" routerLink="/ciudad" aria-label="Explorar Ciudad">
 
                             <img src="assets/ciudad.jpg" alt="Ciudad">
 
@@ -111,7 +189,7 @@
 
                     <div class="carousel-slide">
 
-                        <a class="destino-card" routerLink="/playa" aria-label="Explorar alojamientos en la playa">
+                        <a class="destino-card" routerLink="/playa" aria-label="Explorar Playa">
 
                             <img src="/assets/playa.jpg" alt="Playa">
 
@@ -120,16 +198,14 @@
                             <div class="destino-info">
 
                                 <h3>Playa</h3>
-
                                 <span>
                                     Explorar →
                                 </span>
-
                             </div>
 
                         </a>
 
-                        <a class="destino-card" routerLink="/bosque" aria-label="Explorar alojamientos en el bosque">
+                        <a class="destino-card" routerLink="/bosque" aria-label="Explorar Bosque">
 
                             <img src="assets/bosque.jpg" alt="Bosque">
 
@@ -153,44 +229,44 @@
 
             </div>
 
-        <!-- FLECHAS -->
+            <!-- FLECHAS -->
 
-        <div class="carousel-controles">
+            <div class="carousel-controles">
 
-            <label for="slide-1" class="flecha flecha-izquierda flecha-slide-1">
-                ‹
-            </label>
+                <label for="slide-1" class="flecha flecha-izquierda flecha-slide-1">
+                    ‹
+                </label>
 
-            <label for="slide-2" class="flecha flecha-derecha flecha-slide-1">
-                ›
-            </label>
-
-
-            <label for="slide-1" class="flecha flecha-izquierda flecha-slide-2">
-                ‹
-            </label>
+                <label for="slide-2" class="flecha flecha-derecha flecha-slide-1">
+                    ›
+                </label>
 
 
-
-            <label for="slide-2" class="flecha flecha-izquierda flecha-slide-3">
-                ‹
-            </label>
-
-
-        </div>
+                <label for="slide-1" class="flecha flecha-izquierda flecha-slide-2">
+                    ‹
+                </label>
 
 
-        <!-- PUNTOS -->
 
-        <div class="carousel-puntos">
+                <label for="slide-2" class="flecha flecha-izquierda flecha-slide-3">
+                    ‹
+                </label>
 
-            <label for="slide-1" class="punto punto-1">
-            </label>
 
-            <label for="slide-2" class="punto punto-2">
-            </label>
+            </div>
 
-        </div>
+
+            <!-- PUNTOS -->
+
+            <div class="carousel-puntos">
+
+                <label for="slide-1" class="punto punto-1">
+                </label>
+
+                <label for="slide-2" class="punto punto-2">
+                </label>
+
+            </div>
 
         </div>
 
@@ -254,7 +330,7 @@
                 Explorá nuestras opciones de alojamiento.
             </p>
 
-            <a href="#" class="btn-claro">
+            <a href="alojamientos" class="btn-claro">
 
                 Ver alojamientos
 

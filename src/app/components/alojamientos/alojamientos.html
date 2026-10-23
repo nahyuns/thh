@@ -1,0 +1,354 @@
+<main class="pagina-alojamientos">
+
+  <!-- ENCABEZADO -->
+  <section class="encabezado-alojamientos">
+    <div class="encabezado-contenido">
+      <span class="etiqueta">DESCUBRÍ THH</span>
+      <h1>Encontrá tu próximo alojamiento</h1>
+      <p>
+        Desde las montañas de la Patagonia hasta las playas
+        argentinas, descubrí espacios pensados para cada viaje.
+      </p>
+    </div>
+  </section>
+
+  <!-- MONTAÑA -->
+  <section class="grupo-alojamientos">
+    <div class="grupo-titulo">
+      <div>
+        <span class="categoria-etiqueta">NATURALEZA Y AVENTURA</span>
+        <h2>Alojamientos de montaña</h2>
+        <p>Entre Bariloche y El Bolsón.</p>
+      </div>
+      <a href="/montana" class="ver-categoria">Ver categoría →</a>
+    </div>
+
+    <div class="alojamientos-grid">
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/montana1.jpg" alt="Cabaña Vista al Cerro">
+          <span class="categoria-chip">Montaña</span>
+          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana1')"
+            [attr.aria-pressed]="Favorito('montana1')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana1')">
+            {{ Favorito('montana1') ? '♥' : '♡' }}
+          </button>
+        </div>
+
+        <div class="card-contenido">
+          <span class="card-ubicacion">Bariloche · Río Negro</span>
+          <h3>Cabaña Vista al Cerro</h3>
+          <p>Una cabaña cálida rodeada de naturaleza y montañas.</p>
+          <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div><a href="/montana" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/montana2.jpg" alt="Refugio del Bosque">
+          <span class="categoria-chip">Montaña</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana2')"
+            [attr.aria-pressed]="Favorito('montana2')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana2')">
+            {{ Favorito('montana2') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Bariloche · Río Negro</span>
+          <h3>Refugio del Bosque</h3>
+          <p>Un espacio tranquilo entre árboles y paisajes de montaña.</p>
+          <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$110.000</strong><span>/ noche</span></div><a href="/montana"
+              class="ver-mas">Ver más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/montana3.jpg" alt="Cabaña Los Coihues">
+          <span class="categoria-chip">Montaña</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana3')"
+            [attr.aria-pressed]="Favorito('montana3')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('montana3')">
+            {{ Favorito('montana3') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Dina Huapi · Río Negro</span>
+          <h3>Cabaña Los Coihues</h3>
+          <p>Un alojamiento natural a pocos minutos de Bariloche.</p>
+          <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div><a href="/montana" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CIUDAD -->
+  <section class="grupo-alojamientos">
+    <div class="grupo-titulo">
+      <div>
+        <span class="categoria-etiqueta">CULTURA Y GASTRONOMÍA</span>
+        <h2>Alojamientos en la ciudad</h2>
+        <p>Entre Buenos Aires y Mar del Plata.</p>
+      </div>
+      <a href="/ciudad" class="ver-categoria">Ver categoría →</a>
+    </div>
+
+    <div class="alojamientos-grid">
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/ciudad1.jpg" alt="Departamento Palermo">
+          <span class="categoria-chip">Ciudad</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad1')"
+            [attr.aria-pressed]="Favorito('ciudad1')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('ciudad1')">
+            {{ Favorito('ciudad1') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Buenos Aires · CABA</span>
+          <h3>Departamento Palermo</h3>
+          <p>Un espacio moderno cerca de restaurantes, parques y atractivos.</p>
+          <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$75.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/ciudad2.jpg" alt="Loft en San Telmo">
+          <span class="categoria-chip">Ciudad</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad2')"
+            [attr.aria-pressed]="Favorito('ciudad2')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('ciudad2')">
+            {{ Favorito('ciudad2') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Buenos Aires · CABA</span>
+          <h3>Loft en San Telmo</h3>
+          <p>Un espacio con personalidad en un barrio tradicional.</p>
+          <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$82.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/ciudad3.jpg" alt="Departamento Centro en La Plata">
+          <span class="categoria-chip">Ciudad</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad3')"
+            [attr.aria-pressed]="Favorito('ciudad3')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('ciudad3')">
+            {{ Favorito('ciudad3') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">La Plata · Buenos Aires</span>
+          <h3>Departamento Centro</h3>
+          <p>Un alojamiento luminoso para conocer la ciudad.</p>
+          <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$65.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PLAYA -->
+  <section class="grupo-alojamientos">
+    <div class="grupo-titulo">
+      <div>
+        <span class="categoria-etiqueta">MAR Y DESCANSO</span>
+        <h2>Alojamientos de playa</h2>
+        <p>Desde Las Grutas hasta Mar del Plata.</p>
+      </div>
+      <a href="/playa" class="ver-categoria">Ver categoría →</a>
+    </div>
+
+    <div class="alojamientos-grid">
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/playa1.jpg" alt="Departamento Vista al Mar">
+          <span class="categoria-chip">Playa</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa1')"
+            [attr.aria-pressed]="Favorito('playa1')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('playa1')">
+            {{ Favorito('playa1') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Las Grutas · Río Negro</span>
+          <h3>Departamento Vista al Mar</h3>
+          <p>Un espacio luminoso cerca de la playa y el mar.</p>
+          <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/playa2.jpg" alt="Refugio de la Costa">
+          <span class="categoria-chip">Playa</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa2')"
+            [attr.aria-pressed]="Favorito('playa2')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('playa2')">
+            {{ Favorito('playa2') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">San Antonio Oeste · Río Negro</span>
+          <h3>Refugio de la Costa</h3>
+          <p>Un alojamiento tranquilo para descubrir la costa rionegrina.</p>
+          <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$78.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/playa3.jpg" alt="Casa Arena">
+          <span class="categoria-chip">Playa</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa3')"
+            [attr.aria-pressed]="Favorito('playa3')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('playa3')">
+            {{ Favorito('playa3') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Monte Hermoso · Buenos Aires</span>
+          <h3>Casa Arena</h3>
+          <p>Una casa cómoda para disfrutar de unos días cerca del mar.</p>
+          <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$95.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BOSQUE -->
+  <section class="grupo-alojamientos">
+    <div class="grupo-titulo">
+      <div>
+        <span class="categoria-etiqueta">NATURALEZA Y TRANQUILIDAD</span>
+        <h2>Alojamientos en el bosque</h2>
+        <p>Entre Bariloche y El Bolsón.</p>
+      </div>
+      <a href="/bosque" class="ver-categoria">Ver categoría →</a>
+    </div>
+
+    <div class="alojamientos-grid">
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/bosque1.jpg" alt="Cabaña Bosque Andino">
+          <span class="categoria-chip">Bosque</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque1')"
+            [attr.aria-pressed]="Favorito('bosque1')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('bosque1')">
+            {{ Favorito('bosque1') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Bariloche · Río Negro</span>
+          <h3>Cabaña Bosque Andino</h3>
+          <p>Una cabaña cálida entre árboles nativos y naturaleza.</p>
+          <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$88.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/bosque2.jpg" alt="Refugio Los Coihues">
+          <span class="categoria-chip">Bosque</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque2')"
+            [attr.aria-pressed]="Favorito('bosque2')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('bosque2')">
+            {{ Favorito('bosque2') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Bariloche · Río Negro</span>
+          <h3>Refugio Los Coihues</h3>
+          <p>Un refugio de madera para disfrutar de una escapada tranquila.</p>
+          <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$115.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="alojamiento-card">
+        <div class="card-imagen">
+          <img src="assets/bosque3.jpg" alt="Cabaña Raíces del Sur">
+          <span class="categoria-chip">Bosque</span>
+           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque3')"
+            [attr.aria-pressed]="Favorito('bosque3')" aria-label="Agregar a favoritos"
+            (click)="alternarFavorito('bosque3')">
+            {{ Favorito('bosque3') ? '♥' : '♡' }}
+          </button>
+        </div>
+        <div class="card-contenido">
+          <span class="card-ubicacion">Dina Huapi · Río Negro</span>
+          <h3>Cabaña Raíces del Sur</h3>
+          <p>Un espacio acogedor con jardín y árboles.</p>
+          <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
+          <div class="card-pie">
+            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
+              más →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="cierre-alojamientos">
+    <span>THH</span>
+    <h2>Tu próximo viaje empieza acá.</h2>
+    <p>Encontrá el lugar ideal para tu próxima experiencia.</p>
+    <a href="/sobre-nosotros" class="btn-principal">
+      Conocé THH <span>→</span>
+    </a>
+  </section>
+
+</main>

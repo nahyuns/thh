@@ -1,28 +1,50 @@
 <nav class="navbar-hospedaje">
-
   <div class="nav-contenedor">
 
-    <!-- LOGO -->
-    <a href="#" class="marca">
+    <!-- Marca / Logo -->
+    <a routerLink="/" class="marca">
       <img src="assets/logo.png" alt="Hospeda">
     </a>
 
-    <!-- MENÚ -->
-    <div class="menu">
-      <a href="inicio" class="activo">Inicio</a>
-      <a href="#">Alojamientos</a>
-     <a href="sobrenosotros">Sobre nosotros</a>
-      <a routerLink="/publica-tu-alojamiento">Publicá tu alojamiento</a>
-      <a href="ayudacontacto">Ayuda y contacto</a>
-      
-      
-     
-    </div>
+    <!-- Botón Hamburguesa para Móviles -->
+    <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuAbierto" aria-label="Abrir menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-    <!-- ACCIONES -->
-    <div class="acciones">
-      <a routerLink="/inicio-sesion" class="registrar">Iniciar sesión</a>
-      <a routerLink="/registrarse" class="registrar">Registrarme</a>
+    <!-- Contenedor desplegable (Menú + Acciones) -->
+    <div class="menu-acciones-wrapper" [class.abierto]="menuAbierto">
+      
+      <!-- Menú central -->
+      <div class="menu">
+        <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
+          Inicio
+        </a>
+        <a routerLink="/alojamientos" routerLinkActive="activo" (click)="cerrarMenu()">
+          Alojamientos
+        </a>
+        <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
+          Favoritos
+        </a>
+        <a routerLink="/sobrenosotros" routerLinkActive="activo" (click)="cerrarMenu()">
+          Sobre nosotros
+        </a>
+        <a routerLink="/ayudacontacto" routerLinkActive="activo" (click)="cerrarMenu()">
+          Ayuda y contacto
+        </a>
+      </div>
+
+      <!-- Botones de la derecha -->
+      <div class="acciones">
+        <a routerLink="/inicio-sesion" class="iniciar" (click)="cerrarMenu()">
+          Iniciar sesión
+        </a>
+        <a routerLink="/registrarse" class="registrar" (click)="cerrarMenu()">
+          Registrarme
+        </a>
+      </div>
+
     </div>
 
   </div>
