@@ -1,3 +1,4 @@
+
 <main class="pagina-alojamientos">
 
   <!-- ENCABEZADO -->
@@ -25,15 +26,21 @@
 
     <div class="alojamientos-grid">
 
+      <!-- MONTAÑA 1 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/montana1.jpg" alt="Cabaña Vista al Cerro">
           <span class="categoria-chip">Montaña</span>
-          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana1')"
-            [attr.aria-pressed]="Favorito('montana1')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('montana1')"
+            [attr.aria-pressed]="Favorito('montana1')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('montana1')">
             {{ Favorito('montana1') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'montana1']" class="ver-mas">
+            Ver más →
+          </a>
         </div>
 
         <div class="card-contenido">
@@ -42,21 +49,25 @@
           <p>Una cabaña cálida rodeada de naturaleza y montañas.</p>
           <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div><a href="/montana" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'montana1']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- MONTAÑA 2 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/montana2.jpg" alt="Refugio del Bosque">
           <span class="categoria-chip">Montaña</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana2')"
-            [attr.aria-pressed]="Favorito('montana2')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('montana2')"
+            [attr.aria-pressed]="Favorito('montana2')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('montana2')">
             {{ Favorito('montana2') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'montana2']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Bariloche · Río Negro</span>
@@ -64,21 +75,25 @@
           <p>Un espacio tranquilo entre árboles y paisajes de montaña.</p>
           <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$110.000</strong><span>/ noche</span></div><a href="/montana"
-              class="ver-mas">Ver más →</a>
+            <div class="precio"><strong>$110.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'montana2']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- MONTAÑA 3 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/montana3.jpg" alt="Cabaña Los Coihues">
           <span class="categoria-chip">Montaña</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('montana3')"
-            [attr.aria-pressed]="Favorito('montana3')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('montana3')"
+            [attr.aria-pressed]="Favorito('montana3')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('montana3')">
             {{ Favorito('montana3') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'montana3']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Dina Huapi · Río Negro</span>
@@ -86,8 +101,8 @@
           <p>Un alojamiento natural a pocos minutos de Bariloche.</p>
           <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div><a href="/montana" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'montana3']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
@@ -108,15 +123,19 @@
 
     <div class="alojamientos-grid">
 
+      <!-- CIUDAD 1 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/ciudad1.jpg" alt="Departamento Palermo">
           <span class="categoria-chip">Ciudad</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad1')"
-            [attr.aria-pressed]="Favorito('ciudad1')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('ciudad1')"
+            [attr.aria-pressed]="Favorito('ciudad1')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('ciudad1')">
             {{ Favorito('ciudad1') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'ciudad1']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Buenos Aires · CABA</span>
@@ -124,21 +143,25 @@
           <p>Un espacio moderno cerca de restaurantes, parques y atractivos.</p>
           <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$75.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$75.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'ciudad1']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- CIUDAD 2 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/ciudad2.jpg" alt="Loft en San Telmo">
           <span class="categoria-chip">Ciudad</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad2')"
-            [attr.aria-pressed]="Favorito('ciudad2')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('ciudad2')"
+            [attr.aria-pressed]="Favorito('ciudad2')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('ciudad2')">
             {{ Favorito('ciudad2') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'ciudad2']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Buenos Aires · CABA</span>
@@ -146,21 +169,25 @@
           <p>Un espacio con personalidad en un barrio tradicional.</p>
           <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$82.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$82.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'ciudad2']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- CIUDAD 3 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/ciudad3.jpg" alt="Departamento Centro en La Plata">
           <span class="categoria-chip">Ciudad</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('ciudad3')"
-            [attr.aria-pressed]="Favorito('ciudad3')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('ciudad3')"
+            [attr.aria-pressed]="Favorito('ciudad3')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('ciudad3')">
             {{ Favorito('ciudad3') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'ciudad3']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">La Plata · Buenos Aires</span>
@@ -168,8 +195,8 @@
           <p>Un alojamiento luminoso para conocer la ciudad.</p>
           <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$65.000</strong><span>/ noche</span></div><a href="/ciudad" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$65.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'ciudad3']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
@@ -190,15 +217,19 @@
 
     <div class="alojamientos-grid">
 
+      <!-- PLAYA 1 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/playa1.jpg" alt="Departamento Vista al Mar">
           <span class="categoria-chip">Playa</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa1')"
-            [attr.aria-pressed]="Favorito('playa1')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('playa1')"
+            [attr.aria-pressed]="Favorito('playa1')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('playa1')">
             {{ Favorito('playa1') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'playa1']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Las Grutas · Río Negro</span>
@@ -206,21 +237,25 @@
           <p>Un espacio luminoso cerca de la playa y el mar.</p>
           <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$85.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'playa1']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- PLAYA 2 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/playa2.jpg" alt="Refugio de la Costa">
           <span class="categoria-chip">Playa</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa2')"
-            [attr.aria-pressed]="Favorito('playa2')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('playa2')"
+            [attr.aria-pressed]="Favorito('playa2')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('playa2')">
             {{ Favorito('playa2') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'playa2']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">San Antonio Oeste · Río Negro</span>
@@ -228,21 +263,25 @@
           <p>Un alojamiento tranquilo para descubrir la costa rionegrina.</p>
           <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$78.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$78.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'playa2']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- PLAYA 3 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/playa3.jpg" alt="Casa Arena">
           <span class="categoria-chip">Playa</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa3')"
-            [attr.aria-pressed]="Favorito('playa3')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('playa3')"
+            [attr.aria-pressed]="Favorito('playa3')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('playa3')">
             {{ Favorito('playa3') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'playa3']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Monte Hermoso · Buenos Aires</span>
@@ -250,8 +289,8 @@
           <p>Una casa cómoda para disfrutar de unos días cerca del mar.</p>
           <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$95.000</strong><span>/ noche</span></div><a href="/playa" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$95.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'playa3']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
@@ -272,15 +311,19 @@
 
     <div class="alojamientos-grid">
 
+      <!-- BOSQUE 1 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/bosque1.jpg" alt="Cabaña Bosque Andino">
           <span class="categoria-chip">Bosque</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque1')"
-            [attr.aria-pressed]="Favorito('bosque1')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('bosque1')"
+            [attr.aria-pressed]="Favorito('bosque1')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('bosque1')">
             {{ Favorito('bosque1') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'bosque1']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Bariloche · Río Negro</span>
@@ -288,21 +331,25 @@
           <p>Una cabaña cálida entre árboles nativos y naturaleza.</p>
           <div class="card-info"><span>2 huéspedes</span><span>1 habitación</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$88.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$88.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'bosque1']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- BOSQUE 2 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/bosque2.jpg" alt="Refugio Los Coihues">
           <span class="categoria-chip">Bosque</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque2')"
-            [attr.aria-pressed]="Favorito('bosque2')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('bosque2')"
+            [attr.aria-pressed]="Favorito('bosque2')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('bosque2')">
             {{ Favorito('bosque2') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'bosque2']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Bariloche · Río Negro</span>
@@ -310,21 +357,25 @@
           <p>Un refugio de madera para disfrutar de una escapada tranquila.</p>
           <div class="card-info"><span>4 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$115.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$115.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'bosque2']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
 
+      <!-- BOSQUE 3 -->
       <article class="alojamiento-card">
         <div class="card-imagen">
           <img src="assets/bosque3.jpg" alt="Cabaña Raíces del Sur">
           <span class="categoria-chip">Bosque</span>
-           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque3')"
-            [attr.aria-pressed]="Favorito('bosque3')" aria-label="Agregar a favoritos"
+          <button type="button" class="boton-favorito"
+            [class.favorito-activo]="Favorito('bosque3')"
+            [attr.aria-pressed]="Favorito('bosque3')"
+            aria-label="Agregar a favoritos"
             (click)="alternarFavorito('bosque3')">
             {{ Favorito('bosque3') ? '♥' : '♡' }}
           </button>
+          <a [routerLink]="['/detallealojamiento', 'bosque3']" class="ver-mas">Ver más →</a>
         </div>
         <div class="card-contenido">
           <span class="card-ubicacion">Dina Huapi · Río Negro</span>
@@ -332,8 +383,8 @@
           <p>Un espacio acogedor con jardín y árboles.</p>
           <div class="card-info"><span>3 huéspedes</span><span>2 habitaciones</span></div>
           <div class="card-pie">
-            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div><a href="/bosque" class="ver-mas">Ver
-              más →</a>
+            <div class="precio"><strong>$92.000</strong><span>/ noche</span></div>
+            <a [routerLink]="['/detallealojamiento', 'bosque3']" class="ver-mas">Ver más →</a>
           </div>
         </div>
       </article>
