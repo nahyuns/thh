@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 import { Inicio } from './components/inicio/inicio';
 import { Montana } from './components/inicio/montana/montana';
@@ -8,6 +9,7 @@ import { Ayudacontacto } from './components/ayudacontacto/ayudacontacto';
 import { InicioSesion } from './inicio-sesion/inicio-sesion';
 import { Registrarse } from './registrarse/registrarse';
 import { Sobrenosotros } from './components/inicio/sobrenosotros/sobrenosotros/sobrenosotros';
+import { PublicaTuAlojamiento } from './components/publica-tu-alojamiento/publica-tu-alojamiento';
 import { Alojamientos } from './components/alojamientos/alojamientos';
 // Importamos las vistas del administrador.
 import { InicioAdmin } from './components/vista-admin/inicio-admin/inicio-admin';
@@ -18,10 +20,10 @@ import { PublicaTuAlojamientoAdmin } from './components/vista-admin/publica-tu-a
 import { ReservasAdmin } from './components/vista-admin/reservas-admin/reservas-admin';
 
 export const routes: Routes = [
-  //muestra el inicio por defecto
+  // Muestra el inicio por defecto
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 
-  //creamos rutas definidas
+  // Rutas principales
   { path: 'inicio', component: Inicio },
   { path: 'montana', component: Montana },
   { path: 'ciudad', component: Ciudad },
@@ -29,9 +31,9 @@ export const routes: Routes = [
   { path: 'bosque', component: Bosque },
   { path: 'ayudacontacto', component: Ayudacontacto },
   { path: 'inicio-sesion', component: InicioSesion },
-  { path: 'registrarse',  component: Registrarse, },
-  {path: 'sobrenosotros', component: Sobrenosotros},
-  {path: 'alojamientos', component: Alojamientos},
+  { path: 'registrarse', component: Registrarse, },
+  { path: 'sobrenosotros', component: Sobrenosotros },
+  { path: 'alojamientos', component: Alojamientos },
   // Rutas independientes del administrador.
   // Cada dirección carga directamente su componente, sin rutas hijas.
   { path: 'admin', component: InicioAdmin },
@@ -40,8 +42,15 @@ export const routes: Routes = [
   { path: 'admin/pagos-cobros', component: PagosCobrosAdmin },
   { path: 'admin/ayuda', component: AyudaAdmin },
   { path: 'admin/publica-tu-alojamiento', component: PublicaTuAlojamientoAdmin },
-  
+
   //captura cualquier URL no definida
+  { path: 'registrarse', component: Registrarse },
+  { path: 'sobrenosotros', component: Sobrenosotros },
+  { path: 'publica-tu-alojamiento', component: PublicaTuAlojamiento },
+  { path: 'alojamientos', component: Alojamientos },
+
+  // Captura cualquier URL no definida
   { path: '**', redirectTo: 'inicio' },
 ];
+
 

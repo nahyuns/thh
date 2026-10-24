@@ -1,0 +1,256 @@
+<!-- container: centra el contenido y le da un ancho máximo -->
+<div class="container py-5">
+
+  <!-- ========== 1. ENCABEZADO ========== -->
+
+  <h1 class="titulo-thh">Publicá tu alojamiento</h1>
+  <p class="fs-5 text-secondary">Compartí tu espacio y empezá a recibir huéspedes.</p>
+
+  <!-- ========== 2. INDICADOR DE PASOS ========== -->
+  <!-- d-flex: pone los pasos en fila. gap-3: separación entre ellos -->
+  <div class="d-flex gap-3 my-4">
+
+    <!-- paso actual (activo) -->
+    <div class="paso-thh paso-activo flex-fill">
+      <span class="numero-paso">1</span>
+      <div class="mt-2">1. Información</div>
+    </div>
+
+    <!-- pasos siguientes -->
+    <div class="paso-thh flex-fill">
+      <span class="numero-paso">2</span>
+      <div class="mt-2">2. Fotos y servicios</div>
+    </div>
+
+    <div class="paso-thh flex-fill">
+      <span class="numero-paso">3</span>
+      <div class="mt-2">3. Precio y publicación</div>
+    </div>
+
+  </div>
+
+  <!-- ========== 3. TARJETA DEL FORMULARIO ========== -->
+  <!-- card: caja blanca con bordes. p-4: espacio interno -->
+  <form class="card tarjeta-thh p-4">
+
+    <!-- row: fila de Bootstrap. col-md-6: cada columna ocupa la mitad (en celular se apilan) -->
+    <div class="row g-4">
+
+      <!-- ----- COLUMNA IZQUIERDA ----- -->
+      <div class="col-md-6">
+
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="nombre" class="form-label fw-bold">Nombre del alojamiento</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Ej. Cabaña Los Álamos">
+        </div>
+
+        <!-- Tipo (lista desplegable) -->
+        <div class="mb-3">
+          <label for="tipo" class="form-label fw-bold">Tipo de alojamiento</label>
+          <select id="tipo" class="form-select">
+            <option value="">Seleccioná una opción</option>
+            <option>Cabaña</option>
+            <option>Casa</option>
+            <option>Departamento</option>
+            <option>Habitación</option>
+          </select>
+        </div>
+
+        <!-- Categoría: botones donde solo se puede elegir uno -->
+        <!-- btn-check esconde el radio y deja el label como botón -->
+        <div class="mb-3">
+          <span class="form-label fw-bold d-block">Categoría</span>
+          <div class="row g-2">
+
+            <div class="col-3">
+              <input type="radio" class="btn-check" name="categoria" id="cat-montana" checked>
+              <label class="btn btn-categoria w-100" for="cat-montana">
+                <span class="d-block fs-3"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                </span>Montaña
+              </label>
+            </div>
+
+            <div class="col-3">
+              <input type="radio" class="btn-check" name="categoria" id="cat-playa">
+              <label class="btn btn-categoria w-100" for="cat-playa">
+                <span class="d-block fs-3"><i class="bi bi-tsunami"></i></span>Playa
+              </label>
+            </div>
+
+            <div class="col-3">
+              <input type="radio" class="btn-check" name="categoria" id="cat-ciudad">
+              <label class="btn btn-categoria w-100" for="cat-ciudad">
+                <span class="d-block fs-3"><i class="bi bi-buildings"></i></span>Ciudad
+              </label>
+            </div>
+
+            <div class="col-3">
+              <input type="radio" class="btn-check" name="categoria" id="cat-bosque">
+              <label class="btn btn-categoria w-100" for="cat-bosque">
+                <span class="d-block fs-3"><i class="bi bi-tree"></i></span>Bosque
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-3">
+          <label for="descripcion" class="form-label fw-bold">Descripción</label>
+          <textarea id="descripcion" class="form-control" rows="5"
+            placeholder="Contá qué hace especial a tu alojamiento..."></textarea>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label fw-bold">Ubicación</label>
+          <input type="text" id="ubicacion" class="form-control" placeholder="Ciudad, provincia">
+        </div>
+
+      </div>
+
+      <!-- ----- COLUMNA DERECHA ----- -->
+      <div class="col-md-6">
+
+        <!-- Zona para subir fotos (borde punteado definido en el CSS) -->
+        <label for="fotos" class="zona-fotos d-block text-center mb-4">
+          <span class="d-block fs-1"><i class="bi bi-image"></i></span>
+          <span class="d-block my-2">Arrastrá tus fotos acá o <u class="text-info-thh">seleccioná archivos</u></span>
+          <small class="text-secondary">Agregá hasta 10 fotos. La primera será la portada.</small>
+          <!-- d-none: esconde el botón feo del navegador -->
+          <input type="file" id="fotos" class="d-none" accept="image/*" multiple>
+        </label>
+
+        <!-- Capacidad, habitaciones, baños y camas: 2 por fila -->
+        <div class="row g-3 mb-3">
+          <div class="col-6">
+            <label for="huespedes" class="form-label fw-bold">Capacidad de huéspedes</label>
+            <input type="number" id="huespedes" class="form-control" value="1" min="1">
+          </div>
+          <div class="col-6">
+            <label for="habitaciones" class="form-label fw-bold">Habitaciones</label>
+            <input type="number" id="habitaciones" class="form-control" value="1" min="1">
+          </div>
+          <div class="col-6">
+            <label for="banos" class="form-label fw-bold">Baños</label>
+            <input type="number" id="banos" class="form-control" value="1" min="1">
+          </div>
+          <div class="col-6">
+            <label for="camas" class="form-label fw-bold">Camas</label>
+            <input type="number" id="camas" class="form-control" value="1" min="1">
+          </div>
+        </div>
+
+        <!-- Precio -->
+        <div class="mb-3">
+          <label for="precio" class="form-label fw-bold">Precio por noche ($ARS)</label>
+          <input type="number" id="precio" class="form-control" placeholder="Ej. 45000">
+        </div>
+
+        <!-- Preguntas Sí / No: btn-group junta los dos botones -->
+        <div class="mb-3">
+          <span class="form-label fw-bold d-block">¿Está amueblado?</span>
+          <div class="btn-group">
+            <input type="radio" class="btn-check" name="amueblado" id="amueblado-si" checked>
+            <label class="btn btn-sino" for="amueblado-si">Sí</label>
+            <input type="radio" class="btn-check" name="amueblado" id="amueblado-no">
+            <label class="btn btn-sino" for="amueblado-no">No</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <span class="form-label fw-bold d-block">¿Aceptás mascotas?</span>
+          <div class="btn-group">
+            <input type="radio" class="btn-check" name="mascotas" id="mascotas-si" checked>
+            <label class="btn btn-sino" for="mascotas-si">Sí</label>
+            <input type="radio" class="btn-check" name="mascotas" id="mascotas-no">
+            <label class="btn btn-sino" for="mascotas-no">No</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <span class="form-label fw-bold d-block">¿Pedís una seña para reservar?</span>
+          <div class="btn-group">
+            <input type="radio" class="btn-check" name="sena" id="sena-si" checked>
+            <label class="btn btn-sino" for="sena-si">Sí</label>
+            <input type="radio" class="btn-check" name="sena" id="sena-no">
+            <label class="btn btn-sino" for="sena-no">No</label>
+          </div>
+        </div>
+
+        <!-- Porcentaje de seña -->
+        <div class="mb-3">
+          <label for="porcentaje" class="form-label fw-bold">Porcentaje de seña</label>
+          <select id="porcentaje" class="form-select">
+            <option value="">Seleccioná un porcentaje</option>
+            <option>10%</option>
+            <option>20%</option>
+            <option>30%</option>
+            <option>50%</option>
+          </select>
+        </div>
+
+        <!-- Servicios: checkboxes en 2 columnas -->
+        <div class="mb-3">
+          <span class="form-label fw-bold d-block">Servicios</span>
+          <div class="row">
+
+            <div class="col-6">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="wifi">
+                <label class="form-check-label" for="wifi">Wi-Fi</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cocina">
+                <label class="form-check-label" for="cocina">Cocina</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="estacionamiento">
+                <label class="form-check-label" for="estacionamiento">Estacionamiento</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="calefaccion">
+                <label class="form-check-label" for="calefaccion">Calefacción</label>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="aire">
+                <label class="form-check-label" for="aire">Aire acondicionado</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="pileta">
+                <label class="form-check-label" for="pileta">Pileta</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="parrilla">
+                <label class="form-check-label" for="parrilla">Parrilla</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="ropa-cama">
+                <label class="form-check-label" for="ropa-cama">Ropa de cama</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== 4. AVISO ========== -->
+    <!-- alert: cartel de Bootstrap. aviso-thh le pone el color beige -->
+    <div class="alert aviso-thh mt-4 mb-3">
+      <i class="bi bi-exclamation-circle-fill"></i>Antes de publicar, revisá que los datos y las fotos sean correctos.
+    </div>
+
+    <!-- ========== 5. BOTÓN ========== -->
+    <!-- text-end: lo manda a la derecha. Solo queda "Continuar" -->
+    <div class="text-end">
+      <button type="submit" class="btn btn-thh px-5">Continuar</button>
+    </div>
+
+  </form>
+</div>
