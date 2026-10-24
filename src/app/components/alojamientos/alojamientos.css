@@ -1,114 +1,156 @@
-/* =========================
-   GENERAL
-========================= */
+
+/* ================================
+   PÁGINA DE ALOJAMIENTOS
+================================ */
 
 .pagina-alojamientos {
-  width: 100%;
   background: #ffffff;
   color: #193b64;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 40px;
 }
 
 .pagina-alojamientos * {
   box-sizing: border-box;
 }
 
-/* =========================
+/* ================================
    ENCABEZADO
-========================= */
+================================ */
 
 .encabezado-alojamientos {
-  background: #f6f8fa;
-  border-bottom: 1px solid #e8edf2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 60px 24px;
+  text-align: center;
+  background:
+    linear-gradient(
+      rgba(25, 59, 100, 0.88),
+      rgba(25, 59, 100, 0.88)
+    ),
+    url('/assets/hero.jpg') center/cover no-repeat;
 }
 
 .encabezado-contenido {
-  max-width: 1150px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 75px 25px 70px;
 }
 
-.etiqueta,
-.categoria-etiqueta {
-  display: block;
-  margin-bottom: 13px;
-  color: #3c73ad;
-  font-size: 11px;
+.etiqueta {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #d8e1e9;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1.8px;
+  letter-spacing: 3px;
 }
 
-.encabezado-contenido h1 {
-  margin: 0 0 16px;
-  font-size: clamp(36px, 5vw, 52px);
-  line-height: 1.12;
-  font-weight: 600;
-  letter-spacing: -1px;
+.encabezado-alojamientos h1 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.encabezado-contenido p {
-  max-width: 610px;
-  margin: 0;
-  color: #718092;
+.encabezado-alojamientos p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #f0f4f8;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-/* =========================
+/* ================================
+   RESUMEN DE BÚSQUEDA
+================================ */
+
+.resumen-busqueda {
+  max-width: 1200px;
+  margin: 35px auto 10px;
+  padding: 25px 30px;
+  background: #f4f7fa;
+  border: 1px solid #d8e1e9;
+  border-radius: 14px;
+}
+
+.resumen-busqueda h2 {
+  margin: 0 0 18px;
+  color: #193b64;
+  font-size: 23px;
+}
+
+.resumen-busqueda p {
+  display: inline-block;
+  margin: 5px 22px 5px 0;
+  color: #536579;
+  font-size: 14px;
+}
+
+.resumen-busqueda strong {
+  color: #193b64;
+}
+
+/* ================================
    GRUPOS DE ALOJAMIENTOS
-========================= */
+================================ */
 
 .grupo-alojamientos {
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 65px 25px 15px;
+  max-width: 1200px;
+  margin: 65px auto;
+  padding: 0 24px;
 }
 
 .grupo-titulo {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 25px;
   margin-bottom: 30px;
 }
 
-.grupo-titulo .categoria-etiqueta {
-  margin-bottom: 8px;
+.categoria-etiqueta {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #3c73ad;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .grupo-titulo h2 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: #193b64;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
 }
 
 .grupo-titulo p {
   margin: 0;
   color: #718092;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 .ver-categoria {
   flex-shrink: 0;
-  padding-bottom: 4px;
   color: #3c73ad;
-  text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  transition: color 0.2s;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .ver-categoria:hover {
   color: #193b64;
 }
 
-/* =========================
-   GRILLA
-========================= */
+/* ================================
+   CUADRÍCULA DE TARJETAS
+================================ */
 
 .alojamientos-grid {
   display: grid;
@@ -116,33 +158,36 @@
   gap: 25px;
 }
 
-/* =========================
+/* ================================
    TARJETAS
-========================= */
+================================ */
 
 .alojamiento-card {
   min-width: 0;
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid #e5eaf0;
-  border-radius: 9px;
-  transition: transform 0.25s ease,
+  border: 1px solid #e1e7ed;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(25, 59, 100, 0.07);
+  transition:
+    transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .alojamiento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(25, 59, 100, 0.10);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(25, 59, 100, 0.13);
 }
 
-/* IMAGEN */
+/* ================================
+   IMÁGENES
+================================ */
 
 .card-imagen {
   position: relative;
-  width: 100%;
-  height: 215px;
+  height: 230px;
   overflow: hidden;
-  background: #edf2f6;
+  background: #d8e1e9;
 }
 
 .card-imagen img {
@@ -154,169 +199,211 @@
 }
 
 .alojamiento-card:hover .card-imagen img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* =========================
-   BOTÓN DE FAVORITO
-   *======================== */
+/* Etiqueta de categoría */
+
+.categoria-chip {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 7px 12px;
+  color: #193b64;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ================================
+   BOTÓN FAVORITOS
+================================ */
 
 .boton-favorito {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  color: #193b64;
+  background: #ffffff;
   border: none;
   border-radius: 50%;
-  background: white;
-  color: #193b64;
-  font-size: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease, color 0.2s ease;
-  z-index: 2;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .boton-favorito:hover {
-  transform: scale(1.1);
+  color: #c43c55;
+  transform: scale(1.08);
 }
 
 .boton-favorito.favorito-activo {
-  color: #e63946;
+  color: #ffffff;
+  background: #c43c55;
 }
 
-/* ETIQUETA DE CATEGORÍA */
-
-.categoria-chip {
-  position: absolute;
-  top: 13px;
-  left: 13px;
-  padding: 7px 11px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 5px;
-  color: #193b64;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-/* CONTENIDO */
+/* ================================
+   CONTENIDO DE LA TARJETA
+================================ */
 
 .card-contenido {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
 }
 
 .card-ubicacion {
-  display: block;
-  margin-bottom: 8px;
-  color: #3c73ad;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #718092;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .card-contenido h3 {
   margin: 0 0 10px;
   color: #193b64;
   font-size: 19px;
-  font-weight: 600;
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-.card-contenido>p {
-  min-height: 59px;
-  margin: 0 0 17px;
+.card-contenido p {
+  min-height: 48px;
+  margin: 0 0 18px;
   color: #718092;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* INFORMACIÓN */
+/* Información de huéspedes */
 
 .card-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 15px;
-  padding: 13px 0;
-  border-top: 1px solid #edf0f3;
-  border-bottom: 1px solid #edf0f3;
-  color: #718092;
-  font-size: 11px;
+  gap: 8px 16px;
+  padding: 14px 0;
+  border-top: 1px solid #edf0f4;
+  color: #536579;
+  font-size: 12px;
 }
 
-/* PRECIO */
+.card-info span {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ================================
+   PRECIO Y ENLACE
+================================ */
 
 .card-pie {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding-top: 17px;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f4;
 }
 
 .precio {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .precio strong {
   color: #193b64;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .precio span {
   color: #718092;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .ver-mas {
   color: #3c73ad;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
   white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .ver-mas:hover {
   color: #193b64;
 }
 
-/* =========================
-   CIERRE DE PÁGINA
-========================= */
+/* ================================
+   SIN RESULTADOS
+================================ */
 
-.cierre-alojamientos {
-  margin-top: 75px;
-  padding: 85px 25px;
+.sin-resultados {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 55px 24px;
   text-align: center;
-  background: #f6f8fa;
-  border-top: 1px solid #e8edf2;
+  background: #f4f7fa;
+  border: 1px solid #d8e1e9;
+  border-radius: 16px;
 }
 
-.cierre-alojamientos>span {
-  display: block;
+.sin-resultados h2 {
+  margin: 0 0 14px;
+  color: #193b64;
+  font-size: 26px;
+}
+
+.sin-resultados p {
+  margin: 0;
+  color: #718092;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ================================
+   CIERRE
+================================ */
+
+.cierre-alojamientos {
+  margin: 80px 24px 20px;
+  padding: 55px 24px;
+  text-align: center;
+  background: #f4f7fa;
+  border-radius: 18px;
+}
+
+.cierre-alojamientos > span {
+  display: inline-block;
   margin-bottom: 15px;
   color: #3c73ad;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .cierre-alojamientos h2 {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: #193b64;
-  font-size: clamp(30px, 4vw, 43px);
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: clamp(25px, 4vw, 34px);
 }
 
 .cierre-alojamientos p {
-  margin: 0 0 27px;
+  margin: 0 0 25px;
   color: #718092;
   font-size: 15px;
   line-height: 1.7;
@@ -325,55 +412,71 @@
 .btn-principal {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 12px 20px;
-  background: #193b64;
-  border-radius: 7px;
+  padding: 13px 24px;
   color: #ffffff;
-  text-decoration: none;
+  background: #193b64;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  transition: background 0.2s;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-principal:hover {
+  color: #ffffff;
   background: #3c73ad;
+  transform: translateY(-2px);
 }
 
-.btn-principal span {
-  font-size: 18px;
-}
+/* ================================
+   TABLETS
+================================ */
 
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .alojamientos-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
+  .grupo-alojamientos {
+    margin: 50px auto;
+  }
+
   .card-imagen {
     height: 220px;
   }
+
+  .resumen-busqueda {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
 }
 
-/* =========================
-   CELULAR
-========================= */
+/* ================================
+   CELULARES
+================================ */
 
-@media (max-width: 650px) {
-  .encabezado-contenido {
-    padding: 55px 20px;
+@media (max-width: 600px) {
+  .encabezado-alojamientos {
+    min-height: 270px;
+    padding: 45px 20px;
   }
 
-  .encabezado-contenido h1 {
-    font-size: 36px;
+  .encabezado-alojamientos h1 {
+    font-size: 30px;
+  }
+
+  .encabezado-alojamientos p {
+    font-size: 14px;
   }
 
   .grupo-alojamientos {
-    padding: 50px 20px 10px;
+    margin: 42px auto;
+    padding: 0 16px;
   }
 
   .grupo-titulo {
@@ -388,23 +491,50 @@
 
   .alojamientos-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 22px;
   }
 
   .card-imagen {
-    height: 250px;
+    height: 235px;
   }
 
   .card-contenido {
-    padding: 20px;
+    padding: 19px;
   }
 
-  .card-contenido>p {
+  .card-contenido p {
     min-height: auto;
   }
 
+  .resumen-busqueda {
+    margin: 24px 16px 0;
+    padding: 20px;
+  }
+
+  .resumen-busqueda h2 {
+    font-size: 21px;
+  }
+
+  .resumen-busqueda p {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .sin-resultados {
+    margin: 35px 16px;
+    padding: 38px 20px;
+  }
+
+  .sin-resultados h2 {
+    font-size: 23px;
+  }
+
   .cierre-alojamientos {
-    margin-top: 55px;
-    padding: 65px 20px;
+    margin: 50px 16px 15px;
+    padding: 40px 20px;
+  }
+
+  .card-pie {
+    align-items: flex-end;
   }
 }

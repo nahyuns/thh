@@ -15,7 +15,33 @@ export class Inicio {
   destino = '';
   entrada = '';
   salida = '';
-  huespedes = 2;
+  huespedes = 2 & 1;
+
+  destinosPorCategoria: { [categoria: string]: string[] } = {
+    Playa: [
+      'Las Grutas',
+      'San Antonio Oeste',
+      'Monte Hermoso',
+    ],
+
+    Bosque: [
+      'Bariloche',
+      'Dina Huapi',
+    ],
+
+    Montaña: [
+      'Bariloche',
+      'Dina Huapi',
+    ],
+
+    Ciudad: [
+      'Buenos Aires'
+    ]
+  };
+
+  get destinosDisponibles(): string[] {
+    return this.destinosPorCategoria[this.categoria] || [];
+  }
 
   constructor(private router: Router) { }
 
@@ -35,6 +61,5 @@ export class Inicio {
         huespedes: this.huespedes
       }
     });
-
   }
 }
