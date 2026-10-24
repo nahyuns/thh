@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { FavoritosService } from '../services/favoritos';
 import { Router } from '@angular/router'; 
 import { ActivatedRoute } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-alojamientos',
   styleUrl: './alojamientos.css',
   templateUrl: './alojamientos.html',

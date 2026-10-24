@@ -12,6 +12,8 @@ import { Sobrenosotros } from './components/inicio/sobrenosotros/sobrenosotros/s
 import { PublicaTuAlojamiento } from './components/publica-tu-alojamiento/publica-tu-alojamiento';
 import { Alojamientos } from './components/alojamientos/alojamientos';
 import { Favoritos } from './components/favoritos/favoritos';
+import { DetalleAlojamiento } from './components/detallealojamiento/detallealojamiento';
+
 
 export const routes: Routes = [
   // Muestra el inicio por defecto
@@ -30,6 +32,7 @@ export const routes: Routes = [
   { path: 'alojamientos', component: Alojamientos },
   {path: 'favoritos', component: Favoritos},
 
+  { path: 'detallealojamiento/:id', component: DetalleAlojamiento },
   //captura cualquier URL no definida
   { path: 'registrarse', component: Registrarse },
   { path: 'sobrenosotros', component: Sobrenosotros },
