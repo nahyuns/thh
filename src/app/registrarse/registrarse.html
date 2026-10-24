@@ -23,6 +23,13 @@
 
                 <label for="email" class="form-email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="user1234@gmail.com">
+
+                <label for="rol" class="form-rol">Tipo de cuenta</label>
+
+                <select class="form-control" id="rol" name="rol">
+                   <option value="usuario" selected>Usuario</option>
+                   <option value="admin">Administrador</option>
+               </select>
             </div>
 
             <!-- GRUPO 2: contraseñas -->
