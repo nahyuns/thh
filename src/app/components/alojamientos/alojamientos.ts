@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FavoritosService } from '../services/favoritos';
+import { Router } from '@angular/router'; 
 
 @Component({
   imports: [],
@@ -7,19 +9,20 @@ import { Component } from '@angular/core';
   templateUrl: './alojamientos.html',
 })
 export class Alojamientos {
-  favoritos: string[] = [];
+  constructor(
+    public favoritosService: FavoritosService,
+    private router: Router
+  ) { }
 
   Favorito(id: string): boolean {
-    return this.favoritos.includes(id);
+    return this.favoritosService.esFavorito(id);
   }
 
   alternarFavorito(id: string): void {
-    if (this.Favorito(id)) {
-      this.favoritos = this.favoritos.filter(
-        favorito => favorito !== id
-      );
-    } else {
-      this.favoritos = [...this.favoritos, id];
-    }
+    this.favoritosService.alternarFavorito(id);
+  }
+
+  irAFavoritos(): void {
+    this.router.navigate(['/favoritos']);
   }
 }

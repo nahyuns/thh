@@ -36,10 +36,10 @@
         <div class="card-imagen">
           <img src="assets/bosque1.jpg" alt="Cabaña entre árboles en Bariloche">
           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque1')"
-            [attr.aria-pressed]="Favorito('bosque1')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('bosque1')">
+            [attr.aria-pressed]="Favorito('bosque1')" (click)="alternarFavorito('bosque1')">
             {{ Favorito('bosque1') ? '♥' : '♡' }}
           </button>
+
         </div>
 
         <div class="card-contenido">
@@ -74,10 +74,10 @@
         <div class="card-imagen">
           <img src="assets/bosque2.jpg" alt="Refugio de madera rodeado de bosque en Bariloche">
           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque2')"
-            [attr.aria-pressed]="Favorito('bosque2')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('bosque2')">
+            [attr.aria-pressed]="Favorito('bosque2')" (click)="alternarFavorito('bosque2')">
             {{ Favorito('bosque2') ? '♥' : '♡' }}
           </button>
+
         </div>
 
         <div class="card-contenido">
@@ -85,7 +85,7 @@
             San Carlos de Bariloche · Río Negro
           </div>
 
-          <h3>Refugio Los Coihues</h3>
+          <h3>Cabaña de las mañanas</h3>
 
           <p class="card-descripcion">
             Un refugio de madera rodeado de vegetación,
@@ -112,10 +112,10 @@
         <div class="card-imagen">
           <img src="assets/bosque3.jpg" alt="Cabaña de madera en un entorno natural de Dina Huapi">
           <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('bosque3')"
-            [attr.aria-pressed]="Favorito('bosque3')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('bosque3')">
-            {{ Favorito('bosque3') ? '♥' : '♡' }}
+            [attr.aria-pressed]="Favorito('bosque3')" (click)="alternarFavorito('bosque3')">
+            {{Favorito('bosque3') ? '♥' : '♡' }}
           </button>
+
         </div>
 
         <div class="card-contenido">
