@@ -1,0 +1,13 @@
+/* Estos estilos se aplican solamente al panel de administrador */
+.admin-content {
+  margin-left: 285px;
+  width: calc(100% - 285px);
+  min-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+  .admin-content {
+    margin-left: 76px;
+    width: calc(100% - 76px);
+  }
+}

@@ -1,1 +1,26 @@
-<p>nav-admin works!</p>
+<!--
+  - La clase "active" marca la sección actual. Cuando conectes el router,
+    reemplazala por routerLinkActive="active" en cada link.
+-->
+<aside class="thh-sidebar">
+
+  <!-- Logo de la página -->
+  <div class="thh-brand">
+    <img src="/assets/logo.png" alt="Logo THH" class="logo-thh">
+  </div>
+
+  <!-- Navegación principal.
+       flex: 1 en el CSS empuja "Cerrar sesión" al final del sidebar. -->
+  <nav class="thh-nav">
+    <!-- Cada link: ícono + texto (el texto se oculta en pantallas chicas) -->
+    <a href="#" class="thh-link active"><i class="bi bi-house-door"></i><span>Inicio</span></a>
+    <a href="#" class="thh-link"><i class="bi bi-house-door"></i><span>Alojamientos</span></a>
+    <a href="#" class="thh-link"><i class="bi bi-calendar3"></i><span>Reservas</span></a>
+    <a href="#" class="thh-link"><i class="bi bi-wallet2"></i><span>Pagos y cobros</span></a>
+    <a href="#" class="thh-link"><i class="bi bi-question-circle"></i><span>Ayuda</span></a>
+    <a  [routerLink]="['/admin/publica-tu-alojamiento']" class="thh-link"><i class="bi bi-plus-circle"></i><span>Publica tu alojamiento</span></a>
+  </nav>
+
+  <!-- Cerrar sesión: queda abajo del todo (ver .thh-nav { flex: 1 }) -->
+  <a href="#" class="thh-link thh-logout"><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+</aside>

@@ -1,4 +1,22 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<!--Si NO estamos dentro del panel de administrador, se muestra el menu de vista de usuario-->
+@if (!router.url.startsWith('/admin')){
+  <app-nav></app-nav>
+} <!--SI estamos en el panel de administrador, se muestra el menu lateral-->
+@else { 
+    <app-nav-admin></app-nav-admin>
+}
+
+<!-- 
+ El contenido de la página y footer compartido, en caso de estar en la parte de administrador 
+ se aplican los estilos del mismo. Y en caso de estar en la vista de usuario se muestra normal
+-->
+<!--Angular agrega la clase CSS admin-content solamente cuando la condición es verdadera.
+- Si estás en /admin, agrega la clase y aplica el espacio para que el menú lateral no tape el contenido.
+- Si estás en /inicio, no agrega esa clase y la vista pública conserva su distribución habitual.
+-->
+<div [class.admin-content]="router.url.startsWith('/admin')">
+ <router-outlet></router-outlet>
+ <app-footer></app-footer>
+</div>
+
 

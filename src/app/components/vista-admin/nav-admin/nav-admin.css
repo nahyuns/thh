@@ -1,0 +1,107 @@
+/* =========================================================
+   SIDEBAR (menú lateral)
+   Ancho: 285px en escritorio, 76px (solo íconos) en pantallas chicas.
+   Si cambiás el ancho acá, cambialo también en app.css (.app-content).
+   ========================================================= */
+
+/* El componente se comporta como bloque para que Angular lo trate como un contenedor normal */
+:host {
+  display: block;
+}
+
+/* Contenedor principal: fijo al costado izquierdo, ocupa toda la altura */
+.thh-sidebar {
+  position: fixed;          /* se mantiene en pantalla aunque se haga scroll */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 285px;
+  display: flex;            /* columna: logo arriba, links en el medio, logout abajo */
+  flex-direction: column;
+  padding: 24px 13px 28px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(13, 52, 100, 0.96) 0%, rgba(18, 62, 118, 0.98) 100%);
+  z-index: 1030;            /* mismo nivel que los navbar fijos de Bootstrap */
+}
+
+/* ---------- Logo ---------- */
+.thh-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.logo-thh {
+  width: 100%;
+  max-width: 180px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/* ---------- Lista de links ---------- */
+.thh-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;                  /* ocupa el espacio libre: empuja "Cerrar sesión" hacia abajo */
+}
+
+/* Link individual (también lo usa "Cerrar sesión") */
+.thh-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;                /* separación ícono-texto */
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.thh-link i {
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 28px;              /* ancho fijo para que los textos queden alineados */
+  text-align: center;
+}
+
+/* Efecto al pasar el mouse */
+.thh-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Sección actual (resaltado azul más claro) */
+.thh-link.active {
+  background: #3b6aa8;
+}
+
+/* "Cerrar sesión": un poco más chico que el resto */
+.thh-logout {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* ---------- Responsive ----------
+   Menos de 992px (tablet/celular): se colapsa a solo íconos */
+@media (max-width: 991.98px) {
+  .thh-sidebar {
+    width: 76px;
+    padding: 20px 8px;
+  }
+  .thh-brand span,
+  .thh-link span {
+    display: none;          /* se oculta el texto, quedan los íconos */
+  }
+  .logo-thh {
+  width: 44px;
+  height: 38px;
+  }
+  .thh-link {
+    justify-content: center;
+    padding: 14px 0;
+  }
+}

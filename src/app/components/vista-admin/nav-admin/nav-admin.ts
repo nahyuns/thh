@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-nav-admin',
   styleUrl: './nav-admin.css',
   templateUrl: './nav-admin.html',

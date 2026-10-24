@@ -1,0 +1,151 @@
+/* Fondo de toda la pantalla del componente */
+:host {
+  display: block;
+  background: #E7F6FF;
+  color: #1F3A5F;
+  min-height: 100vh;
+}
+
+/* ---------- Encabezado ---------- */
+/* Título con tipografía clásica y gruesa */
+.titulo-thh {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #1F3A5F;
+}
+
+/* ---------- Pasos ---------- */
+.paso-thh {
+  color: #6b87a3;
+  /* línea gris/celeste debajo de cada paso */
+  border-top: 2px solid #9AD9EA;
+  padding-top: 12px;
+}
+
+/* Círculo con el número */
+.numero-paso {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #9AD9EA;
+  background: #ffffff;
+  font-weight: bold;
+}
+
+/* Paso actual: todo en turquesa */
+.paso-activo {
+  color: #2F9BB3;
+  font-weight: bold;
+  border-top-color: #2F9BB3;
+}
+
+.paso-activo .numero-paso {
+  background: #2F9BB3;
+  border-color: #2F9BB3;
+  color: #ffffff;
+}
+
+/* ---------- Tarjeta ---------- */
+.tarjeta-thh {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(31, 58, 95, 0.08);
+}
+
+/* ---------- Campos (inputs, selects) ---------- */
+/* Borde celeste y, al hacer clic, borde turquesa */
+.form-control,
+.form-select {
+  border-color: #9AD9EA;
+  color: #1F3A5F;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #2F9BB3;
+  box-shadow: 0 0 0 3px rgba(47, 155, 179, 0.2);
+}
+
+/* Tilde de los servicios en turquesa */
+.form-check-input:checked {
+  background-color: #2F9BB3;
+  border-color: #2F9BB3;
+}
+
+/* ---------- Categoría ---------- */
+.btn-categoria {
+  background: #E7F6FF;
+  border: 1px solid #9AD9EA;
+  color: #1F3A5F;
+  font-size: 0.85rem;
+}
+
+/* Cuando la categoría está elegida */
+.btn-check:checked + .btn-categoria {
+  background: #9AD9EA;
+  border-color: #2F9BB3;
+  color: #1F3A5F;
+  font-weight: bold;
+}
+
+/* ---------- Botones Sí / No ---------- */
+.btn-sino {
+  min-width: 110px;
+  background: #E7F6FF;
+  border: 1px solid #9AD9EA;
+  color: #1F3A5F;
+}
+
+/* Opción elegida: turquesa */
+.btn-check:checked + .btn-sino {
+  background: #2F9BB3;
+  border-color: #2F9BB3;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ---------- Subir fotos ---------- */
+/* Caja con borde punteado */
+.zona-fotos {
+  padding: 30px 20px;
+  border: 2px dashed #2F9BB3;
+  border-radius: 12px;
+  background: #E7F6FF;
+  cursor: pointer;
+}
+
+/* Texto "seleccioná archivos" */
+.text-info-thh {
+  color: #2F9BB3;
+}
+
+/* ---------- Aviso ---------- */
+.aviso-thh {
+  background: #F4E6CC;
+  border: none;
+  color: #1F3A5F;
+}
+
+/* ---------- Botón Continuar ---------- */
+.btn-thh {
+  background: #2F9BB3;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.btn-thh:hover {
+  background: #247f94;
+  color: #ffffff;
+}
+
+/* ---------- Celulares ---------- */
+@media (max-width: 768px) {
+  .titulo-thh {
+    font-size: 2.2rem;
+  }
+}
