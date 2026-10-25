@@ -1,344 +1,309 @@
-
 <main class="pagina-detalle">
 
   @if (alojamiento) {
 
-    @if (!reservaConfirmada) {
+  @if (!reservaConfirmada) {
 
-      <!-- ENCABEZADO -->
-      <section class="encabezado-detalle">
-        <span class="etiqueta-superior">HOSPEDA · DESCUBRÍ TU PRÓXIMO DESTINO</span>
-        <h1>Tu próxima estadía comienza acá</h1>
-        <p>Conocé el alojamiento, elegí tus fechas y prepará las valijas.</p>
-      </section>
+  <!-- ENCABEZADO -->
+  <section class="encabezado-detalle">
+    <span class="etiqueta-superior">HOSPEDA · DESCUBRÍ TU PRÓXIMO DESTINO</span>
+    <h1>Tu próxima estadía comienza acá</h1>
+    <p>Conocé el alojamiento, elegí tus fechas y prepará las valijas.</p>
+  </section>
 
-      <!-- INFORMACIÓN DEL ALOJAMIENTO -->
-      <section class="detalle">
+  <!-- INFORMACIÓN DEL ALOJAMIENTO -->
+  <section class="detalle">
 
-        <div class="detalle-foto">
-          <img
-            class="detalle-imagen"
-            [src]="alojamiento.imagen"
-            [alt]="alojamiento.nombre">
+    <div class="detalle-foto">
+      <img class="detalle-imagen" [src]="alojamiento.imagen" [alt]="alojamiento.nombre">
 
-          <span class="categoria-chip">
-            {{ alojamiento.categoria }}
-          </span>
-        </div>
+      <span class="categoria-chip">
+        {{ alojamiento.categoria }}
+      </span>
+    </div>
 
-        <div class="detalle-info">
-          <span class="etiqueta">{{ alojamiento.categoria }}</span>
+    <div class="detalle-info">
+      <span class="etiqueta">{{ alojamiento.categoria }}</span>
 
-          <h2>{{ alojamiento.nombre }}</h2>
+      <h2>{{ alojamiento.nombre }}</h2>
 
-          <p class="ubicacion">
-            <span>⌖</span> {{ alojamiento.ubicacion }}
-          </p>
+      <p class="ubicacion">
+        <span>⌖</span> {{ alojamiento.ubicacion }}
+      </p>
 
-          <p class="descripcion">
-            {{ alojamiento.descripcion }}
-          </p>
+      <p class="descripcion">
+        {{ alojamiento.descripcion }}
+      </p>
 
-          <div class="caracteristicas">
+      <div class="caracteristicas">
 
-            <div class="caracteristica">
-              <span class="icono-caracteristica">♙</span>
-              <div>
-                <strong>Hasta {{ alojamiento.huespedes }} huéspedes</strong>
-                <small>Capacidad máxima</small>
-              </div>
-            </div>
-
-            <div class="caracteristica">
-              <span class="icono-caracteristica">⌖</span>
-              <div>
-                <strong>{{ alojamiento.ubicacion }}</strong>
-                <small>Ubicación del alojamiento</small>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="precio-detalle">
-            <span>Tu estadía desde</span>
-            <div>
-              <strong>${{ alojamiento.precio | number:'1.0-0' }}</strong>
-              <span class="precio-noche">/ noche</span>
-            </div>
-            <small>Precio expresado en pesos argentinos (ARS)</small>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- RESERVA -->
-      <section class="seccion-reserva">
-
-        <div class="reserva-introduccion">
-          <span class="etiqueta-superior">PLANIFICÁ TU VIAJE</span>
-          <h2>Reservá tu estadía</h2>
-          <p>
-            Completá tus datos y seleccioná las fechas para conocer
-            el precio total de tu estadía.
-          </p>
-
-          <div class="reserva-beneficio">
-            <span>✓</span>
-            <p>Revisá los detalles de tu reserva antes de confirmarla.</p>
+        <div class="caracteristica">
+          <span class="icono-caracteristica">♙</span>
+          <div>
+            <strong>Hasta {{ alojamiento.huespedes }} huéspedes</strong>
+            <small>Capacidad máxima</small>
           </div>
         </div>
 
-        <div class="formulario-reserva">
-          <form (ngSubmit)="confirmarReserva()">
+        <div class="caracteristica">
+          <span class="icono-caracteristica">⌖</span>
+          <div>
+            <strong>{{ alojamiento.ubicacion }}</strong>
+            <small>Ubicación del alojamiento</small>
+          </div>
+        </div>
 
-            <h3>01. Tus datos</h3>
+      </div>
 
-            <div class="campo">
-              <label for="nombre">Nombre completo</label>
-              <input
-                id="nombre"
-                type="text"
-                name="nombre"
-                placeholder="Ingresá tu nombre y apellido"
-                [(ngModel)]="nombreCliente"
-                required>
-            </div>
+      <div class="precio-detalle">
+        <span>Tu estadía desde</span>
+        <div>
+          <strong>${{ alojamiento.precio | number:'1.0-0' }}</strong>
+          <span class="precio-noche">/ noche</span>
+        </div>
+        <small>Precio expresado en pesos argentinos (ARS)</small>
+      </div>
 
-            <div class="campo">
-              <label for="email">Correo electrónico</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="ejemplo@correo.com"
-                [(ngModel)]="email"
-                required>
-            </div>
+    </div>
+  </section>
 
-            <div class="separador-formulario"></div>
+  <!-- RESERVA -->
+  <section class="seccion-reserva">
 
-            <h3>02. Tu estadía</h3>
+    <div class="reserva-introduccion">
+      <span class="etiqueta-superior">PLANIFICÁ TU VIAJE</span>
+      <h2>Reservá tu estadía</h2>
+      <p>
+        Completá tus datos y seleccioná las fechas para conocer
+        el precio total de tu estadía.
+      </p>
 
-            <div class="campos-fecha">
-              <div class="campo">
-                <label for="entrada">Fecha de entrada</label>
-                <input
-                  id="entrada"
-                  type="date"
-                  name="entrada"
-                  [(ngModel)]="entrada"
-                  [min]="fechaMinima"
-                  required>
-              </div>
+      <div class="reserva-beneficio">
+        <span>✓</span>
+        <p>Revisá los detalles de tu reserva antes de confirmarla.</p>
+      </div>
+    </div>
 
-              <div class="campo">
-                <label for="salida">Fecha de salida</label>
-                <input
-                  id="salida"
-                  type="date"
-                  name="salida"
-                  [(ngModel)]="salida"
-                  [min]="entrada || fechaMinima"
-                  required>
-              </div>
-            </div>
+    <div class="formulario-reserva">
+      <form (ngSubmit)="confirmarReserva()">
 
-            <div class="campo">
-              <label for="huespedes">Cantidad de huéspedes</label>
-              <select
-                id="huespedes"
-                name="huespedes"
-                [(ngModel)]="cantidadHuespedes"
-                required>
+        <h3>01. Tus datos</h3>
 
-                @for (numero of [1, 2, 3, 4]; track numero) {
-                  @if (numero <= alojamiento.huespedes) {
-                    <option [ngValue]="numero">
-                      {{ numero }}
-                      {{ numero === 1 ? 'huésped' : 'huéspedes' }}
-                    </option>
-                  }
-                }
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" type="text" name="nombre" placeholder="Ingresá tu nombre y apellido"
+            [(ngModel)]="nombreCliente" required>
+        </div>
 
-              </select>
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input id="email" type="email" name="email" placeholder="ejemplo@correo.com" [(ngModel)]="email" required>
+        </div>
 
-              <small class="ayuda-campo">
-                Capacidad máxima: {{ alojamiento.huespedes }} huéspedes.
-              </small>
-            </div>
+        <div class="separador-formulario"></div>
 
-            <!-- RESUMEN -->
-            <div class="resumen-precio">
-              <div class="resumen-titulo">
-                <div>
-                  <span class="etiqueta-superior">DETALLES</span>
-                  <h3>Resumen de tu reserva</h3>
-                </div>
-                <span class="resumen-icono">↗</span>
-              </div>
+        <h3>02. Tu estadía</h3>
 
-              <div class="resumen-fila">
-                <span>Alojamiento</span>
-                <strong>{{ alojamiento.nombre }}</strong>
-              </div>
+        <div class="campos-fecha">
+          <div class="campo">
+            <label for="entrada">Fecha de entrada</label>
+            <input id="entrada" type="date" name="entrada" [(ngModel)]="entrada" [min]="fechaMinima" required>
+          </div>
 
-              <div class="resumen-fila">
-                <span>Precio por noche</span>
-                <span>${{ alojamiento.precio | number:'1.0-0' }}</span>
-              </div>
+          <div class="campo">
+            <label for="salida">Fecha de salida</label>
+            <input id="salida" type="date" name="salida" [(ngModel)]="salida" [min]="entrada || fechaMinima" required>
+          </div>
+        </div>
 
-              <div class="resumen-fila">
-                <span>Duración</span>
-                <span>{{ noches }} {{ noches === 1 ? 'noche' : 'noches' }}</span>
-              </div>
+        <div class="campo">
+          <label for="huespedes">Cantidad de huéspedes</label>
+          <select id="huespedes" name="huespedes" [(ngModel)]="cantidadHuespedes" required>
 
-              @if (noches > 0) {
-                <div class="resumen-fila">
-                  <span>Huéspedes</span>
-                  <span>{{ cantidadHuespedes }}</span>
-                </div>
+            @for (numero of [1, 2, 3, 4]; track numero) {
+            @if (numero <= alojamiento.huespedes) { <option [ngValue]="numero">
+              {{ numero }}
+              {{ numero === 1 ? 'huésped' : 'huéspedes' }}
+              </option>
+              }
               }
 
-              <div class="resumen-total">
-                <div>
-                  <span>Precio total</span>
-                  <small>
-                    {{ noches }} {{ noches === 1 ? 'noche' : 'noches' }}
-                  </small>
-                </div>
-                <strong>${{ total | number:'1.0-0' }}</strong>
-              </div>
+          </select>
 
-              <p class="nota-precio">
-                El total se calcula multiplicando el precio por noche
-                por la cantidad de noches.
-              </p>
+          <small class="ayuda-campo">
+            Capacidad máxima: {{ alojamiento.huespedes }} huéspedes.
+          </small>
+        </div>
+
+        <!-- RESUMEN -->
+        <div class="resumen-precio">
+          <div class="resumen-titulo">
+            <div>
+              <span class="etiqueta-superior">DETALLES</span>
+              <h3>Resumen de tu reserva</h3>
             </div>
-
-            @if (mensajeError) {
-              <div class="mensaje-error" role="alert">
-                <span>!</span>
-                {{ mensajeError }}
-              </div>
-            }
-
-            <button type="submit" class="btn-reservar">
-              Confirmar reserva
-              <span>→</span>
-            </button>
-
-            <p class="texto-seguridad">
-              Comprobá tus datos y fechas antes de confirmar.
-            </p>
-
-          </form>
-        </div>
-      </section>
-    }
-
-    <!-- TICKET -->
-    @if (reservaConfirmada) {
-
-      <section class="ticket">
-
-        <div class="ticket-cabecera">
-          <div class="ticket-icono">✓</div>
-          <span class="etiqueta-superior">HOSPEDA · COMPROBANTE</span>
-          <h1>¡Tu reserva está confirmada!</h1>
-          <p>Estos son los datos de tu estadía. Guardá tu comprobante.</p>
-        </div>
-
-        <div class="ticket-numero">
-          <span>NÚMERO DE RESERVA</span>
-          <strong>{{ numeroReserva }}</strong>
-          <small>Conservá este número como referencia.</small>
-        </div>
-
-        <div class="ticket-alojamiento">
-          <img [src]="alojamiento.imagen" [alt]="alojamiento.nombre">
-
-          <div>
-            <span class="etiqueta">{{ alojamiento.categoria }}</span>
-            <h2>{{ alojamiento.nombre }}</h2>
-            <p>⌖ {{ alojamiento.ubicacion }}</p>
-          </div>
-        </div>
-
-        <div class="ticket-seccion">
-          <h3>Datos del huésped</h3>
-
-          <div class="ticket-fila">
-            <span>Nombre completo</span>
-            <strong>{{ nombreCliente }}</strong>
+            <span class="resumen-icono">↗</span>
           </div>
 
-          <div class="ticket-fila">
-            <span>Correo electrónico</span>
-            <strong>{{ email }}</strong>
+          <div class="resumen-fila">
+            <span>Alojamiento</span>
+            <strong>{{ alojamiento.nombre }}</strong>
           </div>
 
-          <div class="ticket-fila">
-            <span>Cantidad de huéspedes</span>
-            <strong>{{ cantidadHuespedes }}</strong>
+          <div class="resumen-fila">
+            <span>Precio por noche</span>
+            <span>${{ alojamiento.precio | number:'1.0-0' }}</span>
           </div>
+
+          <div class="resumen-fila">
+            <span>Duración</span>
+            <span>{{ noches }} {{ noches === 1 ? 'noche' : 'noches' }}</span>
+          </div>
+
+          @if (noches > 0) {
+          <div class="resumen-fila">
+            <span>Huéspedes</span>
+            <span>{{ cantidadHuespedes }}</span>
+          </div>
+          }
+
+          <div class="resumen-total">
+            <div>
+              <span>Precio total</span>
+              <small>
+                {{ noches }} {{ noches === 1 ? 'noche' : 'noches' }}
+              </small>
+            </div>
+            <strong>${{ total | number:'1.0-0' }}</strong>
+          </div>
+
+          <p class="nota-precio">
+            El total se calcula multiplicando el precio por noche
+            por la cantidad de noches.
+          </p>
         </div>
 
-        <div class="ticket-seccion">
-          <h3>Detalles de la estadía</h3>
-
-          <div class="ticket-fila">
-            <span>Fecha de entrada</span>
-            <strong>{{ entrada }}</strong>
-          </div>
-
-          <div class="ticket-fila">
-            <span>Fecha de salida</span>
-            <strong>{{ salida }}</strong>
-          </div>
-
-          <div class="ticket-fila">
-            <span>Cantidad de noches</span>
-            <strong>{{ noches }}</strong>
-          </div>
+        @if (mensajeError) {
+        <div class="mensaje-error" role="alert">
+          <span>!</span>
+          {{ mensajeError }}
         </div>
+        }
 
-        <div class="ticket-total">
-          <span>Importe total de la estadía</span>
-          <strong>${{ total | number:'1.0-0' }}</strong>
-          <small>Pesos argentinos (ARS)</small>
-        </div>
-
-        <div class="ticket-pie">
-          <p>Hospeda · Encontrá tu lugar ideal.</p>
-          <p>Este ticket corresponde a una reserva de demostración.</p>
-        </div>
-
-        <button
-          type="button"
-          class="btn-reservar no-imprimir"
-          (click)="imprimirTicket()">
-          Imprimir o guardar ticket
-          <span>↓</span>
+        <button type="submit" class="btn-reservar">
+          Confirmar reserva
+          <span>→</span>
         </button>
 
-        <a routerLink="/alojamientos" class="volver no-imprimir">
-          ← Volver a los alojamientos
-        </a>
+        <p class="texto-seguridad">
+          Comprobá tus datos y fechas antes de confirmar.
+        </p>
 
-      </section>
-    }
+      </form>
+    </div>
+  </section>
+  }
+
+  <!-- TICKET -->
+  @if (reservaConfirmada) {
+
+  <section class="ticket">
+
+    <div class="ticket-cabecera">
+      <div class="ticket-icono">✓</div>
+      <span class="etiqueta-superior">HOSPEDA · COMPROBANTE</span>
+      <h1>¡Tu reserva está confirmada!</h1>
+      <p>Estos son los datos de tu estadía. Guardá tu comprobante.</p>
+    </div>
+
+    <div class="ticket-numero">
+      <span>NÚMERO DE RESERVA</span>
+      <strong>{{ numeroReserva }}</strong>
+      <small>Conservá este número como referencia.</small>
+    </div>
+
+    <div class="ticket-alojamiento">
+      <img [src]="alojamiento.imagen" [alt]="alojamiento.nombre">
+
+      <div>
+        <span class="etiqueta">{{ alojamiento.categoria }}</span>
+        <h2>{{ alojamiento.nombre }}</h2>
+        <p>⌖ {{ alojamiento.ubicacion }}</p>
+      </div>
+    </div>
+
+    <div class="ticket-seccion">
+      <h3>Datos del huésped</h3>
+
+      <div class="ticket-fila">
+        <span>Nombre completo</span>
+        <strong>{{ nombreCliente }}</strong>
+      </div>
+
+      <div class="ticket-fila">
+        <span>Correo electrónico</span>
+        <strong>{{ email }}</strong>
+      </div>
+
+      <div class="ticket-fila">
+        <span>Cantidad de huéspedes</span>
+        <strong>{{ cantidadHuespedes }}</strong>
+      </div>
+    </div>
+
+    <div class="ticket-seccion">
+      <h3>Detalles de la estadía</h3>
+
+      <div class="ticket-fila">
+        <span>Fecha de entrada</span>
+        <strong>{{ entrada }}</strong>
+      </div>
+
+      <div class="ticket-fila">
+        <span>Fecha de salida</span>
+        <strong>{{ salida }}</strong>
+      </div>
+
+      <div class="ticket-fila">
+        <span>Cantidad de noches</span>
+        <strong>{{ noches }}</strong>
+      </div>
+    </div>
+
+    <div class="ticket-total">
+      <span>Importe total de la estadía</span>
+      <strong>${{ total | number:'1.0-0' }}</strong>
+      <small>Pesos argentinos (ARS)</small>
+    </div>
+
+    <div class="ticket-pie">
+      <p>Hospeda · Encontrá tu lugar ideal.</p>
+      <p>Este ticket corresponde a una reserva de demostración.</p>
+    </div>
+
+    <button type="button" class="btn-reservar no-imprimir" (click)="imprimirTicket()">
+      Imprimir o guardar ticket
+      <span>↓</span>
+    </button>
+
+    <a routerLink="/alojamientos" class="volver no-imprimir">
+      ← Volver a los alojamientos
+    </a>
+
+  </section>
+  }
 
   } @else {
 
-    <section class="sin-alojamiento">
-      <div class="sin-alojamiento-icono">⌂</div>
-      <span class="etiqueta-superior">HOSPEDA</span>
-      <h2>No encontramos este alojamiento</h2>
-      <p>El enlace puede ser incorrecto o el alojamiento no está disponible.</p>
-      <a routerLink="/alojamientos" class="btn-reservar">
-        Ver alojamientos <span>→</span>
-      </a>
-    </section>
+  <section class="sin-alojamiento">
+    <div class="sin-alojamiento-icono">⌂</div>
+    <span class="etiqueta-superior">HOSPEDA</span>
+    <h2>No encontramos este alojamiento</h2>
+    <p>El enlace puede ser incorrecto o el alojamiento no está disponible.</p>
+    <a routerLink="/alojamientos" class="btn-reservar">
+      Ver alojamientos <span>→</span>
+    </a>
+  </section>
 
   }
 

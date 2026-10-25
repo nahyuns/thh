@@ -13,6 +13,13 @@ import { PublicaTuAlojamiento } from './components/publica-tu-alojamiento/public
 import { Alojamientos } from './components/alojamientos/alojamientos';
 import { Favoritos } from './components/favoritos/favoritos';
 import { DetalleAlojamiento } from './components/detallealojamiento/detallealojamiento';
+// Importamos las vistas del administrador.
+import { InicioAdmin } from './components/vista-admin/inicio-admin/inicio-admin';
+import { AlojamientosAdmin } from './components/vista-admin/alojamientos-admin/alojamientos-admin';
+import { AyudaAdmin } from './components/vista-admin/ayuda-admin/ayuda-admin';
+import { PagosCobrosAdmin } from './components/vista-admin/pagos-cobros-admin/pagos-cobros-admin';
+import { PublicaTuAlojamientoAdmin } from './components/vista-admin/publica-tu-alojamiento-admin/publica-tu-alojamiento-admin';
+import { ReservasAdmin } from './components/vista-admin/reservas-admin/reservas-admin';
 
 
 export const routes: Routes = [
@@ -30,7 +37,7 @@ export const routes: Routes = [
   { path: 'registrarse', component: Registrarse, },
   { path: 'sobrenosotros', component: Sobrenosotros },
   { path: 'alojamientos', component: Alojamientos },
-  {path: 'favoritos', component: Favoritos},
+  { path: 'favoritos', component: Favoritos },
 
   { path: 'detallealojamiento/:id', component: DetalleAlojamiento },
   //captura cualquier URL no definida
@@ -38,6 +45,17 @@ export const routes: Routes = [
   { path: 'sobrenosotros', component: Sobrenosotros },
   { path: 'publica-tu-alojamiento', component: PublicaTuAlojamiento },
   { path: 'alojamientos', component: Alojamientos },
+
+  // Rutas independientes del administrador.
+  // Cada dirección carga directamente su componente, sin rutas hijas.
+  { path: 'admin', component: InicioAdmin },
+  { path: 'admin/alojamientos', component: AlojamientosAdmin },
+  { path: 'admin/reservas', component: ReservasAdmin },
+  { path: 'admin/pagos-cobros', component: PagosCobrosAdmin },
+  { path: 'admin/ayuda', component: AyudaAdmin },
+  { path: 'admin/publica-tu-alojamiento', component: PublicaTuAlojamientoAdmin },
+
+
 
   // Captura cualquier URL no definida
   { path: '**', redirectTo: 'inicio' },

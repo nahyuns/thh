@@ -1,54 +1,62 @@
-<main class="pagina-favoritos">
+<div class="favoritos-pagina">
 
-    <section class="encabezado-favoritos">
-        <span class="etiqueta">TUS PREFERIDOS</span>
-        <h1>Mis favoritos <span>♥</span></h1>
-        <p>Guardá los alojamientos que más te gusten y encontralos acá.</p>
-    </section>
+    <div class="favoritos-encabezado">
+        <span class="favoritos-subtitulo">TU COLECCIÓN PERSONAL</span>
+        <h2>Mis favoritos <span class="corazon">♥</span></h2>
+        <p>Guardá los alojamientos que más te gustan y encontralos cuando quieras.</p>
+    </div>
 
-    <section class="lista-favoritos">
+    @if (alojamientosFavoritos.length > 0) {
+    <div class="favoritos-grid">
 
-        @if (alojamientosFavoritos.length === 0) {
-        <div class="favoritos-vacio">
-            <span class="corazon-vacio">♡</span>
-            <h2>Todavía no tenés favoritos</h2>
-            <p>Explorá los alojamientos y tocá el corazón para guardarlos.</p>
+        @for (alojamiento of alojamientosFavoritos; track alojamiento.id) {
+        <article class="favorito-card">
 
-            <a routerLink="/alojamientos" class="btn-favoritos">
-                Explorar alojamientos
-            </a>
-        </div>
-        } @else {
-        <div class="favoritos-grid">
-            @for (alojamiento of alojamientosFavoritos; track alojamiento.id) {
+            <div class="favorito-imagen">
+                <img [src]="alojamiento.img" [alt]="alojamiento.nombre">
 
-            <article class="favorito-card">
+                <span class="favorito-etiqueta">
+                    <span>♥</span> Favorito
+                </span>
+            </div>
 
-                <div class="favorito-imagen">
-                    <img [src]="alojamiento.img" [alt]="alojamiento.nombre">
+            <div class="favorito-contenido">
 
-                    <span class="favorito-etiqueta">♥ Favorito</span>
-                </div>
+                <span class="favorito-ubicacion">
+                    <span class="ubicacion-icono">⌖</span>
+                    {{ alojamiento.ubicacion }}
+                </span>
 
-                <div class="favorito-contenido">
-                    <span class="favorito-ubicacion">
-                        {{ alojamiento.ubicacion }}
-                    </span>
+                <h3>{{ alojamiento.nombre }}</h3>
 
-                    <h3>{{ alojamiento.nombre }}</h3>
+                <p class="favorito-descripcion">
+                    {{ alojamiento.descripcion }}
+                </p>
 
-                    <p>{{ alojamiento.descripcion }}</p>
+                <div class="favorito-acciones">
 
-                    <button type="button" class="quitar-favorito" (click)="quitarFavorito(alojamiento.id)">
-                        ♥ Quitar de favoritos
+                    <button type="button" class="quitar-favorito" (click)="quitarFavorito(alojamiento.id)"
+                        [attr.aria-label]="'Quitar ' + alojamiento.nombre + ' de favoritos'">
+                        <span>♥</span>
+                        Quitar de favoritos
                     </button>
+
                 </div>
 
-            </article>
-
-            }
-        </div>
+            </div>
+        </article>
         }
 
-    </section>
-</main>
+    </div>
+    } @else {
+    <div class="favoritos-vacio">
+        <div class="vacio-icono">♡</div>
+        <h3>Todavía no tenés favoritos</h3>
+        <p>
+            Cuando encuentres un alojamiento que te guste,
+            guardalo en favoritos para tenerlo siempre a mano.
+        </p>
+    </div>
+    }
+
+</div>
