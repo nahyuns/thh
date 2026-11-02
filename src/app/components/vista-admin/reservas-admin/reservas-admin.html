@@ -1,1 +1,291 @@
-<p>reservas-admin works!</p>
+
+<div class="pagina-reservas">
+
+  <!-- ENCABEZADO -->
+  <div class="encabezado-reservas">
+
+    <div class="titulo-reservas">
+      <h1>Reservas</h1>
+      <p>Gestioná las reservas de tu hospedaje</p>
+    </div>
+
+    <button
+      class="boton-nueva-reserva"
+      (click)="nuevaReserva()"
+    >
+      <span>+</span>
+      Nueva reserva
+    </button>
+
+  </div>
+
+
+  <!-- TARJETAS DE ESTADÍSTICAS -->
+  <div class="estadisticas-reservas">
+
+    <!-- TOTAL -->
+    <div class="tarjeta-estadistica">
+      <div class="icono-estadistica azul">
+        ▢
+      </div>
+
+      <div class="datos-estadistica">
+        <h2>{{ totalReservas }}</h2>
+        <p>Total reservas</p>
+      </div>
+    </div>
+
+
+    <!-- CONFIRMADAS -->
+    <div class="tarjeta-estadistica">
+      <div class="icono-estadistica verde">
+        ✓
+      </div>
+
+      <div class="datos-estadistica">
+        <h2>{{ totalConfirmadas }}</h2>
+        <p>Confirmadas</p>
+      </div>
+    </div>
+
+
+    <!-- PENDIENTES -->
+    <div class="tarjeta-estadistica">
+      <div class="icono-estadistica naranja">
+        ◷
+      </div>
+
+      <div class="datos-estadistica">
+        <h2>{{ totalPendientes }}</h2>
+        <p>Pendientes</p>
+      </div>
+    </div>
+
+
+    <!-- CANCELADAS -->
+    <div class="tarjeta-estadistica">
+      <div class="icono-estadistica rojo">
+        ×
+      </div>
+
+      <div class="datos-estadistica">
+        <h2>{{ totalCanceladas }}</h2>
+        <p>Canceladas</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- LISTADO DE RESERVAS -->
+  <section class="contenedor-listado">
+
+    <!-- ENCABEZADO Y BUSCADOR -->
+    <div class="encabezado-listado">
+
+      <h2>
+        <span>▣</span>
+        Listado de reservas
+      </h2>
+
+      <div class="buscador-reservas">
+
+        <span>⌕</span>
+
+        <input
+          type="text"
+          placeholder="Buscar por nombre, alojamiento..."
+          [(ngModel)]="busqueda"
+          (ngModelChange)="actualizarFiltros()"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- FILTROS -->
+    <div class="filtros-reservas">
+
+      <select
+        [(ngModel)]="filtroEstado"
+        (ngModelChange)="actualizarFiltros()"
+      >
+        <option value="Todos">Todos los estados</option>
+        <option value="Confirmada">Confirmadas</option>
+        <option value="Pendiente">Pendientes</option>
+        <option value="Cancelada">Canceladas</option>
+      </select>
+
+
+      <input
+        type="date"
+        [(ngModel)]="fechaDesde"
+        (ngModelChange)="actualizarFiltros()"
+        title="Filtrar desde la fecha"
+      >
+
+
+      <input
+        type="date"
+        [(ngModel)]="fechaHasta"
+        (ngModelChange)="actualizarFiltros()"
+        title="Filtrar hasta la fecha"
+      >
+
+
+      <button
+        type="button"
+        class="boton-limpiar-filtros"
+        (click)="busqueda = ''; filtroEstado = 'Todos'; fechaDesde = ''; fechaHasta = ''; actualizarFiltros()"
+      >
+        Limpiar filtros
+      </button>
+
+    </div>
+
+
+    <!-- TABLA -->
+    <div class="tabla-contenedor">
+
+      <table class="tabla-reservas">
+
+        <thead>
+          <tr>
+            <th>Huésped</th>
+            <th>Alojamiento</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+
+          <!-- RESERVAS -->
+          <tr *ngFor="let reserva of reservasPaginadas">
+
+            <td>
+              {{ reserva.huesped }}
+            </td>
+
+            <td>
+              {{ reserva.alojamiento }}
+            </td>
+
+            <td>
+              {{ formatearFecha(reserva.checkIn) }}
+            </td>
+
+            <td>
+              {{ formatearFecha(reserva.checkOut) }}
+            </td>
+
+            <td>
+
+              <span
+                class="estado"
+                [ngClass]="{
+                  'confirmada': reserva.estado === 'Confirmada',
+                  'pendiente': reserva.estado === 'Pendiente',
+                  'cancelada': reserva.estado === 'Cancelada'
+                }"
+              >
+                {{ reserva.estado }}
+              </span>
+
+            </td>
+
+            <!-- ACCIONES -->
+            <td class="acciones">
+
+              <!-- VER -->
+              <button
+                type="button"
+                title="Ver reserva"
+                class="boton-accion"
+                (click)="verReserva(reserva)"
+              >
+                ⊙
+              </button>
+
+
+              <!-- EDITAR -->
+              <button
+                type="button"
+                title="Editar reserva"
+                class="boton-accion"
+                (click)="editarReserva(reserva)"
+              >
+                ✎
+              </button>
+
+
+              <!-- ELIMINAR -->
+              <button
+                type="button"
+                title="Eliminar reserva"
+                class="boton-accion"
+                (click)="eliminarReserva(reserva)"
+              >
+                x
+              </button>
+
+            </td>
+
+          </tr>
+
+
+          <!-- CUANDO NO HAY RESULTADOS -->
+          <tr *ngIf="reservasFiltradas.length === 0">
+
+            <td colspan="6" class="sin-resultados">
+              No se encontraron reservas.
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- PAGINACIÓN -->
+    <div class="paginacion">
+
+      <button
+        type="button"
+        (click)="cambiarPagina(-1)"
+        [disabled]="paginaActual === 1"
+      >
+        ‹
+      </button>
+
+
+      <button
+        type="button"
+        *ngFor="let pagina of paginas"
+        [class.pagina-activa]="paginaActual === pagina"
+        (click)="irPagina(pagina)"
+      >
+        {{ pagina }}
+      </button>
+
+
+      <button
+        type="button"
+        (click)="cambiarPagina(1)"
+        [disabled]="paginaActual === totalPaginas || totalPaginas === 0"
+      >
+        ›
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
