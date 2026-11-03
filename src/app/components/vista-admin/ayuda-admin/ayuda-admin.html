@@ -1,1 +1,141 @@
-<p>ayuda-admin works!</p>
+<!-- Comienza la vista de ayuda y contacto del administrador -->
+
+<!-- Encabezado de la página -->
+<div class="encabezado-contacto">
+    <h1 class="titulo-contacto">Ayuda del administrador</h1>
+    <h3 class="subtitulo-contacto">
+        ¿Necesitás ayuda con la gestión de THH? Estamos para ayudarte.
+    </h3>
+</div>
+
+<!-- Contenedor de preguntas frecuentes y formulario -->
+<div class="contacto-contenedor">
+
+    <!-- Sección de preguntas frecuentes -->
+    <div class="preguntas-frecuentes">
+        <h2>Preguntas frecuentes</h2>
+        <p class="subtitulo">Resolvé tus dudas sobre la gestión.</p>
+
+        <!-- Pregunta 1 -->
+        <details class="pregunta">
+            <summary>¿Cómo puedo agregar un alojamiento?</summary>
+            <p>
+                Desde la sección de gestión de alojamientos, podés cargar
+                la información necesaria para agregar uno nuevo.
+            </p>
+        </details>
+
+        <!-- Pregunta 2 -->
+        <details class="pregunta">
+            <summary>¿Cómo puedo modificar un alojamiento?</summary>
+            <p>
+                Buscá el alojamiento que necesitás actualizar y modificá
+                sus datos desde la sección correspondiente.
+            </p>
+        </details>
+
+        <!-- Pregunta 3 -->
+        <details class="pregunta">
+            <summary>¿Cómo puedo administrar las cuentas de usuarios?</summary>
+            <p>
+                Desde la sección de usuarios podés consultar la información
+                de las cuentas, según los permisos disponibles.
+            </p>
+        </details>
+
+        <!-- Pregunta 4 -->
+        <details class="pregunta">
+            <summary>¿Qué hago si encuentro un problema en la página?</summary>
+            <p>
+                Podés describir el problema en el formulario de contacto
+                para solicitar ayuda.
+            </p>
+        </details>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <div class="formulario-thh">
+        <h2 class="titulo-formulario">Soporte del administrador</h2>
+        <p class="texto-formulario">
+            Completá el formulario y contanos qué necesitás.
+        </p>
+
+        <!-- Formulario que se limpia al enviarlo -->
+        <form onsubmit="this.reset(); alert('Formulario enviado correctamente'); return false;">
+
+            <!-- Campo para el nombre -->
+            <div class="mb-3">
+                <label for="nombreAdmin" class="form-label">
+                    Ingresá tu nombre
+                </label>
+                <input type="text" class="form-control" id="nombreAdmin" placeholder="Tu nombre" required>
+            </div>
+
+            <!-- Campo para el correo electrónico -->
+            <div class="mb-3">
+                <label for="emailAdmin" class="form-label">
+                    Ingresá tu mail
+                </label>
+                <input type="email" class="form-control" id="emailAdmin" placeholder="user@gmail.com" required>
+            </div>
+
+            <!-- Selector del asunto -->
+            <div class="mb-3">
+                <label for="asuntoAdmin" class="form-label">
+                    Seleccioná un asunto
+                </label>
+
+                <div class="selector-contenedor">
+                    <select class="form-control selector-asunto" id="asuntoAdmin" required>
+                        <option value="" selected disabled>
+                            Elegí el motivo de tu consulta
+                        </option>
+                        <option value="alojamientos">Gestión de alojamientos</option>
+                        <option value="usuarios">Gestión de usuarios</option>
+                        <option value="reservas">Problemas con las reservas</option>
+                        <option value="pagina">Problemas con la página web</option>
+                        <option value="acceso">Acceso al panel de administrador</option>
+                        <option value="otro">Otro motivo</option>
+                    </select>
+
+                    <!-- Flecha del selector -->
+                    <span class="flecha-selector">▼</span>
+                </div>
+            </div>
+
+            <!-- Campo para escribir el mensaje -->
+            <div class="mb-3">
+                <label for="mensajeAdmin" class="form-label">
+                    Describí tu consulta o situación
+                </label>
+                <textarea class="form-control" id="mensajeAdmin" rows="3" placeholder="Escribí tu mensaje..." required></textarea>
+            </div>
+
+            <!-- Botón para enviar el formulario -->
+            <button type="submit" id="boton">
+                Enviar formulario
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<!-- Aviso de seguridad para el administrador -->
+<div class="aviso-seguridad">
+
+    <!-- Ícono de seguridad -->
+    <i class="bi bi-shield-check"></i>
+
+    <!-- Texto del aviso -->
+    <div>
+        <h4>Consejo de seguridad</h4>
+        <p>
+            Recordá mantener tus datos de acceso privados y cerrar sesión
+            cuando termines de utilizar el panel de administrador.
+        </p>
+    </div>
+
+</div>
+
+<!-- Fin de la vista de ayuda y contacto del administrador -->
+```
