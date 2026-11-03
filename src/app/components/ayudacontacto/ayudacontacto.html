@@ -44,17 +44,14 @@
             </p>
         </details>
 
-
         <!-- Cuarta pregunta -->
         <details class="pregunta">
             <summary>¿Qué métodos de pago aceptan?</summary>
             <p>
                 Aceptamos pagos mediante transferencia
-                 bancaria, tarjeta de credito/debito y Mercado pago.
+                bancaria, tarjeta de credito/debito y Mercado pago.
             </p>
         </details>
-
-
 
         <!-- Quinta pregunta -->
         <details class="pregunta">
@@ -68,7 +65,7 @@
     </div>
 
     <!-- Formulario de contacto, lado derecho -->
-    <div class="formulario-thh">
+    <form class="formulario-thh">
 
         <h2 class="titulo-formulario">Dejanos tu consulta</h2>
 
@@ -78,7 +75,7 @@
                 Ingresá tu nombre
             </label>
             <input type="text" class="form-control" id="nombre1"
-                placeholder="Tu nombre">
+                placeholder="Tu nombre" required>
         </div>
 
         <!-- Campo para ingresar el correo -->
@@ -88,7 +85,7 @@
             </label>
             <input type="email" class="form-control"
                 id="exampleFormControlInput1"
-                placeholder="user@gmail.com">
+                placeholder="user@gmail.com" required>
         </div>
 
         <!-- Selector del asunto de la consulta -->
@@ -98,7 +95,7 @@
             </label>
 
             <div class="selector-contenedor">
-                <select class="form-control selector-asunto" id="asunto">
+                <select class="form-control selector-asunto" id="asunto" required>
                     <option value="" selected disabled>
                         Elegí el motivo de tu consulta
                     </option>
@@ -123,15 +120,15 @@
             </label>
             <textarea class="form-control"
                 id="exampleFormControlTextarea1" rows="3"
-                placeholder="Escribí tu mensaje..."></textarea>
+                placeholder="Escribí tu mensaje..." required></textarea>
         </div>
 
         <!-- Botón para enviar -->
-        <button type="button" id="boton">
+        <button type="submit" id="boton">
             Enviar
         </button>
 
-    </div>
+    </form>
 
 </div>
 
