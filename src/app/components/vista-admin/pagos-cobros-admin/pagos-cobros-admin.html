@@ -1,1 +1,122 @@
-<p>pagos-cobros-admin works!</p>
+<!-- Contenedor principal -->
+<div class="pagos-container">
+
+  <!-- Encabezado -->
+  <div class="encabezado">
+    <h1>Pagos y cobros</h1>
+    <p>Administrá y controlá los movimientos de la plataforma.</p>
+  </div>
+
+  <!-- Tarjetas con información general -->
+  <div class="resumen">
+
+    <div class="tarjeta">
+      <p>Total recaudado</p>
+      <h2>{{ formatearImporte(totalRecaudado) }}</h2>
+      <span>Pagos completados</span>
+    </div>
+
+    <div class="tarjeta">
+      <p>Pagos pendientes</p>
+      <h2>{{ formatearImporte(pagosPendientes) }}</h2>
+      <span>Esperando confirmación</span>
+    </div>
+
+    <div class="tarjeta">
+      <p>Operaciones</p>
+      <h2>{{ cantidadOperaciones }}</h2>
+      <span>Movimientos registrados</span>
+    </div>
+
+  </div>
+
+  <!-- Sección de movimientos -->
+  <div class="movimientos">
+
+    <div class="movimientos-titulo">
+      <h2>Movimientos recientes</h2>
+      <p>Consultá los pagos realizados y pendientes.</p>
+    </div>
+
+    <!-- Filtro para el buscador-->
+    <div class="filtros">
+
+      <input
+        type="text"
+        placeholder="Buscar por huésped o destino..."
+        (input)="buscar($event)"
+      >
+
+      <select (change)="filtrarEstado($event)">
+        <option value="">Todos los estados</option>
+        <option value="completado">Completado</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+
+    </div>
+
+    <!-- Tabla de movimientos -->
+    <div class="tabla-contenedor">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Huésped</th>
+            <th>Destino</th>
+            <th>Fecha</th>
+            <th>Método de pago</th>
+            <th>Importe</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- Recorre los movimientos filtrados -->
+          @for (movimiento of movimientosFiltrados; track movimiento.id) {
+            <tr>
+              <td>{{ movimiento.huesped }}</td>
+              <td>{{ movimiento.alojamiento }}</td>
+              <td>{{ movimiento.fecha }}</td>
+              <td>{{ movimiento.metodo }}</td>
+              <td>{{ formatearImporte(movimiento.importe) }}</td>
+
+              <td>
+                <span
+                  class="estado"
+                  [class.completado]="movimiento.estado === 'completado'"
+                  [class.pendiente]="movimiento.estado === 'pendiente'"
+                  [class.cancelado]="movimiento.estado === 'cancelado'">
+
+                  {{ movimiento.estado }}
+
+                </span>
+              </td>
+            </tr>
+          }
+
+          <!-- Mensaje si no hay resultados -->
+          @if (movimientosFiltrados.length === 0) {
+            <tr>
+              <td colspan="6" class="sin-resultados">
+                No se encontraron movimientos.
+              </td>
+            </tr>
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- Cantidad de resultados -->
+    <div class="pie-tabla">
+      <p>Mostrando {{ movimientosFiltrados.length }} movimientos.</p>
+    </div>
+
+  </div>
+
+</div>

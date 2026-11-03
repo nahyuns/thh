@@ -22,6 +22,8 @@ import { PublicaTuAlojamientoAdmin } from './components/vista-admin/publica-tu-a
 import { ReservasAdmin } from './components/vista-admin/reservas-admin/reservas-admin';
 
 
+
+
 export const routes: Routes = [
   // Muestra el inicio por defecto
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
