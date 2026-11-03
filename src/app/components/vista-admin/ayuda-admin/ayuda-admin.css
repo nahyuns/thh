@@ -1,0 +1,241 @@
+/* Estilos del encabezado */
+.encabezado-contacto {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+/* Título principal */
+.titulo-contacto {
+    color: #1F3A5F;
+    font-weight: bold;
+}
+
+/* Subtítulo del encabezado */
+.subtitulo-contacto {
+    color: #2F9BB3;
+    font-size: 18px;
+}
+
+/* Contenedor de las preguntas y el formulario */
+.contacto-contenedor {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* Sección de preguntas frecuentes */
+.preguntas-frecuentes {
+    flex: 1;
+    background-color: #E7F6FF;
+    border: 1px solid #9AD9EA;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+/* Título de las preguntas frecuentes */
+.preguntas-frecuentes h2 {
+    color: #1F3A5F;
+    font-weight: bold;
+}
+
+/* Texto debajo del título */
+.preguntas-frecuentes .subtitulo {
+    color: #2F9BB3;
+    margin-bottom: 20px;
+}
+
+/* Cada pregunta frecuente */
+.pregunta {
+    background-color: white;
+    border: 1px solid #9AD9EA;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 15px;
+}
+
+/* Texto de cada pregunta */
+.pregunta summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #1F3A5F;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Oculta el marcador predeterminado del navegador */
+.pregunta summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Triangulito que aparece antes de cada pregunta */
+.pregunta summary::before {
+    content: "▼";
+    color: #2f73b3;
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+/* Gira el triangulito cuando se abre la respuesta */
+.pregunta[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Respuesta de cada pregunta */
+.pregunta p {
+    color: #1F3A5F;
+    margin: 12px 0 0;
+    line-height: 1.5;
+}
+
+/* Formulario de contacto */
+.formulario-thh {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #9AD9EA;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(31, 58, 95, 0.1);
+}
+
+/* Título del formulario */
+.titulo-formulario {
+    color: #1F3A5F;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Texto introductorio del formulario */
+.texto-formulario {
+    color: #2F9BB3;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de los campos */
+.form-label {
+    color: #1F3A5F;
+    font-weight: 600;
+}
+
+/* Campos de texto */
+.form-control {
+    background-color: #E7F6FF;
+    border: 1px solid #9AD9EA;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Borde al seleccionar un campo */
+.form-control:focus {
+    border-color: #2F9BB3;
+    box-shadow: 0 0 5px rgba(47, 155, 179, 0.3);
+}
+
+/* Contenedor del selector de asuntos */
+.selector-contenedor {
+    position: relative;
+}
+
+/* Selector de asuntos */
+.selector-asunto {
+    appearance: none;
+    padding-right: 35px;
+}
+
+/* Flecha del selector */
+.flecha-selector {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2F9BB3;
+    pointer-events: none;
+    font-size: 12px;
+}
+
+/* Botón para enviar el formulario */
+#boton {
+    background-color: #2F9BB3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Efecto al pasar el cursor por el botón */
+#boton:hover {
+    background-color: #1F3A5F;
+}
+
+/* Aviso de seguridad ubicado antes del footer */
+.aviso-seguridad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #E7F6FF;
+    border: 1px solid #9AD9EA;
+    border-radius: 12px;
+}
+
+/* Ícono del aviso de seguridad */
+.aviso-seguridad i {
+    font-size: 35px;
+    color: #2F9BB3;
+}
+
+/* Título del aviso de seguridad */
+.aviso-seguridad h4 {
+    color: #1F3A5F;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Texto del aviso de seguridad */
+.aviso-seguridad p {
+    color: #1F3A5F;
+    margin: 0;
+}
+
+/* Adaptación para tablets y celulares */
+@media (max-width: 768px) {
+    .contacto-contenedor {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .preguntas-frecuentes,
+    .formulario-thh {
+        width: 100%;
+    }
+
+    .encabezado-contacto {
+        padding: 20px 15px;
+    }
+
+    .subtitulo-contacto {
+        font-size: 16px;
+    }
+}
+
+/* Ajustes del aviso de seguridad en celulares */
+@media (max-width: 576px) {
+    .aviso-seguridad {
+        margin: 20px 15px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .aviso-seguridad i {
+        font-size: 28px;
+    }
+}
