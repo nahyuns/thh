@@ -1,1 +1,134 @@
-<p>inicio-admin works!</p>
+
+<main class="admin-home">
+
+  <!-- BIENVENIDA -->
+  <section class="welcome">
+
+    <div class="welcome-content">
+      <span class="section-line"></span>
+
+      <h1>¡Hola, Administrador!</h1>
+
+      <p>
+        Gestioná tus alojamientos, reservas y pagos desde aquí.
+      </p>
+
+      <a routerLink="/admin/alojamientos" class="primary-button">
+        Ir a mis alojamientos
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="welcome-image"></div>
+
+  </section>
+
+
+  <!-- ACCESOS RÁPIDOS -->
+  <section class="quick-access">
+
+    <div class="section-heading">
+      <span class="section-line"></span>
+      <h2>Accesos rápidos</h2>
+    </div>
+
+
+    <!-- CARRUSEL -->
+    <div class="carousel">
+
+      <!-- FLECHA IZQUIERDA -->
+      <button
+        class="carousel-arrow left"
+        (click)="previousSlide()"
+        aria-label="Imagen anterior">
+        ‹
+      </button>
+
+
+      <div class="carousel-window">
+
+        <div
+          class="carousel-track"
+          #carouselTrack
+          [style.transform]="trackTransform">
+
+
+          <!-- MONTAÑA -->
+          <div class="destination-card mountain">
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+              <h3>Montaña</h3>
+            </div>
+
+          </div>
+
+
+          <!-- CIUDAD -->
+          <div class="destination-card city">
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+              <h3>Ciudad</h3>
+            </div>
+
+          </div>
+
+
+          <!-- LAGO -->
+          <div class="destination-card lake">
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+              <h3>Lago</h3>
+            </div>
+
+          </div>
+
+
+          <!-- PLAYA -->
+          <div class="destination-card beach">
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+              <h3>Playa</h3>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- FLECHA DERECHA -->
+      <button
+        class="carousel-arrow right"
+        (click)="nextSlide()"
+        aria-label="Imagen siguiente">
+        ›
+      </button>
+
+    </div>
+
+
+    <!-- INDICADORES -->
+    <div class="carousel-indicators">
+
+      <button
+        *ngFor="let item of indicators; let i = index"
+        [class.active]="currentSlide === i"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Ir a la posición ' + (i + 1)">
+      </button>
+
+    </div>
+
+  </section>
+
+</main>

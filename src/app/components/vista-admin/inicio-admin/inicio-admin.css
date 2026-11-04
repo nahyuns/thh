@@ -1,0 +1,306 @@
+
+:host {
+  display: block;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.admin-home {
+  width: 100%;
+  min-height: 100vh;
+  padding: 45px 48px;
+  box-sizing: border-box;
+  background: #f7f9fd;
+  overflow: hidden;
+}
+
+
+/* BIENVENIDA */
+
+.welcome {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 45px;
+  margin-bottom: 50px;
+}
+
+.welcome-content {
+  max-width: 550px;
+}
+
+.section-line {
+  display: block;
+  width: 78px;
+  height: 6px;
+  background: #28598a;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.welcome h1 {
+  color: #183453;
+  font-family: Georgia, serif;
+  font-size: 43px;
+  margin: 0 0 18px;
+}
+
+.welcome p {
+  color: #65758c;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 27px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 17px 23px;
+  background: #17395f;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.primary-button:hover {
+  background: #28598a;
+}
+
+.primary-button span {
+  font-size: 23px;
+}
+
+
+/* IMAGEN PRINCIPAL */
+
+.welcome-image {
+  width: 100%;
+  height: 310px;
+  border-radius: 75px 15px 15px 75px;
+  background-image: url('/assets/montanass.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* ACCESOS RÁPIDOS */
+
+.quick-access {
+  width: 100%;
+}
+
+.section-heading .section-line {
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  color: #183453;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  margin: 0 0 25px;
+}
+
+
+/* CARRUSEL */
+
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-window {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+
+/* TARJETAS */
+
+.destination-card {
+  position: relative;
+  flex: 0 0 calc((100% - 18px) / 2);
+  height: 350px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* IMÁGENES */
+
+.mountain {
+  background-image: url('/assets/montana.jpg');
+}
+
+.city {
+  background-image: url('/assets/ciudad1.jpg');
+}
+
+.lake {
+  background-image: url('/assets/bosque1.jpg');
+}
+
+.beach {
+  background-image: url('/assets/playa1.jpg');
+}
+
+
+/* OSCURECER PARTE INFERIOR */
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 35%,
+    rgba(5, 25, 48, 0.75) 100%
+  );
+}
+
+
+/* TEXTO DE LAS TARJETAS */
+
+.card-content {
+  position: absolute;
+  bottom: 22px;
+  left: 23px;
+  right: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+}
+
+.card-content h3 {
+  font-size: 23px;
+  margin: 0;
+}
+
+
+/* FLECHAS */
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+  color: #183453;
+
+  font-size: 32px;
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: #dce8f5;
+}
+
+.carousel-arrow.left {
+  left: -18px;
+}
+
+.carousel-arrow.right {
+  right: -18px;
+}
+
+
+/* INDICADORES */
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #c5d4e5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-indicators button.active {
+  width: 25px;
+  background: #28598a;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+  .welcome {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-image {
+    height: 260px;
+    border-radius: 20px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .admin-home {
+    padding: 25px 18px;
+  }
+
+  .welcome h1 {
+    font-size: 32px;
+  }
+
+  .welcome p {
+    font-size: 17px;
+  }
+
+  .destination-card {
+    flex-basis: 100%;
+    height: 240px;
+  }
+
+  .carousel-track {
+    gap: 0;
+  }
+
+  .carousel-arrow.left {
+    left: 5px;
+  }
+
+  .carousel-arrow.right {
+    right: 5px;
+  }
+
+}
