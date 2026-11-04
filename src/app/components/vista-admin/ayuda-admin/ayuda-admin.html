@@ -60,7 +60,10 @@
             Completá el formulario y contanos qué necesitás.
         </p>
 
-        <!-- Formulario que se limpia al enviarlo -->
+
+
+        <!-- Comienza el formulario con campos obligatorios -->
+        <!-- Formulario que se blanquea al enviarlo -->
         <form onsubmit="this.reset(); alert('Formulario enviado correctamente'); return false;">
 
             <!-- Campo para el nombre -->
@@ -108,17 +111,22 @@
                 <label for="mensajeAdmin" class="form-label">
                     Describí tu consulta o situación
                 </label>
-                <textarea class="form-control" id="mensajeAdmin" rows="3" placeholder="Escribí tu mensaje..." required></textarea>
+                <textarea class="form-control" id="mensajeAdmin" rows="3" placeholder="Escribí tu mensaje..."
+                    required></textarea>
             </div>
 
-            <!-- Botón para enviar el formulario -->
+            <!-- Botón para validar el formulario -->
             <button type="submit" id="boton">
                 Enviar formulario
             </button>
 
         </form>
+        <!-- Fin del formulario -->
     </div>
 </div>
+
+
+
 
 <!-- Aviso de seguridad para el administrador -->
 <div class="aviso-seguridad">
@@ -137,5 +145,31 @@
 
 </div>
 
-<!-- Fin de la vista de ayuda y contacto del administrador -->
 
+
+
+<!-- Sección de redes sociales -->
+<div class="redes-sociales">
+    <h3>¡Seguinos en nuestras redes!</h3>
+    <p>También podés encontrarnos en:</p>
+
+    <div class="lista-redes">
+        <a href="#" target="_blank">
+            <i class="bi bi-instagram"></i> Instagram
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="bi bi-facebook"></i> Facebook
+        </a>
+
+        <a href="mailto:contacto@thh.com">
+            <i class="bi bi-envelope"></i> Correo electrónico
+        </a>
+    </div>
+</div>
+
+<!-- Fin de la vista de ayuda y contacto del administrador -->

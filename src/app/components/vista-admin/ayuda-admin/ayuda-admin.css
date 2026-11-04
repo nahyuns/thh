@@ -1,3 +1,4 @@
+
 /* Estilos del encabezado */
 .encabezado-contacto {
     text-align: center;
@@ -174,6 +175,46 @@
     background-color: #1F3A5F;
 }
 
+/* Sección de redes sociales */
+.redes-sociales {
+    text-align: center;
+    background-color: #E7F6FF;
+    padding: 30px 15px;
+    margin-top: 35px;
+}
+
+/* Título de redes sociales */
+.redes-sociales h3 {
+    color: #1F3A5F;
+    font-weight: bold;
+}
+
+/* Texto de redes sociales */
+.redes-sociales p {
+    color: #2F9BB3;
+}
+
+/* Contenedor de los enlaces */
+.lista-redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Enlaces de redes sociales */
+.lista-redes a {
+    color: #1F3A5F;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efecto al pasar el cursor por las redes */
+.lista-redes a:hover {
+    color: #2F9BB3;
+}
+
 /* Aviso de seguridad ubicado antes del footer */
 .aviso-seguridad {
     display: flex;
@@ -224,6 +265,12 @@
 
     .subtitulo-contacto {
         font-size: 16px;
+    }
+
+    .lista-redes {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
     }
 }
 

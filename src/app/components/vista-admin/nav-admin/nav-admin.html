@@ -1,26 +1,69 @@
-<!--
-  - La clase "active" marca la sección actual. Cuando conectes el router,
-    reemplazala por routerLinkActive="active" en cada link.
--->
+<!-- Menú lateral del administrador -->
 <aside class="thh-sidebar">
 
-  <!-- Logo de la página -->
-  <div class="thh-brand">
-    <img src="/assets/logo.png" alt="Logo THH" class="logo-thh">
-  </div>
+    <!-- Logo de THH -->
+    <div class="thh-brand">
+        <img src="/assets/logo.png" alt="Logo THH" class="logo-thh">
+    </div>
 
-  <!-- Navegación principal.
-       flex: 1 en el CSS empuja "Cerrar sesión" al final del sidebar. -->
-  <nav class="thh-nav">
-    <!-- Cada link: ícono + texto (el texto se oculta en pantallas chicas) -->
-    <a href="#" class="thh-link active"><i class="bi bi-house-door"></i><span>Inicio</span></a>
-    <a routerLink="/admin/alojamientos" class="thh-link"><i class="bi bi-house-door"></i><span>Alojamientos</span></a>
-    <a href="#" class="thh-link"><i class="bi bi-calendar3"></i><span>Reservas</span></a>
-    <a href="#" class="thh-link"><i class="bi bi-wallet2"></i><span>Pagos y cobros</span></a>
-    <a href="#" class="thh-link"><i class="bi bi-question-circle"></i><span>Ayuda</span></a>
-    <a  [routerLink]="['/admin/publica-tu-alojamiento']" class="thh-link"><i class="bi bi-plus-circle"></i><span>Publica tu alojamiento</span></a>
-  </nav>
+    <!-- Navegación principal del administrador -->
+    <nav class="thh-nav">
 
-  <!-- Cerrar sesión: queda abajo del todo (ver .thh-nav { flex: 1 }) -->
-  <a href="#" class="thh-link thh-logout"><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
+        <!-- Ir al inicio -->
+        <a routerLink="/admin"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="thh-link">
+            <i class="bi bi-house-door"></i>
+            <span>Inicio</span>
+        </a>
+
+        <!-- Ir a alojamientos -->
+        <a routerLink="/admin/alojamientos"
+           routerLinkActive="active"
+           class="thh-link">
+            <i class="bi bi-houses"></i>
+            <span>Alojamientos</span>
+        </a>
+
+        <!-- Ir a reservas -->
+        <a routerLink="/admin/reservas"
+           routerLinkActive="active"
+           class="thh-link">
+            <i class="bi bi-calendar3"></i>
+            <span>Reservas</span>
+        </a>
+
+        <!-- Ir a pagos y cobros -->
+        <a routerLink="/admin/pagos-cobros"
+           routerLinkActive="active"
+           class="thh-link">
+            <i class="bi bi-wallet2"></i>
+            <span>Pagos y cobros</span>
+        </a>
+
+        <!-- Ir a la sección de ayuda -->
+        <a routerLink="/admin/ayuda"
+           routerLinkActive="active"
+           class="thh-link">
+            <i class="bi bi-question-circle"></i>
+            <span>Ayuda</span>
+        </a>
+
+        <!-- Ir a publicar alojamiento -->
+        <a routerLink="/admin/publica-tu-alojamiento"
+           routerLinkActive="active"
+           class="thh-link">
+            <i class="bi bi-plus-circle"></i>
+            <span>Publicá tu alojamiento</span>
+        </a>
+
+    </nav>
+
+    <!-- Cerrar sesión: queda al final del menú lateral -->
+    <a routerLink="/inicio-sesion" class="thh-link thh-logout">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Cerrar sesión</span>
+    </a>
+
 </aside>
