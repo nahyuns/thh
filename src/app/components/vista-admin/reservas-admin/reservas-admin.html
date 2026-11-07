@@ -1,21 +1,13 @@
-
 <div class="pagina-reservas">
+
 
   <!-- ENCABEZADO -->
   <div class="encabezado-reservas">
 
     <div class="titulo-reservas">
       <h1>Reservas</h1>
-      <p>Gestioná las reservas de tu hospedaje</p>
+      <p>Las reservas confirmadas en tus alojamientos</p>
     </div>
-
-    <button
-      class="boton-nueva-reserva"
-      (click)="nuevaReserva()"
-    >
-      <span>+</span>
-      Nueva reserva
-    </button>
 
   </div>
 
@@ -35,42 +27,39 @@
       </div>
     </div>
 
-
-    <!-- CONFIRMADAS -->
-    <div class="tarjeta-estadistica">
-      <div class="icono-estadistica verde">
-        ✓
-      </div>
-
-      <div class="datos-estadistica">
-        <h2>{{ totalConfirmadas }}</h2>
-        <p>Confirmadas</p>
-      </div>
-    </div>
-
-
-    <!-- PENDIENTES -->
+    <!-- PRÓXIMAS -->
     <div class="tarjeta-estadistica">
       <div class="icono-estadistica naranja">
         ◷
       </div>
 
       <div class="datos-estadistica">
-        <h2>{{ totalPendientes }}</h2>
-        <p>Pendientes</p>
+        <h2>{{ totalProximas }}</h2>
+        <p>Próximas</p>
       </div>
     </div>
 
-
-    <!-- CANCELADAS -->
+    <!-- EN CURSO -->
     <div class="tarjeta-estadistica">
-      <div class="icono-estadistica rojo">
-        ×
+      <div class="icono-estadistica verde">
+        ✓
       </div>
 
       <div class="datos-estadistica">
-        <h2>{{ totalCanceladas }}</h2>
-        <p>Canceladas</p>
+        <h2>{{ totalEnCurso }}</h2>
+        <p>En curso</p>
+      </div>
+    </div>
+
+    <!-- FINALIZADAS -->
+    <div class="tarjeta-estadistica">
+      <div class="icono-estadistica azul">
+        ■
+      </div>
+
+      <div class="datos-estadistica">
+        <h2>{{ totalFinalizadas }}</h2>
+        <p>Finalizadas</p>
       </div>
     </div>
 
@@ -94,7 +83,7 @@
 
         <input
           type="text"
-          placeholder="Buscar por nombre, alojamiento..."
+          placeholder="Buscar por huésped o alojamiento..."
           [(ngModel)]="busqueda"
           (ngModelChange)="actualizarFiltros()"
         >
@@ -112,11 +101,10 @@
         (ngModelChange)="actualizarFiltros()"
       >
         <option value="Todos">Todos los estados</option>
-        <option value="Confirmada">Confirmadas</option>
-        <option value="Pendiente">Pendientes</option>
-        <option value="Cancelada">Canceladas</option>
+        <option value="Próxima">Próximas</option>
+        <option value="En curso">En curso</option>
+        <option value="Finalizada">Finalizadas</option>
       </select>
-
 
       <input
         type="date"
@@ -125,7 +113,6 @@
         title="Filtrar desde la fecha"
       >
 
-
       <input
         type="date"
         [(ngModel)]="fechaHasta"
@@ -133,17 +120,26 @@
         title="Filtrar hasta la fecha"
       >
 
-
       <button
         type="button"
         class="boton-limpiar-filtros"
-        (click)="busqueda = ''; filtroEstado = 'Todos'; fechaDesde = ''; fechaHasta = ''; actualizarFiltros()"
+        (click)="limpiarFiltros()"
       >
         Limpiar filtros
       </button>
 
     </div>
 
+
+    @if (cargando()) {
+
+      <p class="sin-resultados">Cargando reservas...</p>
+
+    } @else if (error()) {
+
+      <p class="sin-resultados text-danger">{{ error() }}</p>
+
+    } @else {
 
     <!-- TABLA -->
     <div class="tabla-contenedor">
@@ -161,91 +157,56 @@
           </tr>
         </thead>
 
-
         <tbody>
 
           <!-- RESERVAS -->
-          <tr *ngFor="let reserva of reservasPaginadas">
+          @for (reserva of reservasPaginadas; track reserva.id_compra) {
+            <tr>
 
-            <td>
-              {{ reserva.huesped }}
-            </td>
+              <td>{{ huesped(reserva) }}</td>
 
-            <td>
-              {{ reserva.alojamiento }}
-            </td>
+              <td>{{ reserva.titulo }}</td>
 
-            <td>
-              {{ formatearFecha(reserva.checkIn) }}
-            </td>
+              <td>{{ formatearFecha(reserva.fecha_entrada) }}</td>
 
-            <td>
-              {{ formatearFecha(reserva.checkOut) }}
-            </td>
+              <td>{{ formatearFecha(reserva.fecha_salida) }}</td>
 
-            <td>
+              <td>
+                <span
+                  class="estado"
+                  [class.confirmada]="estadoDe(reserva) === 'En curso'"
+                  [class.pendiente]="estadoDe(reserva) === 'Próxima'"
+                >
+                  {{ estadoDe(reserva) }}
+                </span>
+              </td>
 
-              <span
-                class="estado"
-                [ngClass]="{
-                  'confirmada': reserva.estado === 'Confirmada',
-                  'pendiente': reserva.estado === 'Pendiente',
-                  'cancelada': reserva.estado === 'Cancelada'
-                }"
-              >
-                {{ reserva.estado }}
-              </span>
+              <!-- ACCIONES -->
+              <td class="acciones">
 
-            </td>
+                <!-- VER -->
+                <button
+                  type="button"
+                  title="Ver reserva"
+                  class="boton-accion"
+                  (click)="verReserva(reserva)"
+                >
+                  ⊙
+                </button>
 
-            <!-- ACCIONES -->
-            <td class="acciones">
+              </td>
 
-              <!-- VER -->
-              <button
-                type="button"
-                title="Ver reserva"
-                class="boton-accion"
-                (click)="verReserva(reserva)"
-              >
-                ⊙
-              </button>
-
-
-              <!-- EDITAR -->
-              <button
-                type="button"
-                title="Editar reserva"
-                class="boton-accion"
-                (click)="editarReserva(reserva)"
-              >
-                ✎
-              </button>
-
-
-              <!-- ELIMINAR -->
-              <button
-                type="button"
-                title="Eliminar reserva"
-                class="boton-accion"
-                (click)="eliminarReserva(reserva)"
-              >
-                x
-              </button>
-
-            </td>
-
-          </tr>
-
+            </tr>
+          }
 
           <!-- CUANDO NO HAY RESULTADOS -->
-          <tr *ngIf="reservasFiltradas.length === 0">
-
-            <td colspan="6" class="sin-resultados">
-              No se encontraron reservas.
-            </td>
-
-          </tr>
+          @if (reservasFiltradas.length === 0) {
+            <tr>
+              <td colspan="6" class="sin-resultados">
+                No se encontraron reservas.
+              </td>
+            </tr>
+          }
 
         </tbody>
 
@@ -265,16 +226,15 @@
         ‹
       </button>
 
-
-      <button
-        type="button"
-        *ngFor="let pagina of paginas"
-        [class.pagina-activa]="paginaActual === pagina"
-        (click)="irPagina(pagina)"
-      >
-        {{ pagina }}
-      </button>
-
+      @for (pagina of paginas; track pagina) {
+        <button
+          type="button"
+          [class.pagina-activa]="paginaActual === pagina"
+          (click)="irPagina(pagina)"
+        >
+          {{ pagina }}
+        </button>
+      }
 
       <button
         type="button"
@@ -285,6 +245,8 @@
       </button>
 
     </div>
+
+    }
 
   </section>
 

@@ -1,0 +1,273 @@
+
+/* ================================
+   PÁGINA MIS RESERVAS
+================================ */
+
+.container {
+  max-width: 1150px;
+  padding-top: 55px !important;
+  padding-bottom: 65px !important;
+}
+
+/* Encabezado */
+.container h2 {
+  margin-bottom: 10px !important;
+  color: #193b64;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.container > p {
+  margin-bottom: 35px !important;
+  color: #718092 !important;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ================================
+   TARJETAS DE RESERVAS
+================================ */
+
+.container .card {
+  overflow: hidden;
+  margin-bottom: 22px !important;
+  background: #ffffff;
+  border: 1px solid #e1e7ed;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(25, 59, 100, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.container .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(25, 59, 100, 0.11);
+}
+
+/* Imagen */
+.container .card .col-md-3 {
+  min-height: 190px;
+}
+
+.container .card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 190px !important;
+  object-fit: cover !important;
+}
+
+/* Contenido */
+.container .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 190px;
+  padding: 24px 26px;
+}
+
+/* Título del alojamiento */
+.container .card-title {
+  margin-bottom: 7px !important;
+  color: #193b64;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Ubicación */
+.container .card-body .text-muted {
+  color: #718092 !important;
+  font-size: 13px;
+}
+
+/* Número de ticket */
+.container .badge {
+  padding: 8px 13px;
+  color: #315d88 !important;
+  background: #eaf1f8 !important;
+  border: 1px solid #d7e3ef;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Fechas y personas */
+.container .card-body > p:not(.text-muted) {
+  margin-top: 15px;
+  color: #596b7e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Precio */
+.container .card-body strong {
+  color: #193b64;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Botón ver ticket */
+.container .btn-outline-primary {
+  padding: 9px 19px;
+  color: #3c73ad;
+  background: #ffffff;
+  border: 1px solid #3c73ad;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-outline-primary:hover {
+  color: #ffffff;
+  background: #193b64;
+  border-color: #193b64;
+}
+
+.container .btn:focus-visible {
+  outline: 3px solid rgba(60, 115, 173, 0.3);
+  outline-offset: 3px;
+}
+
+/* ================================
+   MENSAJE SIN RESERVAS
+================================ */
+
+.container .text-center.py-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  margin-top: 15px;
+  padding: 45px 25px !important;
+  background: #ffffff;
+  border: 1px dashed #cbd7e3;
+  border-radius: 16px;
+}
+
+.container .text-center h4 {
+  margin-bottom: 12px;
+  color: #193b64;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.container .text-center p {
+  max-width: 430px;
+  margin-bottom: 22px;
+  color: #718092 !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Botón ver alojamientos */
+.container .btn-primary {
+  padding: 11px 23px;
+  color: #ffffff;
+  background: #193b64;
+  border: 1px solid #193b64;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-primary:hover {
+  background: #3c73ad;
+  border-color: #3c73ad;
+}
+
+/* ================================
+   ESTADO DE CARGA Y ERROR
+================================ */
+
+.container > p:not(.text-muted) {
+  color: #718092;
+  font-size: 15px;
+}
+
+.container .alert-danger {
+  padding: 16px 20px;
+  color: #a83240;
+  background: #fff1f2;
+  border: 1px solid #f2c8cd;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 35px 18px !important;
+  }
+
+  .container h2 {
+    font-size: 28px;
+  }
+
+  .container .card .col-md-3 {
+    min-height: 200px;
+  }
+
+  .container .card img {
+    height: 200px;
+    min-height: 200px !important;
+    border-radius: 0 !important;
+  }
+
+  .container .card-body {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .container .card-title {
+    font-size: 19px;
+  }
+
+  .container .card-body strong {
+    font-size: 19px;
+  }
+
+  .container .card-body > .d-flex:last-child {
+    align-items: center;
+  }
+
+  .container .text-center.py-5 {
+    min-height: 270px;
+    padding: 30px 18px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .container .card-body > .d-flex:first-child {
+    flex-direction: column;
+  }
+
+  .container .badge {
+    align-self: flex-start !important;
+  }
+
+  .container .card-body > .d-flex:last-child {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .container .btn-outline-primary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container .card,
+  .container .btn {
+    transition: none;
+  }
+
+  .container .card:hover {
+    transform: none;
+  }
+}

@@ -1,5 +1,6 @@
 <!-- Comienza la vista de ayuda y contacto del administrador -->
 
+
 <!-- Encabezado de la página -->
 <div class="encabezado-contacto">
     <h1 class="titulo-contacto">Ayuda del administrador</h1>
@@ -8,8 +9,10 @@
     </h3>
 </div>
 
+
 <!-- Contenedor de preguntas frecuentes y formulario -->
 <div class="contacto-contenedor">
+
 
     <!-- Sección de preguntas frecuentes -->
     <div class="preguntas-frecuentes">
@@ -53,6 +56,7 @@
         </details>
     </div>
 
+
     <!-- Formulario de contacto -->
     <div class="formulario-thh">
         <h2 class="titulo-formulario">Soporte del administrador</h2>
@@ -61,17 +65,16 @@
         </p>
 
 
-
-        <!-- Comienza el formulario con campos obligatorios -->
-        <!-- Formulario que se blanquea al enviarlo -->
-        <form onsubmit="this.reset(); alert('Formulario enviado correctamente'); return false;">
+        <!-- Comienza el formulario: al enviarlo se guarda el mensaje en la base -->
+        <form (ngSubmit)="enviar()">
 
             <!-- Campo para el nombre -->
             <div class="mb-3">
                 <label for="nombreAdmin" class="form-label">
                     Ingresá tu nombre
                 </label>
-                <input type="text" class="form-control" id="nombreAdmin" placeholder="Tu nombre" required>
+                <input type="text" class="form-control" id="nombreAdmin" name="nombre" placeholder="Tu nombre"
+                    [(ngModel)]="nombre">
             </div>
 
             <!-- Campo para el correo electrónico -->
@@ -79,7 +82,8 @@
                 <label for="emailAdmin" class="form-label">
                     Ingresá tu mail
                 </label>
-                <input type="email" class="form-control" id="emailAdmin" placeholder="user@gmail.com" required>
+                <input type="email" class="form-control" id="emailAdmin" name="correo" placeholder="user@gmail.com"
+                    [(ngModel)]="correo">
             </div>
 
             <!-- Selector del asunto -->
@@ -89,16 +93,13 @@
                 </label>
 
                 <div class="selector-contenedor">
-                    <select class="form-control selector-asunto" id="asuntoAdmin" required>
-                        <option value="" selected disabled>
+                    <select class="form-control selector-asunto" id="asuntoAdmin" name="asunto" [(ngModel)]="asunto">
+                        <option value="" disabled>
                             Elegí el motivo de tu consulta
                         </option>
-                        <option value="alojamientos">Gestión de alojamientos</option>
-                        <option value="usuarios">Gestión de usuarios</option>
-                        <option value="reservas">Problemas con las reservas</option>
-                        <option value="pagina">Problemas con la página web</option>
-                        <option value="acceso">Acceso al panel de administrador</option>
-                        <option value="otro">Otro motivo</option>
+                        @for (a of asuntos; track a.valor) {
+                            <option [value]="a.valor">{{ a.texto }}</option>
+                        }
                     </select>
 
                     <!-- Flecha del selector -->
@@ -111,21 +112,27 @@
                 <label for="mensajeAdmin" class="form-label">
                     Describí tu consulta o situación
                 </label>
-                <textarea class="form-control" id="mensajeAdmin" rows="3" placeholder="Escribí tu mensaje..."
-                    required></textarea>
+                <textarea class="form-control" id="mensajeAdmin" name="mensaje" rows="3" maxlength="450"
+                    placeholder="Escribí tu mensaje..." [(ngModel)]="mensaje"></textarea>
             </div>
 
-            <!-- Botón para validar el formulario -->
-            <button type="submit" id="boton">
-                Enviar formulario
+            <!-- Resultado del envío -->
+            @if (exito()) {
+                <p class="text-success">{{ exito() }}</p>
+            }
+            @if (error()) {
+                <p class="text-danger">{{ error() }}</p>
+            }
+
+            <!-- Botón para enviar -->
+            <button type="submit" id="boton" [disabled]="enviando()">
+                {{ enviando() ? 'Enviando...' : 'Enviar formulario' }}
             </button>
 
         </form>
         <!-- Fin del formulario -->
     </div>
 </div>
-
-
 
 
 <!-- Aviso de seguridad para el administrador -->
@@ -144,8 +151,6 @@
     </div>
 
 </div>
-
-
 
 
 <!-- Sección de redes sociales -->

@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AlojamientoService } from '../../components/services/alojamiento.service'
+import { CarritoService } from '../../components/services/carrito.service';
+import { AuthService } from '../../components/services/auth.service';
+import { calcularNoches } from '../../components/services/utilidades';
 
+// Esta pantalla usa los datos con estos nombres.
+// Se arma a partir de lo que devuelve la API (ver cargar()).
 interface Alojamiento {
-  id: string;
+  id: number;
   nombre: string;
   categoria: string;
   ubicacion: string;
@@ -21,161 +27,69 @@ interface Alojamiento {
   templateUrl: './detallealojamiento.html',
 })
 export class DetalleAlojamiento {
-  alojamientos: Alojamiento[] = [
-    {
-      id: 'montana1',
-      nombre: 'Cabaña Vista al Cerro',
-      categoria: 'Montaña',
-      ubicacion: 'Bariloche',
-      imagen: 'assets/montana1.jpg',
-      descripcion: 'Una cabaña ideal para descansar y disfrutar de la naturaleza.',
-      huespedes: 2,
-      precio: 85000
-    },
-    {
-      id: 'montana2',
-      nombre: 'Refugio del Bosque',
-      categoria: 'Montaña',
-      ubicacion: 'Bariloche',
-      imagen: 'assets/montana2.jpg',
-      descripcion: 'Un refugio acogedor rodeado de paisajes naturales.',
-      huespedes: 4,
-      precio: 110000
-    },
-    {
-      id: 'montana3',
-      nombre: 'Cabaña Los Coihues',
-      categoria: 'Montaña',
-      ubicacion: 'Dina Huapi',
-      imagen: 'assets/montana3.jpg',
-      descripcion: 'Un espacio tranquilo para disfrutar una escapada.',
-      huespedes: 3,
-      precio: 92000
-    },
-    {
-      id: 'ciudad1',
-      nombre: 'Departamento Palermo',
-      categoria: 'Ciudad',
-      ubicacion: 'Buenos Aires · CABA',
-      imagen: 'assets/ciudad1.jpg',
-      descripcion: 'Un departamento cómodo para conocer la ciudad.',
-      huespedes: 2,
-      precio: 75000
-    },
-    {
-      id: 'ciudad2',
-      nombre: 'Loft en San Telmo',
-      categoria: 'Ciudad',
-      ubicacion: 'Buenos Aires · CABA',
-      imagen: 'assets/ciudad2.jpg',
-      descripcion: 'Un loft moderno en una zona llena de historia.',
-      huespedes: 2,
-      precio: 82000
-    },
-    {
-      id: 'ciudad3',
-      nombre: 'Departamento Centro',
-      categoria: 'Ciudad',
-      ubicacion: 'La Plata · Buenos Aires',
-      imagen: 'assets/ciudad3.jpg',
-      descripcion: 'Un departamento práctico para recorrer la ciudad.',
-      huespedes: 3,
-      precio: 65000
-    },
-    {
-      id: 'playa1',
-      nombre: 'Departamento Vista al Mar',
-      categoria: 'Playa',
-      ubicacion: 'Las Grutas',
-      imagen: 'assets/playa1.jpg',
-      descripcion: 'Disfrutá de una estadía cerca del mar.',
-      huespedes: 2,
-      precio: 85000
-    },
-    {
-      id: 'playa2',
-      nombre: 'Refugio de la Costa',
-      categoria: 'Playa',
-      ubicacion: 'San Antonio Oeste',
-      imagen: 'assets/playa2.jpg',
-      descripcion: 'Un lugar cómodo para disfrutar de la costa.',
-      huespedes: 3,
-      precio: 78000
-    },
-    {
-      id: 'playa3',
-      nombre: 'Casa Arena',
-      categoria: 'Playa',
-      ubicacion: 'Monte Hermoso',
-      imagen: 'assets/playa3.jpg',
-      descripcion: 'Una casa ideal para compartir unas vacaciones.',
-      huespedes: 4,
-      precio: 95000
-    },
-    {
-      id: 'bosque1',
-      nombre: 'Cabaña Bosque Andino',
-      categoria: 'Bosque',
-      ubicacion: 'Bariloche',
-      imagen: 'assets/bosque1.jpg',
-      descripcion: 'Una cabaña rodeada de vegetación y tranquilidad.',
-      huespedes: 2,
-      precio: 88000
-    },
-    {
-      id: 'bosque2',
-      nombre: 'Refugio Los Coihues',
-      categoria: 'Bosque',
-      ubicacion: 'Bariloche',
-      imagen: 'assets/bosque2.jpg',
-      descripcion: 'Un refugio para descansar en contacto con la naturaleza.',
-      huespedes: 4,
-      precio: 115000
-    },
-    {
-      id: 'bosque3',
-      nombre: 'Cabaña Raíces del Sur',
-      categoria: 'Bosque',
-      ubicacion: 'Dina Huapi',
-      imagen: 'assets/bosque3.jpg',
-      descripcion: 'Una estadía tranquila entre paisajes patagónicos.',
-      huespedes: 3,
-      precio: 92000
-    }
-  ];
+  // Cambian cuando responde la API, por eso son señales
+  aloj = signal<Alojamiento | null>(null);
+  cargando = signal(true);
+  enviando = signal(false);
+  mensajeError = signal('');
 
-  alojamiento?: Alojamiento;
+  // La plantilla usa "alojamiento" en muchos lugares: esto lo deja disponible
+  // en todo el HTML, sin importar dónde estén las llaves de @if.
+  get alojamiento(): Alojamiento | null {
+    return this.aloj();
+  }
 
-  nombreCliente = '';
-  email = '';
   entrada = '';
   salida = '';
   cantidadHuespedes = 1;
 
-  mensajeError = '';
-  reservaConfirmada = false;
-  numeroReserva = '';
+  // "public" para poder usar auth.estaLogueado() desde el HTML
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private alojamientoService: AlojamientoService,
+    private carritoService: CarritoService,
+    public auth: AuthService
+  ) {
+    // Cada vez que cambia el id de la dirección (/detallealojamiento/5), se carga ese alojamiento
+    this.route.paramMap.subscribe(params => this.cargar(Number(params.get('id'))));
+  }
 
-  constructor(private route: ActivatedRoute) {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      this.alojamiento = this.alojamientos.find(a => a.id === id);
+  // GET /alojamientos/{id}
+  cargar(id: number): void {
+    this.cargando.set(true);
+    this.aloj.set(null);
+
+    this.alojamientoService.verUno(id).subscribe({
+      next: a => {
+        this.aloj.set({
+          id: a.id,
+          nombre: a.titulo ?? '',
+          categoria: a.categoria ?? '',
+          ubicacion: a.ubicacion ?? '',
+          imagen: typeof a.imagen === 'string'
+            ? this.alojamientoService.urlImagen(String(a.imagen))
+            : '',
+          descripcion: a.descripcion ?? '',
+          huespedes: Number(a.capacidad ?? 0),
+          precio: Number(a.precio_noche)   // MySQL lo manda como texto
+        });
+        this.cargando.set(false);
+      },
+      // Si no existe (404) o falla la conexión, se muestra "No encontramos este alojamiento"
+      error: () => {
+        this.aloj.set(null);
+        this.cargando.set(false);
+      }
     });
   }
 
   get noches(): number {
-    if (!this.entrada || !this.salida) return 0;
-
-    const inicio = new Date(this.entrada + 'T00:00:00');
-    const fin = new Date(this.salida + 'T00:00:00');
-
-    return Math.round(
-      (fin.getTime() - inicio.getTime()) / (1000 * 60 * 60 * 24)
-    );
+    return calcularNoches(this.entrada, this.salida);
   }
 
   get total(): number {
-    return this.noches * (this.alojamiento?.precio ?? 0);
+    return this.noches * (this.aloj()?.precio ?? 0);
   }
 
   get fechaMinima(): string {
@@ -187,55 +101,61 @@ export class DetalleAlojamiento {
     return `${anio}-${mes}-${dia}`;
   }
 
-  confirmarReserva(): void {
-    this.mensajeError = '';
+  // Botón "Agregar a mi reserva": valida y guarda la reserva pendiente en la base
+  // (POST /carrito/agregar). Después lleva a la página donde se revisa y se confirma.
+  agregarAlCarrito(): void {
+    this.mensajeError.set('');
 
-    if (!this.alojamiento) {
-      this.mensajeError = 'No se encontró el alojamiento.';
+    const alojamiento = this.aloj();
+
+    if (!alojamiento) {
+      this.mensajeError.set('No se encontró el alojamiento.');
       return;
     }
 
-    if (
-      !this.nombreCliente.trim() ||
-      !this.email.trim() ||
-      !this.entrada ||
-      !this.salida
-    ) {
-      this.mensajeError = 'Completá todos los campos.';
+    // Hace falta una sesión iniciada para reservar
+    if (!this.auth.estaLogueado()) {
+      this.router.navigate(['/inicio-sesion']);
       return;
     }
 
-    if (!this.email.includes('@')) {
-      this.mensajeError = 'Ingresá un correo electrónico válido.';
+    if (!this.entrada || !this.salida) {
+      this.mensajeError.set('Elegí la fecha de entrada y la de salida.');
       return;
     }
 
     if (this.entrada < this.fechaMinima) {
-      this.mensajeError = 'La entrada no puede ser una fecha pasada.';
+      this.mensajeError.set('La entrada no puede ser una fecha pasada.');
       return;
     }
 
     if (this.noches <= 0) {
-      this.mensajeError = 'La salida debe ser posterior a la entrada.';
+      this.mensajeError.set('La salida debe ser posterior a la entrada.');
       return;
     }
 
-    if (
-      this.cantidadHuespedes < 1 ||
-      this.cantidadHuespedes > this.alojamiento.huespedes
-    ) {
-      this.mensajeError =
-        `Este alojamiento admite hasta ${this.alojamiento.huespedes} huéspedes.`;
+    if (this.cantidadHuespedes < 1 || this.cantidadHuespedes > alojamiento.huespedes) {
+      this.mensajeError.set(`Este alojamiento admite hasta ${alojamiento.huespedes} huéspedes.`);
       return;
     }
 
-    this.numeroReserva =
-      'HSP-' + Date.now().toString().slice(-8);
+    this.enviando.set(true);
 
-    this.reservaConfirmada = true;
-  }
-
-  imprimirTicket(): void {
-    window.print();
+    this.carritoService.agregar({
+      alojamiento_id: alojamiento.id,
+      fecha_entrada: this.entrada,
+      fecha_salida: this.salida,
+      cantidad_personas: this.cantidadHuespedes
+    }).subscribe({
+      next: () => {
+        this.enviando.set(false);
+        this.router.navigate(['/carrito']);
+      },
+      error: e => {
+        this.enviando.set(false);
+        // Por ejemplo: "El alojamiento no está disponible en esas fechas"
+        this.mensajeError.set(e.error?.error ?? 'No se pudo agregar a tu reserva. Probá de nuevo.');
+      }
+    });
   }
 }

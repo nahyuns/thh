@@ -1,0 +1,58 @@
+<div class="container py-5">
+
+  <h2 class="mb-1">Mis reservas</h2>
+  <p class="text-muted mb-4">Tu historial de reservas confirmadas.</p>
+
+  @if (cargando()) {
+
+    <p>Cargando tus reservas...</p>
+
+  } @else if (error()) {
+
+    <div class="alert alert-danger">{{ error() }}</div>
+
+  } @else {
+
+    @for (c of compras(); track c.id_compra) {
+      <div class="card mb-3">
+        <div class="row g-0">
+
+          <div class="col-md-3">
+            <img [src]="imagenUrl(c)" [alt]="c.titulo" class="img-fluid rounded-start h-100" style="object-fit: cover; min-height: 140px;">
+          </div>
+
+          <div class="col-md-9">
+            <div class="card-body">
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <h5 class="card-title mb-0">{{ c.titulo }}</h5>
+                  <p class="text-muted mb-2">{{ c.ubicacion }}</p>
+                </div>
+                <span class="badge text-bg-secondary align-self-start">{{ c.numero_ticket }}</span>
+              </div>
+
+              <p class="mb-2">
+                {{ c.fecha_entrada | date:'dd/MM/yyyy' }} → {{ c.fecha_salida | date:'dd/MM/yyyy' }}
+                · {{ c.cantidad_personas }} {{ c.cantidad_personas === 1 ? 'persona' : 'personas' }}
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <strong>${{ c.total | number:'1.0-0' }}</strong>
+                <a [routerLink]="['/ticket', c.id_compra]" class="btn btn-outline-primary btn-sm">Ver ticket</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center py-5">
+        <h4>Todavía no hiciste reservas</h4>
+        <p class="text-muted">Cuando confirmes una reserva, la vas a ver acá.</p>
+        <a routerLink="/alojamientos" class="btn btn-primary">Ver alojamientos</a>
+      </div>
+    }
+
+  }
+
+</div>

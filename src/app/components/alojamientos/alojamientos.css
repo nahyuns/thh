@@ -31,7 +31,7 @@
       rgba(25, 59, 100, 0.88),
       rgba(25, 59, 100, 0.88)
     ),
-    url('/assets/hero.jpg') center/cover no-repeat;
+    url('/assets/') center/cover no-repeat;
 }
 
 .encabezado-contenido {

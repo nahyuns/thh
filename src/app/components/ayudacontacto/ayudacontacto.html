@@ -1,5 +1,6 @@
 <!-- Comienza la sección de ayuda y contacto -->
 
+
 <!-- Encabezado de la página -->
 <div class="encabezado-contacto">
     <h1 class="titulo-contacto">Contactanos</h1>
@@ -8,14 +9,18 @@
     </h3>
 </div>
 
+
 <!-- Contenedor de las preguntas y el formulario -->
 <div class="contacto-contenedor">
+
 
     <!-- Preguntas frecuentes, lado izquierdo -->
     <div class="preguntas-frecuentes">
 
+
         <h2>Preguntas frecuentes</h2>
         <p class="subtitulo">Resolvé tus dudas antes de reservar.</p>
+
 
         <!-- Primera pregunta -->
         <details class="pregunta">
@@ -26,6 +31,7 @@
             </p>
         </details>
 
+
         <!-- Segunda pregunta -->
         <details class="pregunta">
             <summary>¿Puedo cancelar mi reserva?</summary>
@@ -34,6 +40,7 @@
                 del alojamiento y de sus políticas de reserva.
             </p>
         </details>
+
 
         <!-- Tercera pregunta -->
         <details class="pregunta">
@@ -44,6 +51,7 @@
             </p>
         </details>
 
+
         <!-- Cuarta pregunta -->
         <details class="pregunta">
             <summary>¿Qué métodos de pago aceptan?</summary>
@@ -52,6 +60,7 @@
                 bancaria, tarjeta de credito/debito y Mercado pago.
             </p>
         </details>
+
 
         <!-- Quinta pregunta -->
         <details class="pregunta">
@@ -62,21 +71,26 @@
             </p>
         </details>
 
+
     </div>
 
-    <!-- Formulario de contacto, lado derecho -->
-    <form class="formulario-thh">
+
+    <!-- Formulario de contacto, lado derecho: al enviarlo se guarda el mensaje en la base -->
+    <form class="formulario-thh" (ngSubmit)="enviar()">
+
 
         <h2 class="titulo-formulario">Dejanos tu consulta</h2>
+
 
         <!-- Campo para ingresar el nombre -->
         <div class="mb-3">
             <label for="nombre1" class="form-label">
                 Ingresá tu nombre
             </label>
-            <input type="text" class="form-control" id="nombre1"
-                placeholder="Tu nombre" required>
+            <input type="text" class="form-control" id="nombre1" name="nombre"
+                placeholder="Tu nombre" [(ngModel)]="nombre">
         </div>
+
 
         <!-- Campo para ingresar el correo -->
         <div class="mb-3">
@@ -84,9 +98,10 @@
                 Ingresá tu mail
             </label>
             <input type="email" class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="user@gmail.com" required>
+                id="exampleFormControlInput1" name="correo"
+                placeholder="user@gmail.com" [(ngModel)]="correo">
         </div>
+
 
         <!-- Selector del asunto de la consulta -->
         <div class="mb-3">
@@ -94,24 +109,23 @@
                 Seleccioná un asunto
             </label>
 
+
             <div class="selector-contenedor">
-                <select class="form-control selector-asunto" id="asunto" required>
-                    <option value="" selected disabled>
+                <select class="form-control selector-asunto" id="asunto" name="asunto" [(ngModel)]="asunto">
+                    <option value="" disabled>
                         Elegí el motivo de tu consulta
                     </option>
-                    <option>Consulta sobre un alquiler</option>
-                    <option>Información sobre destinos</option>
-                    <option>Problemas con una reserva</option>
-                    <option>Cambios o cancelaciones</option>
-                    <option>Medios de pago</option>
-                    <option>Problemas con la página web</option>
-                    <option>Otro motivo</option>
+                    @for (a of asuntos; track a) {
+                        <option [value]="a">{{ a }}</option>
+                    }
                 </select>
+
 
                 <!-- Flecha del selector -->
                 <span class="flecha-selector">▼</span>
             </div>
         </div>
+
 
         <!-- Campo para escribir el mensaje -->
         <div class="mb-3">
@@ -119,45 +133,65 @@
                 Describí tu consulta o situación
             </label>
             <textarea class="form-control"
-                id="exampleFormControlTextarea1" rows="3"
-                placeholder="Escribí tu mensaje..." required></textarea>
+                id="exampleFormControlTextarea1" name="mensaje" rows="3" maxlength="450"
+                placeholder="Escribí tu mensaje..." [(ngModel)]="mensaje"></textarea>
         </div>
 
+
+        <!-- Resultado del envío -->
+        @if (exito()) {
+            <p class="text-success">{{ exito() }}</p>
+        }
+        @if (error()) {
+            <p class="text-danger">{{ error() }}</p>
+        }
+
+
         <!-- Botón para enviar -->
-        <button type="submit" id="boton">
-            Enviar
+        <button type="submit" id="boton" [disabled]="enviando()">
+            {{ enviando() ? 'Enviando...' : 'Enviar' }}
         </button>
+
 
     </form>
 
+
 </div>
+
 
 <!-- Sección de redes sociales debajo de las dos columnas -->
 <div class="redes-sociales">
 
+
     <h3>¡Seguinos en nuestras redes!</h3>
     <p>También podés encontrarnos en:</p>
 
+
     <!-- Enlaces a las redes sociales -->
     <div class="lista-redes">
+
 
         <a href="#" target="_blank">
             <i class="bi bi-instagram"></i> Instagram
         </a>
 
+
         <a href="#" target="_blank">
             <i class="bi bi-whatsapp"></i> WhatsApp
         </a>
+
 
         <a href="#" target="_blank">
             <i class="bi bi-facebook"></i> Facebook
         </a>
 
+
         <a href="mailto:contacto@thh.com">
             <i class="bi bi-envelope"></i> Correo electrónico
         </a>
 
+
     </div>
 
-</div>
 
+</div>

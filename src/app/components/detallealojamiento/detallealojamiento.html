@@ -1,8 +1,10 @@
 <main class="pagina-detalle">
 
-  @if (alojamiento) {
+  @if (cargando()) {
 
-  @if (!reservaConfirmada) {
+  <p class="cargando">Cargando alojamiento...</p>
+
+  } @else if (alojamiento) {
 
   <!-- ENCABEZADO -->
   <section class="encabezado-detalle">
@@ -10,6 +12,7 @@
     <h1>Tu próxima estadía comienza acá</h1>
     <p>Conocé el alojamiento, elegí tus fechas y prepará las valijas.</p>
   </section>
+
 
   <!-- INFORMACIÓN DEL ALOJAMIENTO -->
   <section class="detalle">
@@ -67,6 +70,7 @@
     </div>
   </section>
 
+
   <!-- RESERVA -->
   <section class="seccion-reserva">
 
@@ -74,8 +78,8 @@
       <span class="etiqueta-superior">PLANIFICÁ TU VIAJE</span>
       <h2>Reservá tu estadía</h2>
       <p>
-        Completá tus datos y seleccioná las fechas para conocer
-        el precio total de tu estadía.
+        Seleccioná las fechas para conocer el precio total de tu estadía.
+        Se agrega a tu reserva y la confirmás en el siguiente paso.
       </p>
 
       <div class="reserva-beneficio">
@@ -85,20 +89,17 @@
     </div>
 
     <div class="formulario-reserva">
-      <form (ngSubmit)="confirmarReserva()">
+      <form (ngSubmit)="agregarAlCarrito()">
 
-        <h3>01. Tus datos</h3>
-
-        <div class="campo">
-          <label for="nombre">Nombre completo</label>
-          <input id="nombre" type="text" name="nombre" placeholder="Ingresá tu nombre y apellido"
-            [(ngModel)]="nombreCliente" required>
-        </div>
-
-        <div class="campo">
-          <label for="email">Correo electrónico</label>
-          <input id="email" type="email" name="email" placeholder="ejemplo@correo.com" [(ngModel)]="email" required>
-        </div>
+        @if (auth.estaLogueado()) {
+          <h3>01. Tus datos</h3>
+          <p>Vas a reservar como <strong>{{ auth.nombreUsuario() }}</strong>.</p>
+        } @else {
+          <div class="mensaje-error" role="alert">
+            <span>!</span>
+            Iniciá sesión para poder reservar. <a routerLink="/inicio-sesion">Iniciar sesión</a>
+          </div>
+        }
 
         <div class="separador-formulario"></div>
 
@@ -120,13 +121,14 @@
           <label for="huespedes">Cantidad de huéspedes</label>
           <select id="huespedes" name="huespedes" [(ngModel)]="cantidadHuespedes" required>
 
-            @for (numero of [1, 2, 3, 4]; track numero) {
-            @if (numero <= alojamiento.huespedes) { <option [ngValue]="numero">
-              {{ numero }}
-              {{ numero === 1 ? 'huésped' : 'huéspedes' }}
-              </option>
+            @for (numero of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track numero) {
+              @if (numero <= alojamiento.huespedes) {
+                <option [ngValue]="numero">
+                  {{ numero }}
+                  {{ numero === 1 ? 'huésped' : 'huéspedes' }}
+                </option>
               }
-              }
+            }
 
           </select>
 
@@ -183,115 +185,25 @@
           </p>
         </div>
 
-        @if (mensajeError) {
+        @if (mensajeError()) {
         <div class="mensaje-error" role="alert">
           <span>!</span>
-          {{ mensajeError }}
+          {{ mensajeError() }}
         </div>
         }
 
-        <button type="submit" class="btn-reservar">
-          Confirmar reserva
+        <button type="submit" class="btn-reservar" [disabled]="enviando()">
+          {{ enviando() ? 'Agregando...' : 'Agregar a mi reserva' }}
           <span>→</span>
         </button>
 
         <p class="texto-seguridad">
-          Comprobá tus datos y fechas antes de confirmar.
+          Después podrás revisar y confirmar tu reserva.
         </p>
 
       </form>
     </div>
   </section>
-  }
-
-  <!-- TICKET -->
-  @if (reservaConfirmada) {
-
-  <section class="ticket">
-
-    <div class="ticket-cabecera">
-      <div class="ticket-icono">✓</div>
-      <span class="etiqueta-superior">HOSPEDA · COMPROBANTE</span>
-      <h1>¡Tu reserva está confirmada!</h1>
-      <p>Estos son los datos de tu estadía. Guardá tu comprobante.</p>
-    </div>
-
-    <div class="ticket-numero">
-      <span>NÚMERO DE RESERVA</span>
-      <strong>{{ numeroReserva }}</strong>
-      <small>Conservá este número como referencia.</small>
-    </div>
-
-    <div class="ticket-alojamiento">
-      <img [src]="alojamiento.imagen" [alt]="alojamiento.nombre">
-
-      <div>
-        <span class="etiqueta">{{ alojamiento.categoria }}</span>
-        <h2>{{ alojamiento.nombre }}</h2>
-        <p>⌖ {{ alojamiento.ubicacion }}</p>
-      </div>
-    </div>
-
-    <div class="ticket-seccion">
-      <h3>Datos del huésped</h3>
-
-      <div class="ticket-fila">
-        <span>Nombre completo</span>
-        <strong>{{ nombreCliente }}</strong>
-      </div>
-
-      <div class="ticket-fila">
-        <span>Correo electrónico</span>
-        <strong>{{ email }}</strong>
-      </div>
-
-      <div class="ticket-fila">
-        <span>Cantidad de huéspedes</span>
-        <strong>{{ cantidadHuespedes }}</strong>
-      </div>
-    </div>
-
-    <div class="ticket-seccion">
-      <h3>Detalles de la estadía</h3>
-
-      <div class="ticket-fila">
-        <span>Fecha de entrada</span>
-        <strong>{{ entrada }}</strong>
-      </div>
-
-      <div class="ticket-fila">
-        <span>Fecha de salida</span>
-        <strong>{{ salida }}</strong>
-      </div>
-
-      <div class="ticket-fila">
-        <span>Cantidad de noches</span>
-        <strong>{{ noches }}</strong>
-      </div>
-    </div>
-
-    <div class="ticket-total">
-      <span>Importe total de la estadía</span>
-      <strong>${{ total | number:'1.0-0' }}</strong>
-      <small>Pesos argentinos (ARS)</small>
-    </div>
-
-    <div class="ticket-pie">
-      <p>Hospeda · Encontrá tu lugar ideal.</p>
-      <p>Este ticket corresponde a una reserva de demostración.</p>
-    </div>
-
-    <button type="button" class="btn-reservar no-imprimir" (click)="imprimirTicket()">
-      Imprimir o guardar ticket
-      <span>↓</span>
-    </button>
-
-    <a routerLink="/alojamientos" class="volver no-imprimir">
-      ← Volver a los alojamientos
-    </a>
-
-  </section>
-  }
 
   } @else {
 

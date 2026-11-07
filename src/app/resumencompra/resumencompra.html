@@ -1,0 +1,66 @@
+<div class="container py-5">
+
+  <h2 class="mb-1">Resumen de tu reserva</h2>
+  <p class="text-muted mb-4">Comprobá los datos y confirmá. Al confirmar se genera tu ticket.</p>
+
+  @if (cargando()) {
+
+    <p>Cargando el resumen...</p>
+
+  } @else if (items().length === 0) {
+
+    <div class="text-center py-5">
+      <h4>No hay nada para confirmar</h4>
+      <p class="text-muted">Tu reserva está vacía.</p>
+      <a routerLink="/alojamientos" class="btn btn-primary">Ver alojamientos</a>
+    </div>
+
+  } @else {
+
+    @if (error()) {
+      <div class="alert alert-danger">{{ error() }}</div>
+    }
+
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Alojamiento</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Noches</th>
+            <th>Personas</th>
+            <th class="text-end">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (i of items(); track i.id) {
+            <tr>
+              <td>
+                <strong>{{ i.titulo }}</strong><br>
+                <small class="text-muted">{{ i.ubicacion }}</small>
+              </td>
+              <td>{{ i.fecha_entrada | date:'dd/MM/yyyy' }}</td>
+              <td>{{ i.fecha_salida | date:'dd/MM/yyyy' }}</td>
+              <td>{{ noches(i) }}</td>
+              <td>{{ i.cantidad_personas }}</td>
+              <td class="text-end">${{ i.total | number:'1.0-0' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2">
+      <h4 class="mb-0">Total: ${{ total() | number:'1.0-0' }}</h4>
+      <div>
+        <a routerLink="/carrito" class="btn btn-outline-secondary me-2">← Volver</a>
+        <button type="button" class="btn btn-primary" (click)="confirmar()" [disabled]="procesando()">
+          {{ procesando() ? 'Confirmando...' : 'Confirmar reserva' }}
+        </button>
+      </div>
+    </div>
+
+  }
+
+</div>

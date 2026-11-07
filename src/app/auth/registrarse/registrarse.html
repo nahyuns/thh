@@ -17,18 +17,21 @@
 
                 <label for="nombre" class="form-nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" placeholder="Ingresá tu nombre">
+                @if (errorNombre) { <small class="text-danger">{{ errorNombre }}</small> }
 
                 <label for="apellido" class="form-apellido">Apellido</label>
                 <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="apellido" placeholder="Ingresá tu apellido">
+                @if (errorApellido) { <small class="text-danger">{{ errorApellido }}</small> }
 
                 <label for="email" class="form-email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="user1234@gmail.com">
+                @if (errorEmail) { <small class="text-danger">{{ errorEmail }}</small> }
 
                 <label for="rol" class="form-rol">Tipo de cuenta</label>
 
-                <select class="form-control" id="rol" name="rol">
-                   <option value="usuario" selected>Usuario</option>
-                   <option value="admin">Administrador</option>
+                <select class="form-control" id="rol" name="tipo" [(ngModel)]="tipo">
+                   <option value="huesped">Huésped (quiero reservar)</option>
+                   <option value="anfitrion">Anfitrión (quiero publicar alojamientos)</option>
                </select>
             </div>
 
@@ -36,9 +39,11 @@
             <div class="mb-3" id="contraseña-confirmar">
                 <label for="password" class="crear-contraseña">Crear contraseña</label>
                 <input type="password" class="form-control" id="password" name="contrasena" [(ngModel)]="contrasena" placeholder="Ingresá tu contraseña">
+                @if (errorContrasena) { <small class="text-danger">{{ errorContrasena }}</small> }
 
                 <label for="confirmar" class="confirmar-contraseña">Confirmar contraseña</label>
                 <input type="password" class="form-control" id="confirmar" name="confirmar" [(ngModel)]="confirmar" placeholder="Confirmá tu contraseña">
+                @if (errorConfirmar) { <small class="text-danger">{{ errorConfirmar }}</small> }
             </div>
 
             <!-- CHECKBOX "Mostrar" (el ícono es de Bootstrap Icons) -->
@@ -48,18 +53,23 @@
             </div>
 
             <!-- BOTÓN -->
-            <button type="submit" class="crear-cuenta">Crear cuenta</button>
+            <button type="submit" class="crear-cuenta" [disabled]="enviando()">Crear cuenta</button>
 
             <!-- Mensaje que aparece si los datos son correctos -->
-            <p>{{ mensajeExito }}</p>
+            <p>{{ mensajeExito() }}</p>
 
-            <!-- ENLACE PARA QUIEN YA TIENE CUENTA (cambia la ruta "/login" por la tuya) -->
+            <!-- Error que devuelve la API (por ejemplo, correo repetido) -->
+            @if (errorServidor()) {
+                <p class="text-danger">{{ errorServidor() }}</p>
+            }
+
+            <!-- ENLACE PARA QUIEN YA TIENE CUENTA -->
             <p class="ya-tienes-cuenta">¿Ya tienes cuenta? <a routerLink="/inicio-sesion">Inicia sesión</a></p>
 
             <!-- SEPARADOR: línea con una "o" en el medio (las líneas las dibuja el CSS) -->
             <div class="separador"><span>o</span></div>
 
-            <!-- BOTÓN VOLVER (cambia la ruta "/" por la tuya). bi-arrow-left = flecha de Bootstrap Icons -->
+            <!-- BOTÓN VOLVER. bi-arrow-left = flecha de Bootstrap Icons -->
             <a routerLink="/inicio" class="volver-sitio">
                 <i class="bi bi-arrow-left"></i> Volver al sitio
             </a>

@@ -86,9 +86,9 @@
 
                         <select id="huespedes" name="huespedes" [(ngModel)]="huespedes">
 
-                            <option [ngValue]="1">1 persona</option>
-                            <option [ngValue]="2">2 personas</option>
-
+                            @for (n of opcionesPersonas; track n) {
+                            <option [ngValue]="n">{{ n }} {{ n === 1 ? 'persona' : 'personas' }}</option>
+                            }
                         </select>
                     </div>
 
@@ -302,7 +302,7 @@
                 descansar, disfrutar y crear nuevos recuerdos.
             </p>
 
-            <a href="#" class="link-principal">
+            <a routerLink="/sobrenosotros" class="link-principal">
 
                 Conocé más sobre nosotros
 
@@ -332,13 +332,12 @@
                 Explorá nuestras opciones de alojamiento.
             </p>
 
-            <a href="alojamientos" class="btn-claro">
+            <a routerLink="/alojamientos" class="btn-claro"></a>
 
-                Ver alojamientos
+            Ver alojamientos
 
-                <span>→</span>
+            <span>→</span>
 
-            </a>
 
         </div>
 

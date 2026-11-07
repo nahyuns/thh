@@ -1,10 +1,12 @@
 <nav class="navbar-hospedaje">
   <div class="nav-contenedor">
 
+
     <!-- Marca / Logo -->
     <a routerLink="/" class="marca">
       <img src="assets/logo.png" alt="Hospeda">
     </a>
+
 
     <!-- Botón Hamburguesa para Móviles -->
     <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuAbierto" aria-label="Abrir menú">
@@ -13,9 +15,10 @@
       <span class="bar"></span>
     </button>
 
+
     <!-- Contenedor desplegable (Menú + Acciones) -->
     <div class="menu-acciones-wrapper" [class.abierto]="menuAbierto">
-      
+
       <!-- Menú central -->
       <div class="menu">
         <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">
@@ -27,6 +30,11 @@
         <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
           Favoritos
         </a>
+        @if (auth.estaLogueado()) {
+          <a routerLink="/mis-reservas" routerLinkActive="activo" (click)="cerrarMenu()">
+            Mis reservas
+          </a>
+        }
         <a routerLink="/sobrenosotros" routerLinkActive="activo" (click)="cerrarMenu()">
           Sobre nosotros
         </a>
@@ -35,17 +43,38 @@
         </a>
       </div>
 
-      <!-- Botones de la derecha -->
+
+      <!-- Botones de la derecha: cambian según haya o no una sesión iniciada -->
       <div class="acciones">
-        <a routerLink="/inicio-sesion" class="iniciar" (click)="cerrarMenu()">
-          Iniciar sesión
-        </a>
-        <a routerLink="/registrarse" class="registrar" (click)="cerrarMenu()">
-          Registrarme
-        </a>
+        @if (auth.estaLogueado()) {
+
+          <span class="saludo">Hola, {{ auth.nombreUsuario() }}</span>
+
+          <!-- Solo los anfitriones y el admin ven el acceso a su panel -->
+          @if (auth.puedeAdministrar()) {
+            <a routerLink="/admin" class="iniciar" (click)="cerrarMenu()">
+              Mi panel
+            </a>
+          }
+
+          <a routerLink="/inicio" class="registrar" (click)="salir()">
+            Salir
+          </a>
+
+        } @else {
+
+          <a routerLink="/inicio-sesion" class="iniciar" (click)="cerrarMenu()">
+            Iniciar sesión
+          </a>
+          <a routerLink="/registrarse" class="registrar" (click)="cerrarMenu()">
+            Registrarme
+          </a>
+
+        }
       </div>
 
     </div>
+
 
   </div>
 </nav>

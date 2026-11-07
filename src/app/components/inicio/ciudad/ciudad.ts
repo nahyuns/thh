@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
-import { FavoritosService } from '../../services/favoritos';
+import { DecimalPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { CategoriaBase } from '../categoriaBase';
 
 @Component({
-  imports: [],
+  imports: [DecimalPipe, RouterLink],
   selector: 'app-ciudad',
   styleUrl: './ciudad.css',
   templateUrl: './ciudad.html',
 })
-export class Ciudad {
-  constructor(public favoritosService: FavoritosService) { }
-
-  Favorito(id: string): boolean {
-    return this.favoritosService.esFavorito(id);
-  }
-
-  alternarFavorito(id: string): void {
-    this.favoritosService.alternarFavorito(id);
-  }
+// Toda la lógica (cargar alojamientos, favoritos) está en CategoriaBase.
+// Esta página solo indica su categoría.
+export class Ciudad extends CategoriaBase {
+  readonly categoria = 'Ciudad';
 }

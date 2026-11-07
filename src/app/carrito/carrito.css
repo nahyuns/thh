@@ -1,0 +1,389 @@
+
+/* ================================
+   PÁGINA MI RESERVA
+================================ */
+
+.container {
+  max-width: 1150px;
+  padding-top: 55px !important;
+  padding-bottom: 65px !important;
+  box-sizing: border-box;
+}
+
+/* Encabezado */
+.container h2 {
+  margin-bottom: 10px !important;
+  color: #193b64;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.container > p {
+  margin-bottom: 35px !important;
+  color: #718092 !important;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ================================
+   TARJETAS DE ALOJAMIENTOS
+================================ */
+
+.container > .card {
+  overflow: hidden;
+  margin-bottom: 22px !important;
+  background: #ffffff;
+  border: 1px solid #e1e7ed;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(25, 59, 100, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.container > .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(25, 59, 100, 0.11);
+}
+
+/* Imagen */
+.container > .card .col-md-3 {
+  min-height: 230px;
+}
+
+.container > .card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 230px !important;
+  object-fit: cover !important;
+}
+
+/* Contenido */
+.container > .card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px 27px;
+}
+
+/* Nombre del alojamiento */
+.container .card-title {
+  margin-bottom: 7px !important;
+  color: #193b64;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Ubicación */
+.container .card-body > p.text-muted {
+  margin-bottom: 22px !important;
+  color: #718092 !important;
+  font-size: 13px;
+}
+
+/* ================================
+   FORMULARIOS
+================================ */
+
+/* Etiquetas */
+.container .form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #193b64;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Campos */
+.container .form-control {
+  min-height: 44px;
+  padding: 10px 12px;
+  color: #43566b;
+  background-color: #ffffff;
+  border: 1px solid #d8e1e9;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Campo seleccionado */
+.container .form-control:focus {
+  color: #193b64;
+  background-color: #ffffff;
+  border-color: #3c73ad;
+  box-shadow: 0 0 0 3px rgba(60, 115, 173, 0.12);
+  outline: none;
+}
+
+/* ================================
+   PRECIO Y NOCHES
+================================ */
+
+.container .card-body > .d-flex strong {
+  color: #193b64;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.container .card-body > .d-flex small {
+  color: #718092 !important;
+  font-size: 13px;
+}
+
+/* ================================
+   BOTONES DE LAS TARJETAS
+================================ */
+
+/* Guardar cambios */
+.container .btn-outline-primary {
+  padding: 9px 15px;
+  color: #3c73ad;
+  background: #ffffff;
+  border: 1px solid #3c73ad;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-outline-primary:hover {
+  color: #ffffff;
+  background: #193b64;
+  border-color: #193b64;
+}
+
+/* Quitar alojamiento */
+.container .btn-outline-danger {
+  padding: 9px 15px;
+  color: #d93649;
+  background: #ffffff;
+  border: 1px solid #efc5ca;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-outline-danger:hover {
+  color: #ffffff;
+  background: #d93649;
+  border-color: #d93649;
+}
+
+/* ================================
+   TOTAL DE LA RESERVA
+================================ */
+
+.container > .d-flex.justify-content-between.align-items-center.mt-4 {
+  margin-top: 28px !important;
+  padding: 24px 27px;
+  background: #f3f7fb;
+  border: 1px solid #dce6ef;
+  border-radius: 13px;
+}
+
+.container > .d-flex.justify-content-between h4 {
+  margin: 0;
+  color: #193b64;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* Botón vaciar */
+.container .btn-outline-secondary {
+  padding: 11px 19px;
+  color: #53677d;
+  background: #ffffff;
+  border: 1px solid #cbd7e3;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-outline-secondary:hover {
+  color: #193b64;
+  background: #edf3f9;
+  border-color: #9eb5cb;
+}
+
+/* Botón continuar */
+.container .btn-primary {
+  padding: 12px 21px;
+  color: #ffffff;
+  background: #193b64;
+  border: 1px solid #193b64;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.container .btn-primary:hover {
+  background: #3c73ad;
+  border-color: #3c73ad;
+  box-shadow: 0 4px 12px rgba(25, 59, 100, 0.15);
+}
+
+/* ================================
+   ESTADO VACÍO
+================================ */
+
+.container .text-center.py-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  margin-top: 15px;
+  padding: 45px 25px !important;
+  background: #ffffff;
+  border: 1px dashed #cbd7e3;
+  border-radius: 16px;
+}
+
+.container .text-center h4 {
+  margin-bottom: 12px;
+  color: #193b64;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.container .text-center p {
+  max-width: 440px;
+  margin-bottom: 22px;
+  color: #718092 !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ================================
+   ALERTAS
+================================ */
+
+.container .alert-danger {
+  padding: 16px 20px;
+  color: #a83240;
+  background: #fff1f2;
+  border: 1px solid #f2c8cd;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.container .alert-success {
+  padding: 16px 20px;
+  color: #267447;
+  background: #edf8f0;
+  border: 1px solid #c8e8d1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* Accesibilidad */
+.container .btn:focus-visible {
+  outline: 3px solid rgba(60, 115, 173, 0.3);
+  outline-offset: 3px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 35px 18px !important;
+  }
+
+  .container h2 {
+    font-size: 28px;
+  }
+
+  .container > .card .col-md-3 {
+    min-height: 200px;
+  }
+
+  .container > .card img {
+    height: 200px;
+    min-height: 200px !important;
+    border-radius: 0 !important;
+  }
+
+  .container > .card .card-body {
+    padding: 21px;
+  }
+
+  .container .card-title {
+    font-size: 19px;
+  }
+
+  .container .card-body > .row {
+    row-gap: 15px !important;
+  }
+
+  .container .card-body > .d-flex {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .container .card-body > .d-flex > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 9px;
+  }
+
+  .container .card-body > .d-flex .btn {
+    flex: 1;
+    margin-right: 0 !important;
+  }
+
+  .container > .d-flex.justify-content-between.align-items-center.mt-4 {
+    align-items: flex-start !important;
+    flex-direction: column;
+    gap: 20px;
+    padding: 21px;
+  }
+
+  .container > .d-flex.justify-content-between.mt-4 > div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .container > .d-flex.justify-content-between.mt-4 .btn {
+    flex: 1;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .container .card-body > .d-flex > div:last-child {
+    flex-direction: column;
+  }
+
+  .container .card-body > .d-flex .btn {
+    width: 100%;
+  }
+
+  .container > .d-flex.justify-content-between.mt-4 > div {
+    flex-direction: column;
+  }
+
+  .container > .d-flex.justify-content-between.mt-4 .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container .card,
+  .container .btn,
+  .container .form-control {
+    transition: none;
+  }
+
+  .container > .card:hover {
+    transform: none;
+  }
+}

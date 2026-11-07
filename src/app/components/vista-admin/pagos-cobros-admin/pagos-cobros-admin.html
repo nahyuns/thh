@@ -1,11 +1,10 @@
-
 <!-- Contenedor principal -->
 <div class="pagos-container">
 
   <!-- Encabezado -->
   <div class="encabezado">
     <h1>Pagos y cobros</h1>
-    <p>Administrá y controlá los movimientos de la plataforma.</p>
+    <p>Los ingresos de las reservas confirmadas en tus alojamientos.</p>
   </div>
 
   <!-- Tarjetas con información general -->
@@ -14,13 +13,13 @@
     <div class="tarjeta">
       <p>Total recaudado</p>
       <h2>{{ formatearImporte(totalRecaudado) }}</h2>
-      <span>Pagos completados</span>
+      <span>Reservas confirmadas</span>
     </div>
 
     <div class="tarjeta">
-      <p>Pagos pendientes</p>
-      <h2>{{ formatearImporte(pagosPendientes) }}</h2>
-      <span>Esperando confirmación</span>
+      <p>Ingresos del mes</p>
+      <h2>{{ formatearImporte(ingresosDelMes) }}</h2>
+      <span>Mes actual</span>
     </div>
 
     <div class="tarjeta">
@@ -36,7 +35,7 @@
 
     <div class="movimientos-titulo">
       <h2>Movimientos recientes</h2>
-      <p>Consultá los pagos realizados y pendientes.</p>
+      <p>Consultá las reservas cobradas.</p>
     </div>
 
     <!-- Filtro para el buscador-->
@@ -44,18 +43,21 @@
 
       <input
         type="text"
-        placeholder="Buscar por huésped o destino..."
+        placeholder="Buscar por huésped o alojamiento..."
         (input)="buscar($event)"
       >
 
-      <select (change)="filtrarEstado($event)">
-        <option value="">Todos los estados</option>
-        <option value="completado">Completado</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="cancelado">Cancelado</option>
-      </select>
-
     </div>
+
+    @if (cargando()) {
+
+      <p class="sin-resultados">Cargando movimientos...</p>
+
+    } @else if (error()) {
+
+      <p class="sin-resultados text-danger">{{ error() }}</p>
+
+    } @else {
 
     <!-- Tabla de movimientos -->
     <div class="tabla-contenedor">
@@ -65,35 +67,25 @@
         <thead>
           <tr>
             <th>Huésped</th>
-            <th>Destino</th>
+            <th>Alojamiento</th>
             <th>Fecha</th>
-            <th>Método de pago</th>
             <th>Importe</th>
-            <th>Estado</th>
+            <th>Ticket</th>
           </tr>
         </thead>
 
         <tbody>
 
           <!-- Recorre los movimientos filtrados -->
-          @for (movimiento of movimientosFiltrados; track movimiento.id) {
+          @for (movimiento of movimientosFiltrados; track movimiento.id_compra) {
             <tr>
-              <td>{{ movimiento.huesped }}</td>
-              <td>{{ movimiento.alojamiento }}</td>
-              <td>{{ movimiento.fecha }}</td>
-              <td>{{ movimiento.metodo }}</td>
-              <td>{{ formatearImporte(movimiento.importe) }}</td>
+              <td>{{ huesped(movimiento) }}</td>
+              <td>{{ movimiento.titulo }}</td>
+              <td>{{ (movimiento.fecha_emision ?? movimiento.fecha_entrada) | date:'dd/MM/yyyy' }}</td>
+              <td>{{ formatearImporte(movimiento.total) }}</td>
 
               <td>
-                <span
-                  class="estado"
-                  [class.completado]="movimiento.estado === 'completado'"
-                  [class.pendiente]="movimiento.estado === 'pendiente'"
-                  [class.cancelado]="movimiento.estado === 'cancelado'">
-
-                  {{ movimiento.estado }}
-
-                </span>
+                <span class="estado completado">{{ movimiento.numero_ticket }}</span>
               </td>
             </tr>
           }
@@ -101,7 +93,7 @@
           <!-- Mensaje si no hay resultados -->
           @if (movimientosFiltrados.length === 0) {
             <tr>
-              <td colspan="6" class="sin-resultados">
+              <td colspan="5" class="sin-resultados">
                 No se encontraron movimientos.
               </td>
             </tr>
@@ -117,6 +109,8 @@
     <div class="pie-tabla">
       <p>Mostrando {{ movimientosFiltrados.length }} movimientos.</p>
     </div>
+
+    }
 
   </div>
 

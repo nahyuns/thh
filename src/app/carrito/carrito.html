@@ -1,0 +1,82 @@
+<div class="container py-5">
+
+  <h2 class="mb-1">Mi reserva</h2>
+  <p class="text-muted mb-4">Revisá los alojamientos que elegiste antes de confirmar.</p>
+
+  @if (cargando()) {
+
+    <p>Cargando tu reserva...</p>
+
+  } @else {
+
+    @if (error()) {
+      <div class="alert alert-danger">{{ error() }}</div>
+    }
+    @if (mensaje()) {
+      <div class="alert alert-success">{{ mensaje() }}</div>
+    }
+
+    @for (i of items(); track i.id) {
+      <div class="card mb-3">
+        <div class="row g-0">
+
+          <div class="col-md-3">
+            <img [src]="imagenUrl(i)" [alt]="i.titulo" class="img-fluid rounded-start h-100" style="object-fit: cover; min-height: 160px;">
+          </div>
+
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="card-title mb-0">{{ i.titulo }}</h5>
+              <p class="text-muted mb-3">{{ i.ubicacion }}</p>
+
+              <div class="row g-2 align-items-end">
+                <div class="col-sm-4">
+                  <label class="form-label">Entrada</label>
+                  <input type="date" class="form-control" [(ngModel)]="i.fecha_entrada">
+                </div>
+                <div class="col-sm-4">
+                  <label class="form-label">Salida</label>
+                  <input type="date" class="form-control" [(ngModel)]="i.fecha_salida">
+                </div>
+                <div class="col-sm-4">
+                  <label class="form-label">Personas</label>
+                  <input type="number" min="1" class="form-control" [(ngModel)]="i.cantidad_personas">
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                <div>
+                  <strong>${{ i.total | number:'1.0-0' }}</strong>
+                  <small class="text-muted"> · {{ noches(i) }} {{ noches(i) === 1 ? 'noche' : 'noches' }}</small>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-outline-primary btn-sm me-2" (click)="guardar(i)">Guardar cambios</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm" (click)="quitar(i.id)">Quitar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center py-5">
+        <h4>Todavía no elegiste ningún alojamiento</h4>
+        <p class="text-muted">Elegí uno, indicá tus fechas y agregalo a tu reserva.</p>
+        <a routerLink="/alojamientos" class="btn btn-primary">Ver alojamientos</a>
+      </div>
+    }
+
+    @if (items().length > 0) {
+      <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2">
+        <h4 class="mb-0">Total: ${{ total() | number:'1.0-0' }}</h4>
+        <div>
+          <button type="button" class="btn btn-outline-secondary me-2" (click)="vaciar()">Vaciar</button>
+          <button type="button" class="btn btn-primary" (click)="continuar()">Continuar con la reserva →</button>
+        </div>
+      </div>
+    }
+
+  }
+
+</div>

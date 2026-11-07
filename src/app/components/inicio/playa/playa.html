@@ -1,5 +1,6 @@
 <main class="playa">
 
+
   <!-- ENCABEZADO -->
   <section class="encabezado-playa">
     <div class="encabezado-contenido">
@@ -15,6 +16,7 @@
     </div>
   </section>
 
+
   <!-- ALOJAMIENTOS -->
   <section class="alojamientos">
 
@@ -23,121 +25,74 @@
         <span class="resultado-etiqueta">
           COSTA ATLÁNTICA · PATAGONIA
         </span>
+
         <h2>Entre Las Grutas y Mar del Plata</h2>
       </div>
 
-      <span class="cantidad">3 alojamientos</span>
+      <span class="cantidad">
+        {{ alojamientos().length }} {{ alojamientos().length === 1 ? 'alojamiento' : 'alojamientos' }}
+      </span>
     </div>
+
+    @if (cargando()) {
+
+      <p>Cargando alojamientos...</p>
+
+    } @else if (error()) {
+
+      <p class="text-danger">{{ error() }}</p>
+
+    } @else {
 
     <div class="alojamientos-grid">
 
-      <!-- LAS GRUTAS -->
-      <article class="alojamiento-card">
-        <div class="card-imagen" >
-          <img src="assets/playa1.jpg" alt="Departamento cerca del mar en Las Grutas">
-          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa1')"
-            [attr.aria-pressed]="Favorito('playa1')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('playa1')">
-            {{ Favorito('playa1') ? '♥' : '♡' }}
-          </button>
-        </div>
-
-        <div class="card-contenido">
-          <div class="card-ubicacion">Las Grutas · Río Negro</div>
-          <h3>Departamento Vista al Mar</h3>
-          <p class="card-descripcion">
-            Un espacio luminoso cerca de la playa,
-            ideal para disfrutar del mar y la costa.
-          </p>
-
-          <div class="card-info">
-            <span>2 huéspedes</span>
-            <span>1 habitación</span>
+      <!-- Una tarjeta por cada alojamiento de esta categoría -->
+      @for (a of alojamientos(); track a.id) {
+        <article class="alojamiento-card">
+          <div class="card-imagen">
+            <img [src]="imagenUrl(a)" [alt]="a.titulo">
+            <button type="button" class="boton-favorito"
+              [class.favorito-activo]="esFavorito(a.id)"
+              [attr.aria-pressed]="esFavorito(a.id)"
+              aria-label="Agregar a favoritos"
+              (click)="alternarFavorito(a.id)">
+              {{ esFavorito(a.id) ? '♥' : '♡' }}
+            </button>
           </div>
 
-          <div class="card-pie">
-            <div class="precio">
-              <strong>$85.000</strong>
-              <span>/ noche</span>
+          <div class="card-contenido">
+            <div class="card-ubicacion">
+              {{ a.ubicacion }}
             </div>
-            <a href="#" class="ver-mas">Ver más →</a>
-          </div>
-        </div>
-      </article>
 
-      <!-- SAN ANTONIO OESTE -->
-      <article class="alojamiento-card">
-        <div class="card-imagen">
-          <img src="assets/playa2.jpg" alt="Alojamiento costero en San Antonio Oeste">
-          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa2')"
-            [attr.aria-pressed]="Favorito('playa2')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('playa2')">
-            {{ Favorito('playa2') ? '♥' : '♡' }}
-          </button>
-        </div>
+            <h3>{{ a.titulo }}</h3>
 
-        <div class="card-contenido">
-          <div class="card-ubicacion">San Antonio Oeste · Río Negro</div>
-          <h3>Refugio de la Costa</h3>
+            <p class="card-descripcion">
+              {{ a.descripcion }}
+            </p>
 
-          <p class="card-descripcion">
-            Un alojamiento tranquilo para descansar
-            y explorar los paisajes de la costa rionegrina.
-          </p>
-
-          <div class="card-info">
-            <span>3 huéspedes</span>
-            <span>2 habitaciones</span>
-          </div>
-
-          <div class="card-pie">
-            <div class="precio">
-              <strong>$78.000</strong>
-              <span>/ noche</span>
+            <div class="card-info">
+              <span>{{ a.capacidad }} {{ a.capacidad === 1 ? 'huésped' : 'huéspedes' }}</span>
             </div>
-            <a href="#" class="ver-mas">Ver más →</a>
-          </div>
-        </div>
-      </article>
 
-      <!-- MONTE HERMOSO -->
-      <article class="alojamiento-card">
-        <div class="card-imagen">
-          <img src="assets/playa3.jpg" alt="Casa de vacaciones en Monte Hermoso">
-          <button type="button" class="boton-favorito" [class.favorito-activo]="Favorito('playa3')"
-            [attr.aria-pressed]="Favorito('playa3')" aria-label="Agregar a favoritos"
-            (click)="alternarFavorito('playa3')">
-            {{ Favorito('playa3') ? '♥' : '♡' }}
-          </button>
-        </div>
-
-        <div class="card-contenido">
-          <div class="card-ubicacion">Monte Hermoso · Buenos Aires</div>
-          <h3>Casa Arena</h3>
-
-          <p class="card-descripcion">
-            Una casa cómoda para compartir unos días
-            de descanso cerca de la playa.
-          </p>
-
-          <div class="card-info">
-            <span>4 huéspedes</span>
-            <span>2 habitaciones</span>
-          </div>
-
-          <div class="card-pie">
-            <div class="precio">
-              <strong>$95.000</strong>
-              <span>/ noche</span>
+            <div class="card-pie">
+              <div class="precio">
+                <strong>${{ a.precio_noche | number:'1.0-0' }}</strong>
+                <span>/ noche</span>
+              </div>
+              <a [routerLink]="['/detallealojamiento', a.id]" class="ver-mas">Ver más →</a>
             </div>
-            <a href="#" class="ver-mas">Ver más →</a>
           </div>
-        </div>
-      </article>
-
+        </article>
+      } @empty {
+        <p>Todavía no hay alojamientos en esta categoría.</p>
+      }
 
     </div>
+
+    }
   </section>
+
 
   <!-- FRASE FINAL -->
   <section class="frase-playa">
@@ -154,11 +109,12 @@
         y crear nuevos recuerdos.
       </p>
 
-      <a href="#" class="btn-frase">
+      <a routerLink="/alojamientos" [queryParams]="{ categoria: categoria }" class="btn-frase">
         Ver alojamientos
         <span>→</span>
       </a>
     </div>
   </section>
+
 
 </main>

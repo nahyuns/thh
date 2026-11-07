@@ -1,11 +1,10 @@
-
 import { Component, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-inicio-admin',
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './inicio-admin.html',
   styleUrl: './inicio-admin.css'
 })
@@ -15,6 +14,9 @@ export class InicioAdmin implements AfterViewInit {
 
   currentSlide: number = 0;
   slideDistance: number = 0;
+
+  // "public" para poder mostrar el nombre del usuario en el saludo (auth.nombreUsuario())
+  constructor(public auth: AuthService) {}
 
   get visibleCards(): number {
     return window.innerWidth <= 650 ? 1 : 2;

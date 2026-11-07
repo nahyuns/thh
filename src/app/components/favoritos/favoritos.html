@@ -6,14 +6,41 @@
         <p>Guardá los alojamientos que más te gustan y encontralos cuando quieras.</p>
     </div>
 
-    @if (alojamientosFavoritos.length > 0) {
+    @if (!auth.estaLogueado()) {
+
+    <!-- Sin sesión iniciada -->
+    <div class="favoritos-vacio">
+        <div class="vacio-icono">♡</div>
+        <h3>Iniciá sesión para ver tus favoritos</h3>
+        <p>
+            Tus favoritos se guardan en tu cuenta. Iniciá sesión
+            para verlos y para agregar nuevos.
+        </p>
+        <a routerLink="/inicio-sesion">Iniciar sesión</a>
+    </div>
+
+    } @else if (cargando()) {
+
+    <div class="favoritos-vacio">
+        <p>Cargando tus favoritos...</p>
+    </div>
+
+    } @else if (error()) {
+
+    <div class="favoritos-vacio">
+        <h3>Ups, algo salió mal</h3>
+        <p class="text-danger">{{ error() }}</p>
+    </div>
+
+    } @else if (alojamientosFavoritos().length > 0) {
+
     <div class="favoritos-grid">
 
-        @for (alojamiento of alojamientosFavoritos; track alojamiento.id) {
+        @for (alojamiento of alojamientosFavoritos(); track alojamiento.id) {
         <article class="favorito-card">
 
             <div class="favorito-imagen">
-                <img [src]="alojamiento.img" [alt]="alojamiento.nombre">
+                <img [src]="imagenUrl(alojamiento)" [alt]="alojamiento.titulo">
 
                 <span class="favorito-etiqueta">
                     <span>♥</span> Favorito
@@ -27,7 +54,7 @@
                     {{ alojamiento.ubicacion }}
                 </span>
 
-                <h3>{{ alojamiento.nombre }}</h3>
+                <h3>{{ alojamiento.titulo }}</h3>
 
                 <p class="favorito-descripcion">
                     {{ alojamiento.descripcion }}
@@ -36,7 +63,7 @@
                 <div class="favorito-acciones">
 
                     <button type="button" class="quitar-favorito" (click)="quitarFavorito(alojamiento.id)"
-                        [attr.aria-label]="'Quitar ' + alojamiento.nombre + ' de favoritos'">
+                        [attr.aria-label]="'Quitar ' + alojamiento.titulo + ' de favoritos'">
                         <span>♥</span>
                         Quitar de favoritos
                     </button>
@@ -48,7 +75,9 @@
         }
 
     </div>
+
     } @else {
+
     <div class="favoritos-vacio">
         <div class="vacio-icono">♡</div>
         <h3>Todavía no tenés favoritos</h3>
@@ -57,6 +86,7 @@
             guardalo en favoritos para tenerlo siempre a mano.
         </p>
     </div>
+
     }
 
 </div>

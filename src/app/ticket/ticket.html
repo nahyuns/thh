@@ -1,0 +1,75 @@
+<div class="container py-5" style="max-width: 720px;">
+
+  @if (cargando()) {
+
+    <p>Cargando tu ticket...</p>
+
+  } @else {
+
+    @if (error()) {
+      <div class="alert alert-danger">{{ error() }}</div>
+    }
+
+    @if (ticket(); as t) {
+
+      <div class="text-center mb-4">
+        <h2 class="mb-1">¡Tu reserva está confirmada!</h2>
+        <p class="text-muted">Estos son los datos de tu estadía. Guardá tu comprobante.</p>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-body text-center">
+          <small class="text-muted">NÚMERO DE TICKET</small>
+          <h3 class="mb-0">{{ t.codigo }}</h3>
+          <small class="text-muted">Emitido el {{ t.fecha_emision | date:'dd/MM/yyyy' }}</small>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ t.titulo }}</h5>
+          <p class="text-muted">{{ t.ubicacion }}</p>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Huésped</span><strong>{{ t.nombre }} {{ t.apellido }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Entrada</span><strong>{{ t.fecha_entrada | date:'dd/MM/yyyy' }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Salida</span><strong>{{ t.fecha_salida | date:'dd/MM/yyyy' }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Noches</span><strong>{{ noches(t) }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Personas</span><strong>{{ t.cantidad_personas }}</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Importe total</span><strong>${{ t.monto | number:'1.0-0' }}</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 flex-wrap justify-content-center">
+
+        @if (t.pdf_path) {
+          <a [href]="urlPdf()" target="_blank" class="btn btn-primary">Descargar PDF</a>
+        } @else {
+          <button type="button" class="btn btn-primary" (click)="generarPdf()" [disabled]="generando()">
+            {{ generando() ? 'Generando...' : 'Generar PDF del ticket' }}
+          </button>
+        }
+
+        <button type="button" class="btn btn-outline-secondary" (click)="imprimir()">Imprimir</button>
+        <a routerLink="/mis-reservas" class="btn btn-outline-secondary">Mis reservas</a>
+        <a routerLink="/alojamientos" class="btn btn-outline-secondary">Seguir explorando</a>
+      </div>
+
+    }
+
+  }
+
+</div>
